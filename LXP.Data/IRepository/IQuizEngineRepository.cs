@@ -1,77 +1,32 @@
-﻿using LXP.Common.ViewModels.QuizEngineViewModel;
-using LXP.Common.ViewModels.QuizViewModel;
-using System;
-using System.Collections.Generic;
+
+
+
+using LXP.Common.ViewModels.QuizEngineViewModel;
+
 
 namespace LXP.Data.IRepository
 {
     public interface IQuizEngineRepository
     {
-        ViewQuizDetailsViewModel GetQuizById(Guid quizId);
-        IEnumerable<QEQuizQuestionViewModel> GetQuestionsForQuiz(Guid quizId);
-        bool IsQuestionOptionCorrect(Guid quizQuestionId, Guid questionOptionId);
-        string GetQuestionTypeById(Guid quizQuestionId);
-        IEnumerable<string> GetCorrectOptionsForQuestion(Guid quizQuestionId);
-        LearnerAttemptViewModel CreateLearnerAttempt(Guid learnerId, Guid quizId, DateTime startTime);
-        LearnerAttemptDetailsViewModel GetLearnerAttemptDetailsById(Guid attemptId);
-        LearnerAttemptViewModel GetLearnerAttemptById(Guid attemptId);
-        void UpdateLearnerAttempt(LearnerAttemptViewModel attempt);
-        bool IsAllowedToAttemptQuiz(Guid learnerId, Guid quizId);
-        LearnerAnswerDTO CreateLearnerAnswer(AnswerSubmissionModel answerSubmissionModel);
-        public Guid GetOptionIdByText(Guid quizQuestionId, string optionText);//new line
-        ViewQuizDetailsViewModel GetQuizDetailsByTopicId(Guid topicId);
-        IEnumerable<LearnerAttemptViewModel> GetLearnerAttemptsForQuiz(Guid learnerId, Guid quizId);
-        IEnumerable<LearnerAnswerDTO> GetLearnerAnswersForAttempt(Guid attemptId);
-        void UpdateLearnerAnswer(Guid learnerAnswerId, Guid questionOptionId);
-        string GetOptionTextById(Guid optionId);
-        // In IQuizEngineRepository
-        IEnumerable<QuestionAndUserAnswerViewModel> GetQuestionsAndUserAnswersForAttemptWithoutCorrectAnswers(Guid attemptId);
+        Task<ViewQuizDetailsViewModel> GetQuizByIdAsync(Guid quizId);
+        Task<IEnumerable<QEQuizQuestionViewModel>> GetQuestionsForQuizAsync(Guid quizId);
+        Task<bool> IsQuestionOptionCorrectAsync(Guid quizQuestionId, Guid questionOptionId);
+        Task<string> GetQuestionTypeByIdAsync(Guid quizQuestionId);
+        Task<IEnumerable<string>> GetCorrectOptionsForQuestionAsync(Guid quizQuestionId);
+        Task<LearnerAttemptViewModel> CreateLearnerAttemptAsync(Guid learnerId, Guid quizId, DateTime startTime);
+        Task<LearnerAttemptDetailsViewModel> GetLearnerAttemptDetailsByIdAsync(Guid attemptId);
+        Task<LearnerAttemptViewModel> GetLearnerAttemptByIdAsync(Guid attemptId);
+        Task UpdateLearnerAttemptAsync(LearnerAttemptViewModel attempt);
+        Task<bool> IsAllowedToAttemptQuizAsync(Guid learnerId, Guid quizId);
+        Task<LearnerAnswerDTO> CreateLearnerAnswerAsync(AnswerSubmissionModel answerSubmissionModel);
+        Task<Guid> GetOptionIdByTextAsync(Guid quizQuestionId, string optionText);
+        Task<ViewQuizDetailsViewModel> GetQuizDetailsByTopicIdAsync(Guid topicId);
+        Task<IEnumerable<LearnerAttemptViewModel>> GetLearnerAttemptsForQuizAsync(Guid learnerId, Guid quizId);
+        Task<IEnumerable<LearnerAnswerDTO>> GetLearnerAnswersForAttemptAsync(Guid attemptId);
+        Task UpdateLearnerAnswerAsync(Guid learnerAnswerId, Guid questionOptionId);
+        Task<string> GetOptionTextByIdAsync(Guid optionId);
+        Task<IEnumerable<string>> GetQuestionOptionsAsync(Guid quizQuestionId);
 
-        LearnerAttemptViewModel GetAttemptById(Guid attemptId);
 
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//using LXP.Common.ViewModels.QuizEngineViewModel;
-
-//public interface IQuizEngineRepository
-//{
-
-//    ViewQuizDetailsViewModel GetQuizById(Guid quizId);
-//    IEnumerable<QEQuizQuestionViewModel> GetQuestionsForQuiz(Guid quizId);
-//    bool IsQuestionOptionCorrect(Guid quizQuestionId, Guid questionOptionId);
-//    string GetQuestionTypeById(Guid quizQuestionId);
-//    IEnumerable<string> GetCorrectOptionsForQuestion(Guid quizQuestionId);
-//    LearnerAttemptViewModel CreateLearnerAttempt(Guid learnerId, Guid quizId);
-//    LearnerAttemptDetailsViewModel GetLearnerAttemptDetailsById(Guid attemptId);
-//    LearnerAttemptViewModel GetLearnerAttemptById(Guid attemptId);
-//    void UpdateLearnerAttempt(LearnerAttemptViewModel attempt);
-//    bool IsAllowedToAttemptQuiz(Guid learnerId, Guid quizId);
-//    LearnerAnswerDTO CreateLearnerAnswer(AnswerSubmissionModel answerSubmissionModel);
-
-//    public Guid GetOptionIdByText(Guid quizQuestionId, string optionText);//new line
-
-//    ViewQuizDetailsViewModel GetQuizDetailsByTopicId(Guid topicId);
-
-
-//    //Guid GetQuestionOptionIdByOption(Guid quizQuestionId, string option);//new line 
-//}
