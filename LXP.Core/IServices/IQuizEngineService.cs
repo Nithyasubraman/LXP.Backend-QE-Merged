@@ -1,83 +1,64 @@
 
-using LXP.Common.ViewModels.QuizQuestionViewModel;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
+//using LXP.Common.ViewModels.QuizEngineViewModel;
+
+//namespace LXP.Core.IServices
+//{
+//    public interface IQuizEngineService
+//    {
+
+//        ViewQuizDetailsViewModel GetQuizById(Guid quizId);
+//        IEnumerable<QEQuizQuestionViewModel> GetQuestionsForQuiz(Guid quizId);
+//        Guid StartQuizAttempt(Guid learnerId, Guid quizId);
+//        void SubmitAnswer(AnswerSubmissionModel answerSubmissionModel);
+//        LearnerAttemptDetailsViewModel GetQuizAttemptDetails(Guid attemptId);
+//        Guid RetakeQuiz(Guid learnerId, Guid quizId);
+
+//        ViewQuizDetailsViewModel GetQuizDetailsByTopicId(Guid topicId);
+//        void SubmitQuizAttempt(Guid attemptId);
+
+//    }
+//}
+using LXP.Common.ViewModels.QuizEngineViewModel;
+
 
 namespace LXP.Core.IServices
 {
-    public interface IQuizQuestionService
+    public interface IQuizEngineService
     {
-        Task<Guid> AddQuestionAsync(QuizQuestionViewModel quizQuestionDto, List<QuestionOptionViewModel> options);
-        Task<bool> UpdateQuestionAsync(Guid quizQuestionId, QuizQuestionViewModel quizQuestionDto, List<QuestionOptionViewModel> options);
-        Task<bool> DeleteQuestionAsync(Guid quizQuestionId);
-        Task<List<QuizQuestionNoViewModel>> GetAllQuestionsByQuizIdAsync(Guid quizId);
-        Task<List<QuizQuestionNoViewModel>> GetAllQuestionsAsync();
-        Task<QuizQuestionNoViewModel> GetQuestionByIdAsync(Guid quizQuestionId);
+        Task<ViewQuizDetailsViewModel> GetQuizByIdAsync(Guid quizId);
+        Task<IEnumerable<QEQuizQuestionViewModel>> GetQuestionsForQuizAsync(Guid quizId);
+        Task<Guid> StartQuizAttemptAsync(Guid learnerId, Guid quizId);
+        Task SubmitAnswerAsync(AnswerSubmissionModel answerSubmissionModel);
+        Task<LearnerAttemptDetailsViewModel> GetQuizAttemptDetailsAsync(Guid attemptId);
+        Task<Guid> RetakeQuizAsync(Guid learnerId, Guid quizId);
+        Task<ViewQuizDetailsViewModel> GetQuizDetailsByTopicIdAsync(Guid topicId);
+        Task SubmitQuizAttemptAsync(Guid attemptId);
+        
+
     }
 }
 
 
-//using LXP.Common.ViewModels.QuizQuestionViewModel;
-
-
-//namespace LXP.Core.IServices
-//{
-//    public interface IQuizQuestionService
-//    {
-//        Guid AddQuestion(QuizQuestionViewModel quizQuestionDto, List<QuestionOptionViewModel> options);
-//        bool UpdateQuestion(Guid quizQuestionId, QuizQuestionViewModel quizQuestionDto, List<QuestionOptionViewModel> options);
-//        bool DeleteQuestion(Guid quizQuestionId);
-//        List<QuizQuestionNoViewModel> GetAllQuestionsByQuizId(Guid quizId);
-//        List<QuizQuestionNoViewModel> GetAllQuestions();
-//        QuizQuestionNoViewModel GetQuestionById(Guid quizQuestionId);
-//    }
-//}
 
 
 
-
-
-//using LXP.Common.DTO;
+//using LXP.Common.ViewModels.QuizEngineViewModel;
 //using System;
 //using System.Collections.Generic;
-
-//namespace LXP.Core.IServices
-//{
-//    public interface IQuizQuestionService
-//    {
-//        Guid AddQuestion(QuizQuestionDto quizQuestionDto, List<QuestionOptionDto> options);
-//        bool UpdateQuestion(Guid quizQuestionId, QuizQuestionDto quizQuestionDto, List<QuestionOptionDto> options);
-//        bool DeleteQuestion(Guid quizQuestionId);
-//        List<QuizQuestionNoDto> GetAllQuestions();
-//    }
-//}
-
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
 //using System.Threading.Tasks;
 
 //namespace LXP.Core.IServices
 //{
-//    internal interface Interface1
+//    public interface IQuizEngineService
 //    {
+//        Task<ViewQuizDetailsViewModel> GetQuizByIdAsync(Guid quizId);
+//        Task<IEnumerable<QEQuizQuestionViewModel>> GetQuestionsForQuizAsync(Guid quizId);
+//        Task<Guid> StartQuizAttemptAsync(Guid learnerId, Guid quizId);
+//        Task SubmitAnswerAsync(AnswerSubmissionModel answerSubmissionModel);
+//        Task<LearnerAttemptDetailsViewModel> GetQuizAttemptDetailsAsync(Guid attemptId);
+//        Task<Guid> RetakeQuizAsync(Guid learnerId, Guid quizId);
+//        Task<ViewQuizDetailsViewModel> GetQuizDetailsByTopicIdAsync(Guid topicId);
+//        Task SubmitQuizAttemptAsync(Guid attemptId);
 //    }
-//}
-//public interface IQuizQuestionService
-//{
-//    IEnumerable<QuizQuestionDto> GetByQuizId(Guid quizId);
-//    QuizQuestionDto GetById(Guid questionId);
-//    void Create(QuizQuestionDto question);
-//    void Update(QuizQuestionDto question);
-//    void Delete(Guid questionId);
-//}
-//public interface IQuizQuestionService
-//{
-//    Task<IEnumerable<QuizQuestionDto>> GetByQuizId(Guid quizId);
-//    Task<QuizQuestionDto> GetById(Guid questionId);
-//    Task<QuizQuestionDto> AddQuestionAsync(QuizQuestionDto question);
-//    Task UpdateQuestionAsync(QuizQuestionDto question);
-//    Task DeleteQuestionAsync(Guid questionId);
 //}
