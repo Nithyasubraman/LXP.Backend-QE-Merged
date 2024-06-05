@@ -145,6 +145,12 @@ namespace LXP.Api.Controllers
             await _quizEngineService.SubmitAnswerAsync(answerSubmissionModel);
             return Ok();
         }
+        [HttpGet("attempt/{attemptId}/review")]
+        public async Task<IActionResult> GetQuizAttemptDetailsForReview(Guid attemptId)
+        {
+            var attemptDetails = await _quizEngineService.GetQuizAttemptDetailsForReviewAsync(attemptId);
+            return Ok(attemptDetails);
+        }
 
         [HttpPost("attempt/submit")]
         public async Task<IActionResult> SubmitQuizAttempt(Guid attemptId)

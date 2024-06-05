@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Caps\\LXP.Backend Merged\\LXP.Common.Tests\\LXP.Common.Tests.csproj": {}
+    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common.Tests\\LXP.Common.Tests.csproj": {}
   },
   "projects": {
-    "D:\\Caps\\LXP.Backend Merged\\LXP.Common.Tests\\LXP.Common.Tests.csproj": {
+    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common.Tests\\LXP.Common.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Caps\\LXP.Backend Merged\\LXP.Common.Tests\\LXP.Common.Tests.csproj",
+        "projectUniqueName": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common.Tests\\LXP.Common.Tests.csproj",
         "projectName": "LXP.Common.Tests",
-        "projectPath": "D:\\Caps\\LXP.Backend Merged\\LXP.Common.Tests\\LXP.Common.Tests.csproj",
+        "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common.Tests\\LXP.Common.Tests.csproj",
         "packagesPath": "C:\\Users\\nithya.subramaniyan\\.nuget\\packages\\",
-        "outputPath": "D:\\Caps\\LXP.Backend Merged\\LXP.Common.Tests\\obj\\",
+        "outputPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nithya.subramaniyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Caps\\LXP.Backend Merged\\LXP.Common\\LXP.Common.csproj": {
-                "projectPath": "D:\\Caps\\LXP.Backend Merged\\LXP.Common\\LXP.Common.csproj"
+              "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj": {
+                "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "D:\\Caps\\LXP.Backend Merged\\LXP.Common\\LXP.Common.csproj": {
+    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Caps\\LXP.Backend Merged\\LXP.Common\\LXP.Common.csproj",
+        "projectUniqueName": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj",
         "projectName": "LXP.Common",
-        "projectPath": "D:\\Caps\\LXP.Backend Merged\\LXP.Common\\LXP.Common.csproj",
+        "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj",
         "packagesPath": "C:\\Users\\nithya.subramaniyan\\.nuget\\packages\\",
-        "outputPath": "D:\\Caps\\LXP.Backend Merged\\LXP.Common\\obj\\",
+        "outputPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nithya.subramaniyan\\AppData\\Roaming\\NuGet\\NuGet.Config",

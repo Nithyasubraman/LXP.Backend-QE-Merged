@@ -34,7 +34,8 @@ namespace LXP.Core.IServices
         Task<Guid> RetakeQuizAsync(Guid learnerId, Guid quizId);
         Task<ViewQuizDetailsViewModel> GetQuizDetailsByTopicIdAsync(Guid topicId);
         Task SubmitQuizAttemptAsync(Guid attemptId);
-        
+        Task<LearnerAttemptDetailsViewModel> GetQuizAttemptDetailsForReviewAsync(Guid attemptId);
+
 
     }
 }

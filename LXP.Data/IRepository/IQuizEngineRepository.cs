@@ -26,6 +26,7 @@ namespace LXP.Data.IRepository
         Task UpdateLearnerAnswerAsync(Guid learnerAnswerId, Guid questionOptionId);
         Task<string> GetOptionTextByIdAsync(Guid optionId);
         Task<IEnumerable<string>> GetQuestionOptionsAsync(Guid quizQuestionId);
+        Task<LearnerAttemptDetailsViewModel> GetLearnerAttemptDetailsForReviewAsync(Guid attemptId);
 
 
     }

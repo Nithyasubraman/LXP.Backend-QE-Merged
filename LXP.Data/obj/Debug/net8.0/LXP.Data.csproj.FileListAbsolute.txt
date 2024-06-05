@@ -266,3 +266,21 @@ D:\Caps\LXP.Backend Merged\LXP.Data\obj\Debug\net8.0\refint\LXP.Data.dll
 D:\Caps\LXP.Backend Merged\LXP.Data\obj\Debug\net8.0\LXP.Data.pdb
 D:\Caps\LXP.Backend Merged\LXP.Data\obj\Debug\net8.0\LXP.Data.genruntimeconfig.cache
 D:\Caps\LXP.Backend Merged\LXP.Data\obj\Debug\net8.0\ref\LXP.Data.dll
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\bin\Debug\net8.0\LXP.Data.deps.json
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\bin\Debug\net8.0\LXP.Data.runtimeconfig.json
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\bin\Debug\net8.0\LXP.Data.dll
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\bin\Debug\net8.0\LXP.Data.pdb
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\bin\Debug\net8.0\LXP.Common.dll
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\bin\Debug\net8.0\LXP.Common.pdb
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.csproj.AssemblyReference.cache
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.AssemblyInfoInputs.cache
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.AssemblyInfo.cs
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.csproj.CoreCompileInputs.cache
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.sourcelink.json
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.csproj.CopyComplete
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.dll
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\refint\LXP.Data.dll
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.pdb
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\LXP.Data.genruntimeconfig.cache
+D:\Caps\LXP.Backend Merged - Copy\LXP.Data\obj\Debug\net8.0\ref\LXP.Data.dll

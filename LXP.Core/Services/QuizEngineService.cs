@@ -27,6 +27,14 @@ namespace LXP.Core.Services
         {
             return await _quizEngineRepository.GetQuizDetailsByTopicIdAsync(topicId);
         }
+        public async Task<LearnerAttemptDetailsViewModel> GetQuizAttemptDetailsForReviewAsync(Guid attemptId)
+        {
+            var attempt = await _quizEngineRepository.GetLearnerAttemptDetailsForReviewAsync(attemptId);
+            if (attempt == null)
+                throw new KeyNotFoundException($"Learner attempt with ID {attemptId} not found.");
+
+            return attempt;
+        }
 
         public async Task<Guid> StartQuizAttemptAsync(Guid learnerId, Guid quizId)
         {

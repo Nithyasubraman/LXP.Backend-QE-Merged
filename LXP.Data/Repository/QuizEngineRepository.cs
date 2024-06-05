@@ -1,5 +1,5 @@
 using LXP.Common.ViewModels.QuizEngineViewModel;
-using LXP.Data.DBContexts;
+
 using Microsoft.EntityFrameworkCore;
 using LXP.Common.Entities;
 using LXP.Data.IRepository;
@@ -7,8 +7,8 @@ using LXP.Data.IRepository;
 
 namespace LXP.Data.Repository
 {
-    public class QuizEngineRepository : IQuizEngineRepository
-    {
+    public class QuizEngineRepository : IQuizEngineRepository { 
+         
         private readonly LXPDbContext _dbContext;
 
         public QuizEngineRepository(LXPDbContext dbContext)
@@ -75,6 +75,116 @@ namespace LXP.Data.Repository
                 Score = attempt.Score
             };
         }
+
+        //public async Task<LearnerAttemptDetailsViewModel> GetLearnerAttemptDetailsForReviewAsync(Guid attemptId)
+        //{
+        //    var attempt = await _dbContext.LearnerAttempts
+        //        .Include(a => a.LearnerAnswers)
+        //            .ThenInclude(la => la.QuestionOption)
+        //                .ThenInclude(o => o.QuizQuestion)
+        //        .Where(a => a.LearnerAttemptId == attemptId)
+        //        .Select(a => new LearnerAttemptDetailsViewModel
+        //        {
+        //            QuestionsAndAnswers = a.LearnerAnswers.Select(la => new QuestionAndAnswerDetails
+        //            {
+        //                QuizQuestionId = la.QuestionOption.QuizQuestion.QuizQuestionId,
+        //                Question = la.QuestionOption.QuizQuestion.Question,
+        //                QuestionType = la.QuestionOption.QuizQuestion.QuestionType,
+        //                Options = _dbContext.QuestionOptions
+        //                    .Where(o => o.QuizQuestionId == la.QuestionOption.QuizQuestion.QuizQuestionId)
+        //                    .Select(o => o.Option)
+        //                    .ToList(),
+        //                SelectedOption = la.QuestionOption.Option
+        //            }).ToList()
+        //        })
+        //        .FirstOrDefaultAsync();
+
+        //    if (attempt == null)
+        //        return null;
+
+        //    return attempt;
+        //}
+
+
+
+
+
+
+
+
+
+
+        //public async Task<LearnerAttemptDetailsViewModel> GetLearnerAttemptDetailsForReviewAsync(Guid attemptId)
+        //{
+        //    var attempt = await _dbContext.LearnerAttempts
+        //        .Include(a => a.LearnerAnswers)
+        //            .ThenInclude(la => la.QuestionOption)
+        //                .ThenInclude(o => o.QuizQuestion)
+        //        .Where(a => a.LearnerAttemptId == attemptId)
+        //        .Select(a => new LearnerAttemptDetailsViewModel
+        //        {
+        //            LearnerAttemptId = a.LearnerAttemptId,
+        //            LearnerId = a.LearnerId,
+        //            QuizId = a.QuizId,
+        //            Score = a.Score,
+        //            StartTime = a.StartTime,
+        //            EndTime = a.EndTime,
+        //            QuestionsAndAnswers = a.LearnerAnswers.Select(la => new QuestionAndAnswerDetails
+        //            {
+        //                QuizQuestionId = la.QuestionOption.QuizQuestion.QuizQuestionId,
+        //                Question = la.QuestionOption.QuizQuestion.Question,
+        //                Options = _dbContext.QuestionOptions
+        //                    .Where(o => o.QuizQuestionId == la.QuestionOption.QuizQuestion.QuizQuestionId)
+        //                    .Select(o => o.Option)
+        //                    .ToList(),
+        //                SelectedOption = la.QuestionOption.Option
+        //            }).ToList()
+        //        })
+        //        .FirstOrDefaultAsync();
+
+        //    if (attempt == null)
+        //        return null;
+
+        //    return attempt;
+        //}
+
+
+
+        public async Task<LearnerAttemptDetailsViewModel> GetLearnerAttemptDetailsForReviewAsync(Guid attemptId)
+        {
+            var attempt = await _dbContext.LearnerAttempts
+                .Include(a => a.LearnerAnswers)
+                    .ThenInclude(la => la.QuestionOption)
+                        .ThenInclude(o => o.QuizQuestion)
+                .Where(a => a.LearnerAttemptId == attemptId)
+                .Select(a => new LearnerAttemptDetailsViewModel
+                {
+                    LearnerAttemptId = a.LearnerAttemptId,
+                    LearnerId = a.LearnerId,
+                    QuizId = a.QuizId,
+                    Score = a.Score,
+                    StartTime = a.StartTime,
+                    EndTime = a.EndTime,
+                    QuestionsAndAnswers = a.LearnerAnswers.Select(la => new QuestionAndAnswerDetails
+                    {
+                        QuizQuestionId = la.QuestionOption.QuizQuestion.QuizQuestionId,
+                        Question = la.QuestionOption.QuizQuestion.Question,
+                        QuestionType = la.QuestionOption.QuizQuestion.QuestionType,
+                        Options = _dbContext.QuestionOptions
+                            .Where(o => o.QuizQuestionId == la.QuestionOption.QuizQuestion.QuizQuestionId)
+                            .Select(o => o.Option)
+                            .ToList(),
+                        SelectedOption = la.QuestionOption.Option
+                    }).ToList()
+                })
+                .FirstOrDefaultAsync();
+
+            if (attempt == null)
+                return null;
+
+            return attempt;
+        }
+ 
 
         public async Task<LearnerAttemptDetailsViewModel> GetLearnerAttemptDetailsByIdAsync(Guid attemptId)
         {
