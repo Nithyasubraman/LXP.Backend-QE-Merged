@@ -6,225 +6,7 @@ using LXP.Data.IRepository;
 
 namespace LXP.Core.Services
 {
-    //public class QuizEngineService : IQuizEngineService
-    //{
-    //    private readonly IQuizEngineRepository _quizEngineRepository;
-
-    //    public QuizEngineService(IQuizEngineRepository quizEngineRepository)
-    //    {
-    //        _quizEngineRepository = quizEngineRepository;
-    //    }
-    //    public static DateTime ConvertUtcToIst(DateTime utcDateTime)
-    //    {
-    //        TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-    //        return TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, istTimeZone);
-    //    }
-
-    //    public async Task<ViewQuizDetailsViewModel> GetQuizByIdAsync(Guid quizId)
-    //    {
-    //        return await _quizEngineRepository.GetQuizByIdAsync(quizId);
-    //    }
-
-    //    public async Task<IEnumerable<QuizEngineQuestionViewModel>> GetQuestionsForQuizAsync(Guid quizId)
-    //    {
-    //        return await _quizEngineRepository.GetQuestionsForQuizAsync(quizId);
-    //    }
-
-    //    public async Task<ViewQuizDetailsViewModel> GetQuizDetailsByTopicIdAsync(Guid topicId)
-    //    {
-    //        return await _quizEngineRepository.GetQuizDetailsByTopicIdAsync(topicId);
-    //    }
-
-
-    //    public async Task<Guid> StartQuizAttemptAsync(Guid learnerId ,Guid quizId)
-    //    {
-    //        var quiz = await _quizEngineRepository.GetQuizByIdAsync(quizId);
-    //        if (quiz == null)
-    //            throw new KeyNotFoundException($"Quiz with ID {quizId} not found.");
-
-    //        var isAllowedToAttempt = await _quizEngineRepository.IsAllowedToAttemptQuizAsync(quizId,learnerId);
-    //        if (!isAllowedToAttempt)
-    //        {
-    //            var existingAttempts = await _quizEngineRepository.GetLearnerAttemptsForQuizAsync(quizId, learnerId );
-    //            var passMark = quiz.PassMark;
-    //            var hasPassedQuiz = existingAttempts.Any(a => a.Score >= passMark);
-
-    //            if (hasPassedQuiz)
-    //                throw new InvalidOperationException("You have already passed this quiz in a previous attempt.");
-    //            else
-    //                throw new InvalidOperationException("You have exceeded the maximum number of attempts for this quiz.");
-    //        }
-
-    //        var startTime = DateTime.UtcNow;
-    //        var attempt = await _quizEngineRepository.CreateLearnerAttemptAsync(learnerId,quizId, startTime);
-    //        return attempt.LearnerAttemptId;
-    //    }
-
-    //    public async Task SubmitAnswerAsync(AnswerSubmissionModel answerSubmissionModel)
-    //    {
-    //        var attempt = await _quizEngineRepository.GetLearnerAttemptByIdAsync(answerSubmissionModel.LearnerAttemptId);
-    //        if (attempt == null)
-    //            throw new KeyNotFoundException($"Learner attempt with ID {answerSubmissionModel.LearnerAttemptId} not found.");
-    //        if (DateTime.UtcNow > attempt.EndTime)
-    //            throw new InvalidOperationException("Time limit for submitting the quiz has expired.");
-
-    //        await _quizEngineRepository.ClearLearnerAnswersAsync(answerSubmissionModel.LearnerAttemptId, answerSubmissionModel.QuizQuestionId);
-
-    //        var availableOptions = await _quizEngineRepository.GetQuestionOptionsAsync(answerSubmissionModel.QuizQuestionId);
-    //        var availableOptionsIgnoreCase = availableOptions.Select(o => o.ToLower()).ToList();
-    //        var questionType = await _quizEngineRepository.GetQuestionTypeByIdAsync(answerSubmissionModel.QuizQuestionId);
-
-    //        switch (questionType)
-    //        {
-    //            case "MCQ":
-    //            case "T/F":
-    //                if (answerSubmissionModel.SelectedOptions.Count > 1)
-    //                    throw new InvalidOperationException("Only one option is allowed for this question type.");
-    //                break;
-    //            case "MSQ":
-    //                if (answerSubmissionModel.SelectedOptions.Count < 2 || answerSubmissionModel.SelectedOptions.Count > 3)
-    //                    throw new InvalidOperationException("You must select between 2 and 3 options for this question type.");
-    //                break;
-    //        }
-
-    //        foreach (var selectedOption in answerSubmissionModel.SelectedOptions)
-    //        {
-    //            var optionText = selectedOption.ToString();
-    //            var optionTextLower = optionText.ToLower();
-
-    //            if (!availableOptionsIgnoreCase.Contains(optionTextLower))
-    //            {
-    //                throw new InvalidOperationException($"The selected option '{optionText}' is not a valid option for the given question.");
-    //            }
-
-    //            var optionId = await _quizEngineRepository.GetOptionIdByTextAsync(answerSubmissionModel.QuizQuestionId, optionTextLower);
-    //            await _quizEngineRepository.CreateLearnerAnswerAsync(answerSubmissionModel.LearnerAttemptId, answerSubmissionModel.QuizQuestionId, optionId);
-    //        }
-    //    }
-
-    //    public async Task SubmitQuizAttemptAsync(Guid attemptId)
-
-    //    {
-    //        var attempt = await _quizEngineRepository.GetLearnerAttemptByIdAsync(attemptId);
-    //        if (attempt == null)
-    //            throw new KeyNotFoundException($"Learner attempt with ID {attemptId} not found.");
-    //        var quiz = await _quizEngineRepository.GetQuizByIdAsync(attempt.QuizId);
-    //        if (quiz == null)
-    //            throw new KeyNotFoundException($"Quiz with ID {attempt.QuizId} not found.");
-    //        var totalQuestions = (await _quizEngineRepository.GetQuestionsForQuizAsync(quiz.QuizId)).Count();
-    //        var existingAnswers = await _quizEngineRepository.GetLearnerAnswersForAttemptAsync(attemptId);
-    //        if (existingAnswers.Select(a => a.QuizQuestionId).Distinct().Count() != totalQuestions)
-    //            throw new InvalidOperationException("You need to answer all the questions in the quiz before submitting the quiz attempt.");
-    //        var individualQuestionMarks = 100 / totalQuestions;
-    //        float finalScore = 0;
-    //        foreach (var answer in existingAnswers)
-    //        {
-    //            var isAnswerCorrect = await _quizEngineRepository.IsQuestionOptionCorrectAsync(answer.QuizQuestionId, answer.QuestionOptionId);
-    //            var questionScore = await CalculateQuestionScore(answer.QuizQuestionId, isAnswerCorrect, individualQuestionMarks, new AnswerSubmissionModel
-    //            {
-    //                LearnerAttemptId = attemptId,
-    //                QuizQuestionId = answer.QuizQuestionId,
-    //                SelectedOptions = new List<string> { await _quizEngineRepository.GetOptionTextByIdAsync(answer.QuestionOptionId) }
-    //            });
-    //            finalScore += questionScore;
-    //        }
-    //        attempt.Score = (float)Math.Round(finalScore);
-    //        //attempt.EndTime = DateTime.UtcNow;
-    //        //await _quizEngineRepository.UpdateLearnerAttemptAsync(attempt);
-    //        attempt.EndTime = ConvertUtcToIst(DateTime.UtcNow); // Convert UTC to IST
-    //        await _quizEngineRepository.UpdateLearnerAttemptAsync(attempt);
-    //    }
-
-
-    //    public async Task<Guid> RetakeQuizAsync(Guid learnerId, Guid quizId)
-    //    {
-    //        var quiz = await _quizEngineRepository.GetQuizByIdAsync(quizId);
-    //        if (quiz == null)
-    //            throw new KeyNotFoundException($"Quiz with ID {quizId} not found.");
-
-    //        var isAllowedToAttempt = await _quizEngineRepository.IsAllowedToAttemptQuizAsync(learnerId, quizId);
-    //        if (!isAllowedToAttempt)
-    //        {
-    //            var existingAttempts = await _quizEngineRepository.GetLearnerAttemptsForQuizAsync(learnerId, quizId);
-    //            var passMark = quiz.PassMark;
-    //            var hasPassedQuiz = existingAttempts.Any(a => a.Score >= passMark);
-
-    //            if (hasPassedQuiz)
-    //                throw new InvalidOperationException("You have already passed this quiz in a previous attempt and cannot retake it.");
-    //            else
-    //                throw new InvalidOperationException("You have exceeded the maximum number of attempts for this quiz.");
-    //        }
-
-    //        var startTime = DateTime.UtcNow;
-    //        var attempt = await _quizEngineRepository.CreateLearnerAttemptAsync(learnerId, quizId, startTime);
-    //        return attempt.LearnerAttemptId;
-    //    }
-
-
-    //    //private async Task<float> CalculateQuestionScore(Guid quizQuestionId, bool isAnswerCorrect, float individualQuestionMarks, AnswerSubmissionModel answerSubmissionModel)
-    //    //{
-    //    //    var questionType = await _quizEngineRepository.GetQuestionTypeByIdAsync(quizQuestionId);
-    //    //    switch (questionType)
-    //    //    {
-    //    //        case "MCQ":
-    //    //        case "T/F":
-    //    //            return isAnswerCorrect ? individualQuestionMarks : 0;
-
-    //    //        case "MSQ":
-    //    //            var options = await _quizEngineRepository.GetCorrectOptionsForQuestionAsync(quizQuestionId);
-    //    //            var correctOptionCount = options.Count();
-    //    //            var selectedOptionsCount = answerSubmissionModel.SelectedOptions.Count;
-    //    //            var selectedOptions = answerSubmissionModel.SelectedOptions.Select(o => o.ToString()).ToList();
-    //    //            var isPartiallyCorrect = selectedOptionsCount > 0 && selectedOptionsCount != correctOptionCount && selectedOptions.Any(o => options.Contains(o));
-
-    //    //            if (isPartiallyCorrect)
-    //    //            {
-    //    //                var partialMark = (individualQuestionMarks / correctOptionCount) * selectedOptions.Count(o => options.Contains(o));
-    //    //                return partialMark;
-    //    //            }
-    //    //            else
-    //    //            {
-    //    //                return 0;
-    //    //            }
-
-    //    //        default:
-    //    //            return 0;
-    //    //    }
-    //    //}
-    //    private async Task<float> CalculateQuestionScore(Guid quizQuestionId, bool isAnswerCorrect, float individualQuestionMarks, AnswerSubmissionModel answerSubmissionModel)
-    //    {
-    //        var questionType = await _quizEngineRepository.GetQuestionTypeByIdAsync(quizQuestionId);
-    //        switch (questionType)
-    //        {
-    //            case "MCQ":
-    //            case "T/F":
-    //                return isAnswerCorrect ? individualQuestionMarks : 0;
-
-    //            case "MSQ":
-    //                var correctOptions = await _quizEngineRepository.GetCorrectOptionsForQuestionAsync(quizQuestionId);
-    //                var correctOptionCount = correctOptions.Count();
-    //                var selectedOptions = answerSubmissionModel.SelectedOptions.Select(o => o.ToString()).ToList();
-    //                var correctlySelectedOptions = selectedOptions.Intersect(correctOptions).Count();
-
-    //                if (correctlySelectedOptions == correctOptionCount)
-    //                {
-    //                    return individualQuestionMarks; // All correct options selected
-    //                }
-    //                else if (correctlySelectedOptions > 0)
-    //                {
-    //                    var partialMark = (individualQuestionMarks / correctOptionCount) * correctlySelectedOptions;
-    //                    return partialMark; // Partial marks for partially correct answer
-    //                }
-    //                else
-    //                {
-    //                    return 0; // No marks for incorrect answer
-    //                }
-
-    //            default:
-    //                return 0;
-    //        }
-    //    }
-    //
+   
     public class QuizEngineService : IQuizEngineService
     {
         private readonly IQuizEngineRepository _quizEngineRepository;
@@ -382,27 +164,30 @@ namespace LXP.Core.Services
                     return isAnswerCorrect ? individualQuestionMarks : 0;
 
                 case "MSQ":
-                    var options = await _quizEngineRepository.GetCorrectOptionsForQuestionAsync(quizQuestionId);
-                    var correctOptionCount = options.Count();
-                    var selectedOptionsCount = answerSubmissionModel.SelectedOptions.Count;
+                    var correctOptions = await _quizEngineRepository.GetCorrectOptionsForQuestionAsync(quizQuestionId);
+                    var correctOptionCount = correctOptions.Count();
                     var selectedOptions = answerSubmissionModel.SelectedOptions.Select(o => o.ToString()).ToList();
-                    var isPartiallyCorrect = selectedOptionsCount > 0 && selectedOptionsCount != correctOptionCount && selectedOptions.Any(o => options.Contains(o));
+                    var correctlySelectedOptions = selectedOptions.Intersect(correctOptions).Count();
 
-                    if (isPartiallyCorrect)
+                    if (correctlySelectedOptions == correctOptionCount)
                     {
-                        var partialMark = (individualQuestionMarks / correctOptionCount) * selectedOptions.Count(o => options.Contains(o));
-                        return partialMark;
+                        return individualQuestionMarks; // All correct options selected
+                    }
+                    else if (correctlySelectedOptions > 0)
+                    {
+                        var partialMark = (individualQuestionMarks / correctOptionCount) * correctlySelectedOptions;
+                        return partialMark; // Partial marks for partially correct answer
                     }
                     else
                     {
-                        return 0;
+                        return 0; // No marks for incorrect answer
                     }
 
                 default:
                     return 0;
             }
         }
-
+       
 
         public async Task<LearnerQuizAttemptViewModel> GetLearnerQuizAttemptAsync(Guid attemptId)
         {

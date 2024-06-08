@@ -1,0 +1,380 @@
+2024-06-08 09:22:09.527 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-08 09:22:09.562 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-08 09:22:09.563 +05:30 [INF] Hosting environment: Development
+2024-06-08 09:22:09.564 +05:30 [INF] Content root path: D:\Caps\LXP.Backend Merged - Copy\LXP.Api
+2024-06-08 09:22:13.402 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-08 09:22:13.878 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 487.7053ms
+2024-06-08 09:22:13.885 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-08 09:22:13.889 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_vs/browserLink - null null
+2024-06-08 09:22:13.891 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 5.8316ms
+2024-06-08 09:22:13.933 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.7267ms
+2024-06-08 09:22:13.978 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-08 09:22:14.111 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 132.5649ms
+2024-06-08 09:27:22.112 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/6c4bcc2f-535d-4792-a978-da9e75047120/quiz - null null
+2024-06-08 09:27:22.120 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:27:22.123 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-08 09:27:22.126 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:27:22.145 +05:30 [INF] Route matched with {action = "GetQuizDetailsByTopicId", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizDetailsByTopicId(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:27:23.521 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.QuizEngineViewModel.ViewQuizDetailsViewModel'.
+2024-06-08 09:27:23.539 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api) in 1388.4557ms
+2024-06-08 09:27:23.541 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:27:23.542 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/6c4bcc2f-535d-4792-a978-da9e75047120/quiz - 200 null application/json; charset=utf-8 1431.0799ms
+2024-06-08 09:27:46.721 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/6c4bcc2f-535d-4792-a978-da9e75047120/quiz - null null
+2024-06-08 09:27:46.727 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:27:46.728 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:27:46.730 +05:30 [INF] Route matched with {action = "GetQuizDetailsByTopicId", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizDetailsByTopicId(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:27:46.751 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/lxp/learner/b9c313df-f48b-43ce-9c12-8a4c4546aad3/learnerdetails - null null
+2024-06-08 09:27:46.759 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:27:46.763 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.LearnerController.GetAllLearnerDetailsByLearnerId (LXP.Api)'
+2024-06-08 09:27:46.764 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.QuizEngineViewModel.ViewQuizDetailsViewModel'.
+2024-06-08 09:27:46.766 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api) in 34.1788ms
+2024-06-08 09:27:46.766 +05:30 [INF] Route matched with {action = "GetAllLearnerDetailsByLearnerId", controller = "Learner"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllLearnerDetailsByLearnerId(System.Guid) on controller LXP.Api.Controllers.LearnerController (LXP.Api).
+2024-06-08 09:27:46.767 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:27:46.768 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/6c4bcc2f-535d-4792-a978-da9e75047120/quiz - null null
+2024-06-08 09:27:46.770 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/6c4bcc2f-535d-4792-a978-da9e75047120/quiz - 200 null application/json; charset=utf-8 49.0103ms
+2024-06-08 09:27:46.773 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:27:46.774 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-08 09:27:46.776 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:27:46.778 +05:30 [INF] Route matched with {action = "GetQuizDetailsByTopicId", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizDetailsByTopicId(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:27:46.784 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.QuizEngineViewModel.ViewQuizDetailsViewModel'.
+2024-06-08 09:27:46.785 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api) in 6.0512ms
+2024-06-08 09:27:46.786 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/6c4bcc2f-535d-4792-a978-da9e75047120/quiz - null null
+2024-06-08 09:27:46.787 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:27:46.789 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:27:46.789 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/6c4bcc2f-535d-4792-a978-da9e75047120/quiz - 200 null application/json; charset=utf-8 21.7752ms
+2024-06-08 09:27:46.790 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:27:46.793 +05:30 [INF] Route matched with {action = "GetQuizDetailsByTopicId", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizDetailsByTopicId(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:27:46.799 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.QuizEngineViewModel.ViewQuizDetailsViewModel'.
+2024-06-08 09:27:46.800 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api) in 4.9279ms
+2024-06-08 09:27:46.801 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:27:46.802 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/6c4bcc2f-535d-4792-a978-da9e75047120/quiz - 200 null application/json; charset=utf-8 15.6062ms
+2024-06-08 09:27:46.865 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/lxp/learner/b9c313df-f48b-43ce-9c12-8a4c4546aad3/learnerdetails - null null
+2024-06-08 09:27:46.865 +05:30 [INF] Executed action LXP.Api.Controllers.LearnerController.GetAllLearnerDetailsByLearnerId (LXP.Api) in 95.854ms
+2024-06-08 09:27:46.867 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.LearnerController.GetAllLearnerDetailsByLearnerId (LXP.Api)'
+2024-06-08 09:27:46.868 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:27:46.868 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/lxp/learner/b9c313df-f48b-43ce-9c12-8a4c4546aad3/learnerdetails - 200 null application/json; charset=utf-8 117.4207ms
+2024-06-08 09:27:46.869 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.LearnerController.GetAllLearnerDetailsByLearnerId (LXP.Api)'
+2024-06-08 09:27:46.872 +05:30 [INF] Route matched with {action = "GetAllLearnerDetailsByLearnerId", controller = "Learner"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllLearnerDetailsByLearnerId(System.Guid) on controller LXP.Api.Controllers.LearnerController (LXP.Api).
+2024-06-08 09:27:46.874 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-08 09:27:46.880 +05:30 [INF] Executed action LXP.Api.Controllers.LearnerController.GetAllLearnerDetailsByLearnerId (LXP.Api) in 6.2889ms
+2024-06-08 09:27:46.881 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.LearnerController.GetAllLearnerDetailsByLearnerId (LXP.Api)'
+2024-06-08 09:27:46.882 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/lxp/learner/b9c313df-f48b-43ce-9c12-8a4c4546aad3/learnerdetails - 200 null application/json; charset=utf-8 17.1378ms
+2024-06-08 09:27:53.325 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/attempt?learnerId=b9c313df-f48b-43ce-9c12-8a4c4546aad3&quizId=1cf196c9-e9f7-4224-83be-e2d3dca69976 - null 0
+2024-06-08 09:27:53.329 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:27:53.330 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.StartQuizAttempt (LXP.Api)'
+2024-06-08 09:27:53.330 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/1cf196c9-e9f7-4224-83be-e2d3dca69976/questions - null null
+2024-06-08 09:27:53.336 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:27:53.336 +05:30 [INF] Route matched with {action = "StartQuizAttempt", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StartQuizAttempt(System.Guid, System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:27:53.336 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:27:53.342 +05:30 [INF] Route matched with {action = "GetQuizQuestions", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizQuestions(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:27:53.381 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LXP.Common.ViewModels.QuizEngineViewModel.QuizEngineQuestionViewModel, LXP.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-06-08 09:27:53.384 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api) in 39.2377ms
+2024-06-08 09:27:53.385 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:27:53.385 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/1cf196c9-e9f7-4224-83be-e2d3dca69976/questions - null null
+2024-06-08 09:27:53.386 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/1cf196c9-e9f7-4224-83be-e2d3dca69976/questions - 200 null application/json; charset=utf-8 55.7077ms
+2024-06-08 09:27:53.388 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:27:53.396 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:27:53.397 +05:30 [INF] Route matched with {action = "GetQuizQuestions", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizQuestions(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:27:53.539 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api) in 141.0632ms
+2024-06-08 09:27:53.541 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:27:53.561 +05:30 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at LXP.Data.Repository.QuizEngineRepository.GetQuestionsForQuizAsync(Guid quizId) in D:\Caps\LXP.Backend Merged - Copy\LXP.Data\Repository\QuizEngineRepository.cs:line 471
+   at LXP.Core.Services.QuizEngineService.GetQuestionsForQuizAsync(Guid quizId) in D:\Caps\LXP.Backend Merged - Copy\LXP.Core\Services\QuizEngineService.cs:line 244
+   at LXP.Api.Controllers.QuizEngineController.GetQuizQuestions(Guid quizId) in D:\Caps\LXP.Backend Merged - Copy\LXP.Api\Controllers\QuizEngineController.cs:line 194
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\Caps\LXP.Backend Merged - Copy\LXP.Api\Interceptors\GlobalExceptionHandlerMiddleware.cs:line 23
+2024-06-08 09:27:53.745 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/1cf196c9-e9f7-4224-83be-e2d3dca69976/questions - 500 null application/json 360.2217ms
+2024-06-08 09:27:53.783 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Guid'.
+2024-06-08 09:27:53.786 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.StartQuizAttempt (LXP.Api) in 447.6661ms
+2024-06-08 09:27:53.787 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.StartQuizAttempt (LXP.Api)'
+2024-06-08 09:27:53.789 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/attempt?learnerId=b9c313df-f48b-43ce-9c12-8a4c4546aad3&quizId=1cf196c9-e9f7-4224-83be-e2d3dca69976 - 200 null application/json; charset=utf-8 463.9782ms
+2024-06-08 09:28:12.962 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - null null
+2024-06-08 09:28:12.966 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:12.968 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - 204 null null 5.362ms
+2024-06-08 09:28:12.971 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 141
+2024-06-08 09:28:12.974 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:12.975 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:12.979 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:13.058 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:13.059 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 78.4533ms
+2024-06-08 09:28:13.060 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:13.060 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 89.6263ms
+2024-06-08 09:28:21.185 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - null null
+2024-06-08 09:28:21.187 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:21.188 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - 204 null null 3.1982ms
+2024-06-08 09:28:21.191 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 141
+2024-06-08 09:28:21.194 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:21.195 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:21.195 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:21.215 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:21.216 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 19.1335ms
+2024-06-08 09:28:21.217 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:21.218 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 26.392ms
+2024-06-08 09:28:24.248 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 141
+2024-06-08 09:28:24.250 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:24.251 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:24.252 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:24.275 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:24.276 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 20.7628ms
+2024-06-08 09:28:24.277 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:24.278 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 30.1781ms
+2024-06-08 09:28:26.901 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - null null
+2024-06-08 09:28:26.904 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:26.905 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - 204 null null 3.6072ms
+2024-06-08 09:28:26.911 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 150
+2024-06-08 09:28:26.914 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:26.914 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:26.915 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:26.934 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:26.935 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 17.8971ms
+2024-06-08 09:28:26.936 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:26.936 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 24.9158ms
+2024-06-08 09:28:29.385 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 142
+2024-06-08 09:28:29.387 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:29.388 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:29.389 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:29.413 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:29.414 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 22.3245ms
+2024-06-08 09:28:29.415 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:29.415 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 30.2509ms
+2024-06-08 09:28:31.718 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 163
+2024-06-08 09:28:31.721 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:31.721 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:31.722 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:31.744 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:31.745 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 20.9952ms
+2024-06-08 09:28:31.746 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:31.747 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 29.1804ms
+2024-06-08 09:28:34.375 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - null null
+2024-06-08 09:28:34.378 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:34.378 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - 204 null null 2.9431ms
+2024-06-08 09:28:34.381 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 142
+2024-06-08 09:28:34.383 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:34.383 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:34.384 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:34.403 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:34.404 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 18.0462ms
+2024-06-08 09:28:34.405 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:34.405 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 24.8116ms
+2024-06-08 09:28:36.860 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 142
+2024-06-08 09:28:36.863 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:36.864 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:36.865 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:36.886 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:36.887 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 20.1328ms
+2024-06-08 09:28:36.889 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:36.890 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 29.7786ms
+2024-06-08 09:28:38.941 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 142
+2024-06-08 09:28:38.944 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:38.945 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:38.946 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:38.966 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:38.968 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 20.2813ms
+2024-06-08 09:28:38.969 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:38.970 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 28.4034ms
+2024-06-08 09:28:41.959 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - null null
+2024-06-08 09:28:41.962 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:41.963 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - 204 null null 3.5649ms
+2024-06-08 09:28:41.965 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 142
+2024-06-08 09:28:41.968 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:41.969 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:41.970 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:41.990 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:41.991 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 19.2157ms
+2024-06-08 09:28:41.992 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:41.993 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 27.4678ms
+2024-06-08 09:28:45.256 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 145
+2024-06-08 09:28:45.258 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:45.259 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:45.260 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:45.351 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 89.7437ms
+2024-06-08 09:28:45.352 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:45.415 +05:30 [ERR] You must select between 2 and 3 options for this question type.
+System.InvalidOperationException: You must select between 2 and 3 options for this question type.
+   at LXP.Core.Services.QuizEngineService.SubmitAnswerAsync(AnswerSubmissionModel answerSubmissionModel) in D:\Caps\LXP.Backend Merged - Copy\LXP.Core\Services\QuizEngineService.cs:line 300
+   at LXP.Api.Controllers.QuizEngineController.SubmitAnswer(AnswerSubmissionModel answerSubmissionModel) in D:\Caps\LXP.Backend Merged - Copy\LXP.Api\Controllers\QuizEngineController.cs:line 208
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\Caps\LXP.Backend Merged - Copy\LXP.Api\Interceptors\GlobalExceptionHandlerMiddleware.cs:line 23
+2024-06-08 09:28:45.423 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 500 null application/json 167.6728ms
+2024-06-08 09:28:46.975 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - null null
+2024-06-08 09:28:46.978 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:46.978 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - 204 null null 3.6982ms
+2024-06-08 09:28:46.980 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 155
+2024-06-08 09:28:46.982 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:46.983 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:46.984 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:47.007 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:47.008 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 23.0036ms
+2024-06-08 09:28:47.009 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:47.010 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 29.3098ms
+2024-06-08 09:28:50.821 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 143
+2024-06-08 09:28:50.824 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:50.824 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:50.825 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:50.844 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:50.845 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 18.5208ms
+2024-06-08 09:28:50.847 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:50.847 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 26.756ms
+2024-06-08 09:28:54.099 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - null null
+2024-06-08 09:28:54.102 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:54.103 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5199/api/QuizEngine/answer - 204 null null 4.042ms
+2024-06-08 09:28:54.106 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - application/json 142
+2024-06-08 09:28:54.108 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:28:54.108 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:54.109 +05:30 [INF] Route matched with {action = "SubmitAnswer", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SubmitAnswer(LXP.Common.ViewModels.QuizEngineViewModel.AnswerSubmissionModel) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:28:54.128 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-06-08 09:28:54.129 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api) in 18.0428ms
+2024-06-08 09:28:54.130 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.SubmitAnswer (LXP.Api)'
+2024-06-08 09:28:54.130 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizEngine/answer - 200 0 null 24.7925ms
+2024-06-08 09:29:05.817 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/attempts/08dc876f-2c70-4425-8216-e69959db82a5 - null null
+2024-06-08 09:29:05.821 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:29:05.822 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api)'
+2024-06-08 09:29:05.825 +05:30 [INF] Route matched with {action = "GetLearnerQuizAttempt", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLearnerQuizAttempt(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:29:05.885 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.QuizEngineViewModel.LearnerQuizAttemptViewModel'.
+2024-06-08 09:29:05.888 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api) in 60.9504ms
+2024-06-08 09:29:05.889 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api)'
+2024-06-08 09:29:05.890 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/attempts/08dc876f-2c70-4425-8216-e69959db82a5 - 200 null application/json; charset=utf-8 73.599ms
+2024-06-08 09:29:53.545 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/attempts/08dc876f-2c70-4425-8216-e69959db82a5 - null null
+2024-06-08 09:29:53.557 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api)'
+2024-06-08 09:29:53.558 +05:30 [INF] Route matched with {action = "GetLearnerQuizAttempt", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLearnerQuizAttempt(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:29:53.570 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.QuizEngineViewModel.LearnerQuizAttemptViewModel'.
+2024-06-08 09:29:53.571 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api) in 12.2352ms
+2024-06-08 09:29:53.572 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api)'
+2024-06-08 09:29:53.573 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/attempts/08dc876f-2c70-4425-8216-e69959db82a5 - 200 null application/json; charset=utf-8 28.5594ms
+2024-06-08 09:31:12.555 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-08 09:31:12.566 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 10.966ms
+2024-06-08 09:31:12.575 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-08 09:31:12.575 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_vs/browserLink - null null
+2024-06-08 09:31:12.582 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 7.4396ms
+2024-06-08 09:31:12.596 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_vs/browserLink - 200 null text/javascript; charset=UTF-8 21.008ms
+2024-06-08 09:31:12.695 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-08 09:31:12.740 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 44.1535ms
+2024-06-08 09:31:36.942 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/attempts/08dc876f-2c70-4425-8216-e69959db82a5 - null null
+2024-06-08 09:31:36.950 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api)'
+2024-06-08 09:31:36.951 +05:30 [INF] Route matched with {action = "GetLearnerQuizAttempt", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLearnerQuizAttempt(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:31:36.966 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.QuizEngineViewModel.LearnerQuizAttemptViewModel'.
+2024-06-08 09:31:36.967 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api) in 13.7654ms
+2024-06-08 09:31:36.968 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api)'
+2024-06-08 09:31:36.970 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/attempts/08dc876f-2c70-4425-8216-e69959db82a5 - 200 null application/json; charset=utf-8 27.121ms
+2024-06-08 09:32:08.537 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-08 09:32:08.572 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-08 09:32:08.575 +05:30 [INF] Hosting environment: Development
+2024-06-08 09:32:08.576 +05:30 [INF] Content root path: D:\Caps\LXP.Backend Merged - Copy\LXP.Api
+2024-06-08 09:32:09.549 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-08 09:32:09.918 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 375.3759ms
+2024-06-08 09:32:09.923 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-08 09:32:09.927 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_vs/browserLink - null null
+2024-06-08 09:32:09.927 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 4.8529ms
+2024-06-08 09:32:09.961 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.0743ms
+2024-06-08 09:32:10.109 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-08 09:32:10.243 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 133.5753ms
+2024-06-08 09:32:22.426 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/attempts/08dc876f-2c70-4425-8216-e69959db82a5 - null null
+2024-06-08 09:32:22.433 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-08 09:32:22.438 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api)'
+2024-06-08 09:32:22.454 +05:30 [INF] Route matched with {action = "GetLearnerQuizAttempt", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLearnerQuizAttempt(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:32:23.881 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.QuizEngineViewModel.LearnerQuizAttemptViewModel'.
+2024-06-08 09:32:23.899 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api) in 1441.2568ms
+2024-06-08 09:32:23.901 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetLearnerQuizAttempt (LXP.Api)'
+2024-06-08 09:32:23.903 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/attempts/08dc876f-2c70-4425-8216-e69959db82a5 - 200 null application/json; charset=utf-8 1477.2426ms
+2024-06-08 09:32:42.268 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - null null
+2024-06-08 09:32:42.274 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:32:42.277 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:42.283 +05:30 [INF] Route matched with {action = "GetQuizQuestions", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizQuestions(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:32:42.288 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-06-08 09:32:42.307 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api) in 22.7737ms
+2024-06-08 09:32:42.309 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:42.310 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - null null
+2024-06-08 09:32:42.311 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - 400 null application/problem+json; charset=utf-8 42.9729ms
+2024-06-08 09:32:42.313 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:32:42.316 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:42.317 +05:30 [INF] Route matched with {action = "GetQuizQuestions", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizQuestions(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:32:42.319 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-06-08 09:32:42.320 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api) in 2.2566ms
+2024-06-08 09:32:42.321 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:42.322 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - 400 null application/problem+json; charset=utf-8 12.0825ms
+2024-06-08 09:32:43.785 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - null null
+2024-06-08 09:32:43.788 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:32:43.789 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:43.791 +05:30 [INF] Route matched with {action = "GetQuizQuestions", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizQuestions(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:32:43.796 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-06-08 09:32:43.799 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api) in 3.8686ms
+2024-06-08 09:32:43.801 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:43.801 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - null null
+2024-06-08 09:32:43.802 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - 400 null application/problem+json; charset=utf-8 16.8442ms
+2024-06-08 09:32:43.804 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:32:43.810 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:43.811 +05:30 [INF] Route matched with {action = "GetQuizQuestions", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizQuestions(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:32:43.813 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-06-08 09:32:43.814 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api) in 1.6074ms
+2024-06-08 09:32:43.815 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:43.816 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - 400 null application/problem+json; charset=utf-8 15.4126ms
+2024-06-08 09:32:48.153 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - null null
+2024-06-08 09:32:48.155 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:32:48.156 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:48.159 +05:30 [INF] Route matched with {action = "GetQuizQuestions", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizQuestions(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:32:48.163 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-06-08 09:32:48.165 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api) in 3.6371ms
+2024-06-08 09:32:48.166 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - null null
+2024-06-08 09:32:48.168 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:48.170 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:32:48.170 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - 400 null application/problem+json; charset=utf-8 17.7892ms
+2024-06-08 09:32:48.171 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:48.174 +05:30 [INF] Route matched with {action = "GetQuizQuestions", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizQuestions(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:32:48.176 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-06-08 09:32:48.177 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api) in 1.4688ms
+2024-06-08 09:32:48.179 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizQuestions (LXP.Api)'
+2024-06-08 09:32:48.180 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/quiz/null/questions - 400 null application/problem+json; charset=utf-8 13.6392ms
+2024-06-08 09:35:05.567 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/null/quiz - null null
+2024-06-08 09:35:05.571 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:35:05.572 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:35:05.576 +05:30 [INF] Route matched with {action = "GetQuizDetailsByTopicId", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizDetailsByTopicId(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:35:05.578 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-06-08 09:35:05.579 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api) in 1.5498ms
+2024-06-08 09:35:05.584 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/null/quiz - null null
+2024-06-08 09:35:05.585 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:35:05.587 +05:30 [INF] CORS policy execution successful.
+2024-06-08 09:35:05.588 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/null/quiz - 400 null application/problem+json; charset=utf-8 43.3105ms
+2024-06-08 09:35:05.593 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:35:05.596 +05:30 [INF] Route matched with {action = "GetQuizDetailsByTopicId", controller = "QuizEngine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuizDetailsByTopicId(System.Guid) on controller LXP.Api.Controllers.QuizEngineController (LXP.Api).
+2024-06-08 09:35:05.598 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-06-08 09:35:05.599 +05:30 [INF] Executed action LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api) in 1.6002ms
+2024-06-08 09:35:05.600 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizEngineController.GetQuizDetailsByTopicId (LXP.Api)'
+2024-06-08 09:35:05.601 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizEngine/topic/null/quiz - 400 null application/problem+json; charset=utf-8 20.7088ms
+2024-06-08 09:59:45.900 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-08 09:59:45.937 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-08 09:59:45.938 +05:30 [INF] Hosting environment: Development
+2024-06-08 09:59:45.939 +05:30 [INF] Content root path: D:\Caps\LXP.Backend Merged - Copy\LXP.Api
+2024-06-08 09:59:47.256 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-08 09:59:48.033 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 785.9727ms
+2024-06-08 09:59:48.040 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-08 09:59:48.046 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_vs/browserLink - null null
+2024-06-08 09:59:48.048 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.1378ms
+2024-06-08 09:59:48.091 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.6103ms
+2024-06-08 09:59:48.162 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-08 09:59:48.351 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 189.0362ms
