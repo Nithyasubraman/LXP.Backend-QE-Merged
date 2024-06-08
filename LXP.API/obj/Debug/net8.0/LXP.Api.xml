@@ -362,7 +362,7 @@
         </member>
         <member name="M:LXP.Api.Controllers.TopicFeedbackController.AddFeedbackQuestion(LXP.Common.ViewModels.TopicFeedbackQuestionViemModel.TopicFeedbackQuestionViewModel)">
             <summary>
-            Add a new feedback question.
+             Add a new feedback question.
             </summary>
             <param name="question">The feedback question to add.</param>
             <response code="200">Question added successfully.</response>
@@ -371,14 +371,14 @@
         </member>
         <member name="M:LXP.Api.Controllers.TopicFeedbackController.GetAllFeedbackQuestions">
             <summary>
-            Retrieve all feedback questions.
+             Retrieve all feedback questions.
             </summary>
             <response code="200">List of all feedback questions.</response>
             <response code="500">Internal server error.</response>
         </member>
         <member name="M:LXP.Api.Controllers.TopicFeedbackController.GetFeedbackQuestionById(System.Guid)">
             <summary>
-            Retrieve a feedback question by its ID.
+             Retrieve a feedback question by its ID.
             </summary>
             <param name="topicFeedbackQuestionId">The ID of the feedback question.</param>
             <response code="200">Feedback question details.</response>
@@ -387,7 +387,7 @@
         </member>
         <member name="M:LXP.Api.Controllers.TopicFeedbackController.UpdateFeedbackQuestion(System.Guid,LXP.Common.ViewModels.TopicFeedbackQuestionViemModel.TopicFeedbackQuestionViewModel)">
             <summary>
-            Update an existing feedback question.
+             Update an existing feedback question.
             </summary>
             <param name="topicFeedbackQuestionId">The ID of the feedback question to update.</param>
             <param name="question">The updated feedback question.</param>
@@ -398,7 +398,7 @@
         </member>
         <member name="M:LXP.Api.Controllers.TopicFeedbackController.DeleteFeedbackQuestion(System.Guid)">
             <summary>
-            Delete a feedback question.
+             Delete a feedback question.
             </summary>
             <param name="topicFeedbackQuestionId">The ID of the feedback question to delete.</param>
             <response code="200">Feedback question deleted successfully.</response>
@@ -407,7 +407,7 @@
         </member>
         <member name="M:LXP.Api.Controllers.TopicFeedbackController.GetFeedbackQuestionsByTopicId(System.Guid)">
             <summary>
-            Retrieve feedback questions by topic ID.
+             Retrieve feedback questions by topic ID.
             </summary>
             <param name="topicId">The ID of the topic.</param>
             <response code="200">List of feedback questions for the specified topic.</response>

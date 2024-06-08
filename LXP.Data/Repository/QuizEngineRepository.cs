@@ -4,7 +4,6 @@ using LXP.Common.Entities;
 using LXP.Data.IRepository;
 namespace LXP.Data.Repository
 {
-    
 
     public class QuizEngineRepository : IQuizEngineRepository
     {
@@ -113,6 +112,9 @@ namespace LXP.Data.Repository
         }
 
 
+        
+
+
         public async Task<bool> IsAllowedToAttemptQuizAsync(Guid learnerId, Guid quizId)
         {
             var quiz = await _dbContext.Quizzes.FindAsync(quizId);
@@ -126,14 +128,16 @@ namespace LXP.Data.Repository
             var passMark = quiz.PassMark;
             var hasPassedQuiz = existingAttempts.Any(a => a.Score >= passMark);
             if (hasPassedQuiz)
-                return false;
+                return false; // User has already passed the quiz
 
             var attemptsAllowed = quiz.AttemptsAllowed;
             if (attemptsAllowed.HasValue && existingAttempts.Count >= attemptsAllowed)
-                return false;
+                return false; // User has exceeded the maximum number of attempts
 
-            return true;
+            return true; // User is allowed to attempt the quiz
         }
+
+
         public async Task ClearLearnerAnswersAsync(Guid attemptId, Guid quizQuestionId)//newly added
         {
             var existingAnswers = await _dbContext.LearnerAnswers
@@ -346,8 +350,8 @@ namespace LXP.Data.Repository
                 QuizId = attempt.QuizId,
                 TopicId = quiz.TopicId,
                 LearnerAttemptId = attempt.LearnerAttemptId,
-                StartTime = (attempt.StartTime),
-                EndTime = (attempt.EndTime),
+                StartTime = attempt.StartTime,
+                EndTime = attempt.EndTime,
                 TimeTaken = attempt.EndTime - attempt.StartTime,
                 CurrentAttempt = attempt.AttemptCount,
                 Score = attempt.Score,
