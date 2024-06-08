@@ -16,6 +16,12 @@ namespace LXP.Core.Services
             _quizEngineRepository = quizEngineRepository;
         }
 
+        public static DateTime ConvertUtcToIst(DateTime utcDateTime)
+        {
+            TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+            return TimeZoneInfo.ConvertTimeToUtc(utcDateTime, istTimeZone);
+        }
+
         public async Task<ViewQuizDetailsViewModel> GetQuizByIdAsync(Guid quizId)
         {
             return await _quizEngineRepository.GetQuizByIdAsync(quizId);
@@ -32,6 +38,29 @@ namespace LXP.Core.Services
         }
 
 
+        //public async Task<Guid> StartQuizAttemptAsync(Guid learnerId, Guid quizId)
+        //{
+        //    var quiz = await _quizEngineRepository.GetQuizByIdAsync(quizId);
+        //    if (quiz == null)
+        //        throw new KeyNotFoundException($"Quiz with ID {quizId} not found.");
+
+        //    var isAllowedToAttempt = await _quizEngineRepository.IsAllowedToAttemptQuizAsync(learnerId, quizId);
+        //    if (!isAllowedToAttempt)
+        //    {
+        //        var existingAttempts = await _quizEngineRepository.GetLearnerAttemptsForQuizAsync(learnerId, quizId);
+        //        var passMark = quiz.PassMark;
+        //        var hasPassedQuiz = existingAttempts.Any(a => a.Score >= passMark);
+
+        //        if (hasPassedQuiz)
+        //            throw new InvalidOperationException("You have already passed this quiz in a previous attempt.");
+        //        else
+        //            throw new InvalidOperationException("You have exceeded the maximum number of attempts for this quiz.");
+        //    }
+
+        //    var startTime = DateTime.UtcNow;
+        //    var attempt = await _quizEngineRepository.CreateLearnerAttemptAsync(learnerId, quizId, startTime);
+        //    return attempt.LearnerAttemptId;
+        //}
         public async Task<Guid> StartQuizAttemptAsync(Guid learnerId, Guid quizId)
         {
             var quiz = await _quizEngineRepository.GetQuizByIdAsync(quizId);
@@ -53,8 +82,12 @@ namespace LXP.Core.Services
 
             var startTime = DateTime.UtcNow;
             var attempt = await _quizEngineRepository.CreateLearnerAttemptAsync(learnerId, quizId, startTime);
+            if (attempt == null)
+                throw new InvalidOperationException("You have exceeded the maximum number of attempts for this quiz.");
+
             return attempt.LearnerAttemptId;
         }
+        
 
         public async Task SubmitAnswerAsync(AnswerSubmissionModel answerSubmissionModel)
         {

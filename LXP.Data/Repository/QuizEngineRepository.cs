@@ -15,6 +15,12 @@ namespace LXP.Data.Repository
             _dbContext = dbContext;
         }
 
+        public static DateTime ConvertUtcToIst(DateTime utcDateTime)
+        {
+            TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+            return TimeZoneInfo.ConvertTimeToUtc(utcDateTime, istTimeZone);
+        }
+
         public async Task<bool> IsQuestionOptionCorrectAsync(Guid quizQuestionId, Guid questionOptionId)
         {
             return await _dbContext.QuestionOptions
@@ -37,17 +43,54 @@ namespace LXP.Data.Repository
                 .ToListAsync();
         }
 
-        public async Task<LearnerAttemptViewModel> CreateLearnerAttemptAsync(Guid learnerId, Guid quizId, DateTime startTime)
+        //public async Task<LearnerAttemptViewModel> CreateLearnerAttemptAsync(Guid learnerId, Guid quizId, DateTime startTime)
+        //{
+        //    var quiz = await _dbContext.Quizzes.FindAsync(quizId);
+        //    if (quiz == null)
+        //        throw new Exception($"Quiz with ID {quizId} not found.");
+
+        //    var existingAttempts = await _dbContext.LearnerAttempts
+        //        .CountAsync(a => a.LearnerId == learnerId && a.QuizId == quizId);
+
+        //    if (quiz.AttemptsAllowed.HasValue && existingAttempts >= quiz.AttemptsAllowed)
+        //        throw new Exception("Maximum number of attempts reached for this quiz.");
+
+        //    var attempt = new LearnerAttempt
+        //    {
+        //        LearnerId = learnerId,
+        //        QuizId = quizId,
+        //        AttemptCount = existingAttempts + 1,
+        //        StartTime = startTime,
+        //        EndTime = startTime.AddMinutes(quiz.Duration),
+        //        Score = 0,
+        //        CreatedBy = "Learner"
+        //    };
+
+        //    _dbContext.LearnerAttempts.Add(attempt);
+        //    await _dbContext.SaveChangesAsync();
+
+        //    return new LearnerAttemptViewModel
+        //    {
+        //        LearnerAttemptId = attempt.LearnerAttemptId,
+        //        LearnerId = attempt.LearnerId,
+        //        QuizId = attempt.QuizId,
+        //        AttemptCount = attempt.AttemptCount,
+        //        StartTime = attempt.StartTime,
+        //        EndTime = attempt.EndTime,
+        //        Score = attempt.Score
+        //    };
+        //}
+        public async Task<LearnerAttemptViewModel?> CreateLearnerAttemptAsync(Guid learnerId, Guid quizId, DateTime startTime)
         {
             var quiz = await _dbContext.Quizzes.FindAsync(quizId);
             if (quiz == null)
-                throw new Exception($"Quiz with ID {quizId} not found.");
+                return null; // or throw an exception if you prefer
 
             var existingAttempts = await _dbContext.LearnerAttempts
                 .CountAsync(a => a.LearnerId == learnerId && a.QuizId == quizId);
 
             if (quiz.AttemptsAllowed.HasValue && existingAttempts >= quiz.AttemptsAllowed)
-                throw new Exception("Maximum number of attempts reached for this quiz.");
+                return null; // Return null to indicate maximum attempts reached
 
             var attempt = new LearnerAttempt
             {
@@ -55,7 +98,7 @@ namespace LXP.Data.Repository
                 QuizId = quizId,
                 AttemptCount = existingAttempts + 1,
                 StartTime = startTime,
-                EndTime = startTime.AddMinutes(quiz.Duration),
+                EndTime =startTime.AddMinutes(quiz.Duration),
                 Score = 0,
                 CreatedBy = "Learner"
             };
@@ -74,6 +117,7 @@ namespace LXP.Data.Repository
                 Score = attempt.Score
             };
         }
+
         public async Task CreateLearnerAnswerAsync(Guid learnerAttemptId, Guid quizQuestionId, Guid questionOptionId)
         {
             var learnerAnswer = new LearnerAnswer
@@ -353,7 +397,7 @@ namespace LXP.Data.Repository
                 StartTime = attempt.StartTime,
                 EndTime = attempt.EndTime,
                 TimeTaken = attempt.EndTime - attempt.StartTime,
-                CurrentAttempt = attempt.AttemptCount,
+                CurrentAttempt = attempt.AttemptCount, 
                 Score = attempt.Score,
                 IsPassed = attempt.Score >= quiz.PassMark
             };

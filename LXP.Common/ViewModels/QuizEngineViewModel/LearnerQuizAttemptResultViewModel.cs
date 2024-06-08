@@ -11,6 +11,7 @@ namespace LXP.Common.ViewModels.QuizEngineViewModel
         public DateTime EndTime { get; set; }
         public TimeSpan TimeTaken { get; set; }
         public int CurrentAttempt { get; set; }
+        public int AttemptRemaining { get; set; }
         public float Score { get; set; }
         public bool IsPassed { get; set; }
     }

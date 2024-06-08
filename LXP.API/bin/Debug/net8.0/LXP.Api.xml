@@ -448,22 +448,22 @@
             </summary>
             <param name="feedbackResponseService">The feedback response service.</param>
         </member>
-        <member name="M:LXP.API.Controllers.FeedbackResponseController.AddQuizFeedbackResponse(LXP.Common.ViewModels.FeedbackResponseViewModel.QuizFeedbackResponseViewModel)">
+        <member name="M:LXP.API.Controllers.FeedbackResponseController.AddQuizFeedbackResponses(System.Collections.Generic.IEnumerable{LXP.Common.ViewModels.FeedbackResponseViewModel.QuizFeedbackResponseViewModel})">
             <summary>
-            Adds a new quiz feedback response.
+            Adds new quiz feedback responses.
             </summary>
-            <param name="feedbackResponse">The quiz feedback response model.</param>
+            <param name="feedbackResponses">The list of quiz feedback response models.</param>
             <returns>A response indicating the result of the feedback submission.</returns>
-            <response code="201">Quiz feedback response added successfully.</response>
+            <response code="201">Quiz feedback responses added successfully.</response>
             <response code="400">Bad request due to invalid input.</response>
         </member>
-        <member name="M:LXP.API.Controllers.FeedbackResponseController.AddTopicFeedbackResponse(LXP.Common.ViewModels.FeedbackResponseViewModel.TopicFeedbackResponseViewModel)">
+        <member name="M:LXP.API.Controllers.FeedbackResponseController.AddTopicFeedbackResponses(System.Collections.Generic.IEnumerable{LXP.Common.ViewModels.FeedbackResponseViewModel.TopicFeedbackResponseViewModel})">
             <summary>
-            Adds a new topic feedback response.
+            Adds new topic feedback responses.
             </summary>
-            <param name="feedbackResponse">The topic feedback response model.</param>
+            <param name="feedbackResponses">The list of topic feedback response models.</param>
             <returns>A response indicating the result of the feedback submission.</returns>
-            <response code="201">Topic feedback response added successfully.</response>
+            <response code="201">Topic feedback responses added successfully.</response>
             <response code="400">Bad request due to invalid input.</response>
         </member>
     </members>
