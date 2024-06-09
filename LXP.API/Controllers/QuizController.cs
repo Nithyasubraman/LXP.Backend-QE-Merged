@@ -1,7 +1,8 @@
 ﻿using LXP.Common.ViewModels.QuizViewModel;
 using LXP.Core.IServices;
 using Microsoft.AspNetCore.Mvc;
-
+using System;
+using System.Linq;
 
 namespace LXP.Api.Controllers
 {
@@ -13,20 +14,19 @@ namespace LXP.Api.Controllers
     public class QuizController : BaseController
     {
         private readonly IQuizService _quizService;
-        private readonly IQuizFeedbackService _quizFeedbackService;
 
-        public QuizController(IQuizService quizService, IQuizFeedbackService quizFeedbackService)
+        public QuizController(IQuizService quizService)
         {
             _quizService = quizService;
-            _quizFeedbackService = quizFeedbackService;
         }
 
-        /// <summary>
-        /// Retrieves a specific quiz by its ID.
-        /// </summary>
-        /// <param name="quizId">The unique identifier of the quiz to retrieve.</param>
-        /// <response code="200">Success on finding the quiz. The response body contains a basic representation of the quiz data.</response>
-        /// <response code="404">Not found if no quiz exists with the provided ID.</response>
+       /// <summary>
+       /// Retrieves a specific quiz by its ID.
+       /// </summary>
+       /// <param name="quizId">The unique identifier of the quiz to retrieve.</param>
+       /// <response code="200">Success on finding the quiz. The response body contains a basic representation of the quiz data.</response>
+       /// <response code="404">Not found if no quiz exists with the provided ID.</response>
+
         [HttpGet("{quizId}")]
         public IActionResult GetQuizById(Guid quizId)
         {
@@ -35,38 +35,22 @@ namespace LXP.Api.Controllers
             if (quiz == null)
                 return NotFound(CreateFailureResponse($"Quiz with id {quizId} not found.", 404));
 
-            var quizResponse = new
-            {
-                quiz.QuizId,
-                quiz.NameOfQuiz,
-                quiz.Duration,
-                quiz.PassMark,
-                quiz.AttemptsAllowed
-            };
-
-            return Ok(CreateSuccessResponse(quizResponse));
+            return Ok(CreateSuccessResponse(quiz));
         }
 
         /// <summary>
         /// Retrieves a list of all available quizzes.
         /// </summary>
         /// <response code="200">Success. The response body contains a collection of basic quiz representations.</response>
+        
+
         [HttpGet]
         public IActionResult GetAllQuizzes()
         {
             var quizzes = _quizService.GetAllQuizzes();
-
-            var quizResponse = quizzes.Select(quiz => new
-            {
-                quiz.QuizId,
-                quiz.NameOfQuiz,
-                quiz.Duration,
-                quiz.PassMark,
-                quiz.AttemptsAllowed
-            });
-
-            return Ok(CreateSuccessResponse(quizResponse));
+            return Ok(CreateSuccessResponse(quizzes));
         }
+
 
         /// <summary>
         /// Creates a new quiz.
@@ -74,39 +58,27 @@ namespace LXP.Api.Controllers
         /// <param name="request">Data representing the new quiz to be created, provided in the request body.</param>
         /// <response code="201">Created on successful quiz creation. The response body includes a location header pointing to the newly created quiz and a basic representation of the quiz data.</response>
         /// <response code="400">Bad request due to invalid input (e.g., missing or invalid name, negative duration, etc.).</response>
+
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
         public IActionResult CreateQuiz([FromBody] CreateQuizViewModel request)
         {
-            var quizId = Guid.NewGuid();
-            var createdBy = "System";
-            var createdAt = DateTime.UtcNow;
-
             var quiz = new QuizViewModel
             {
-                QuizId = quizId,
+                QuizId = Guid.NewGuid(),
                 NameOfQuiz = request.NameOfQuiz,
                 Duration = request.Duration,
                 PassMark = request.PassMark,
                 AttemptsAllowed = request.AttemptsAllowed,
-                CreatedBy = createdBy,
-                CreatedAt = createdAt
+                CreatedBy = "System",
+                CreatedAt = DateTime.UtcNow
             };
 
             _quizService.CreateQuiz(quiz, request.TopicId);
 
-            var response = new
-            {
-                quiz.NameOfQuiz,
-                quiz.Duration,
-                quiz.PassMark,
-                quiz.AttemptsAllowed
-            };
-
-            return CreatedAtAction(nameof(GetQuizById), new { quizId }, CreateSuccessResponse(response));
+            return CreatedAtAction(nameof(GetQuizById), new { quizId = quiz.QuizId }, CreateSuccessResponse(quiz));
         }
 
-        /// <summary>
+         /// <summary>
         /// Updates an existing quiz.
         /// </summary>
         /// <param name="quizId">The unique identifier of the quiz to update.</param>
@@ -114,6 +86,7 @@ namespace LXP.Api.Controllers
         /// <response code="204">No content on successful update.</response>
         /// <response code="400">Bad request due to invalid input (e.g., missing or empty name, negative duration, etc.).</response>
         /// <response code="404">Not found if no quiz exists with the provided ID.</response>
+
         [HttpPut("{quizId}")]
         public IActionResult UpdateQuiz(Guid quizId, [FromBody] UpdateQuizViewModel request)
         {
@@ -121,18 +94,6 @@ namespace LXP.Api.Controllers
 
             if (existingQuiz == null)
                 return NotFound(CreateFailureResponse($"Quiz with id {quizId} not found.", 404));
-
-            if (request.AttemptsAllowed.HasValue && request.AttemptsAllowed <= 0)
-                return BadRequest(CreateFailureResponse("AttemptsAllowed must be null or a positive integer.", 400));
-
-            if (string.IsNullOrWhiteSpace(request.NameOfQuiz))
-                return BadRequest(CreateFailureResponse("NameOfQuiz cannot be null or empty.", 400));
-
-            if (request.Duration <= 0)
-                return BadRequest(CreateFailureResponse("Duration must be a positive integer.", 400));
-
-            if (request.PassMark <= 0)
-                return BadRequest(CreateFailureResponse("PassMark must be a positive integer.", 400));
 
             existingQuiz.NameOfQuiz = request.NameOfQuiz;
             existingQuiz.Duration = request.Duration;
@@ -144,11 +105,13 @@ namespace LXP.Api.Controllers
             return NoContent();
         }
 
-        
         [HttpGet("topic/{topicId}")]
         public IActionResult GetQuizIdByTopicId(Guid topicId)
         {
             var quizId = _quizService.GetQuizIdByTopicId(topicId);
+
+            if (quizId == null)
+                return NotFound(CreateFailureResponse($"No quiz found for topic id {topicId}.", 404));
 
             return Ok(CreateSuccessResponse(quizId));
         }
@@ -159,6 +122,7 @@ namespace LXP.Api.Controllers
         /// <param name="quizId">The unique identifier of the quiz to delete.</param>
         /// <response code="204">No content on successful deletion.</response>
         /// <response code="404">Not found if no quiz exists with the provided ID.</response>
+
         [HttpDelete("{quizId}")]
         public IActionResult DeleteQuiz(Guid quizId)
         {
@@ -167,13 +131,163 @@ namespace LXP.Api.Controllers
             if (existingQuiz == null)
                 return NotFound(CreateFailureResponse($"Quiz with id {quizId} not found.", 404));
 
-            _quizFeedbackService.DeleteFeedbackQuestionsByQuizId(quizId);
             _quizService.DeleteQuiz(quizId);
 
             return NoContent();
         }
     }
 }
+
+// using LXP.Common.ViewModels.QuizViewModel;
+// using LXP.Core.IServices;
+// using Microsoft.AspNetCore.Mvc;
+
+
+// namespace LXP.Api.Controllers
+// {
+//     /// <summary>
+//     /// Manages quizzes within the application.
+//     /// </summary>
+//     [Route("api/[controller]")]
+//     [ApiController]
+//     public class QuizController : BaseController
+//     {
+//         private readonly IQuizService _quizService;
+//         private readonly IQuizFeedbackService _quizFeedbackService;
+
+//         public QuizController(IQuizService quizService, IQuizFeedbackService quizFeedbackService)
+//         {
+//             _quizService = quizService;
+//             _quizFeedbackService = quizFeedbackService;
+//         }
+
+
+//         [HttpGet("{quizId}")]
+//         public IActionResult GetQuizById(Guid quizId)
+//         {
+//             var quiz = _quizService.GetQuizById(quizId);
+
+//             if (quiz == null)
+//                 return NotFound(CreateFailureResponse($"Quiz with id {quizId} not found.", 404));
+
+//             var quizResponse = new
+//             {
+//                 quiz.QuizId,
+//                 quiz.NameOfQuiz,
+//                 quiz.Duration,
+//                 quiz.PassMark,
+//                 quiz.AttemptsAllowed
+//             };
+
+//             return Ok(CreateSuccessResponse(quizResponse));
+//         }
+
+       
+//         public IActionResult GetAllQuizzes()
+//         {
+//             var quizzes = _quizService.GetAllQuizzes();
+
+//             var quizResponse = quizzes.Select(quiz => new
+//             {
+//                 quiz.QuizId,
+//                 quiz.NameOfQuiz,
+//                 quiz.Duration,
+//                 quiz.PassMark,
+//                 quiz.AttemptsAllowed
+//             });
+
+//             return Ok(CreateSuccessResponse(quizResponse));
+//         }
+
+        
+//         [HttpPost]
+//         [ProducesResponseType(StatusCodes.Status201Created)]
+//         public IActionResult CreateQuiz([FromBody] CreateQuizViewModel request)
+//         {
+//             var quizId = Guid.NewGuid();
+//             var createdBy = "System";
+//             var createdAt = DateTime.UtcNow;
+
+//             var quiz = new QuizViewModel
+//             {
+//                 QuizId = quizId,
+//                 NameOfQuiz = request.NameOfQuiz,
+//                 Duration = request.Duration,
+//                 PassMark = request.PassMark,
+//                 AttemptsAllowed = request.AttemptsAllowed,
+//                 CreatedBy = createdBy,
+//                 CreatedAt = createdAt
+//             };
+
+//             _quizService.CreateQuiz(quiz, request.TopicId);
+
+//             var response = new
+//             {
+//                 quiz.NameOfQuiz,
+//                 quiz.Duration,
+//                 quiz.PassMark,
+//                 quiz.AttemptsAllowed
+//             };
+
+//             return CreatedAtAction(nameof(GetQuizById), new { quizId }, CreateSuccessResponse(response));
+//         }
+
+       
+//         [HttpPut("{quizId}")]
+//         public IActionResult UpdateQuiz(Guid quizId, [FromBody] UpdateQuizViewModel request)
+//         {
+//             var existingQuiz = _quizService.GetQuizById(quizId);
+
+//             if (existingQuiz == null)
+//                 return NotFound(CreateFailureResponse($"Quiz with id {quizId} not found.", 404));
+
+//             if (request.AttemptsAllowed.HasValue && request.AttemptsAllowed <= 0)
+//                 return BadRequest(CreateFailureResponse("AttemptsAllowed must be null or a positive integer.", 400));
+
+//             if (string.IsNullOrWhiteSpace(request.NameOfQuiz))
+//                 return BadRequest(CreateFailureResponse("NameOfQuiz cannot be null or empty.", 400));
+
+//             if (request.Duration <= 0)
+//                 return BadRequest(CreateFailureResponse("Duration must be a positive integer.", 400));
+
+//             if (request.PassMark <= 0)
+//                 return BadRequest(CreateFailureResponse("PassMark must be a positive integer.", 400));
+
+//             existingQuiz.NameOfQuiz = request.NameOfQuiz;
+//             existingQuiz.Duration = request.Duration;
+//             existingQuiz.PassMark = request.PassMark;
+//             existingQuiz.AttemptsAllowed = request.AttemptsAllowed;
+
+//             _quizService.UpdateQuiz(existingQuiz);
+
+//             return NoContent();
+//         }
+
+        
+//         [HttpGet("topic/{topicId}")]
+//         public IActionResult GetQuizIdByTopicId(Guid topicId)
+//         {
+//             var quizId = _quizService.GetQuizIdByTopicId(topicId);
+
+//             return Ok(CreateSuccessResponse(quizId));
+//         }
+
+      
+//         [HttpDelete("{quizId}")]
+//         public IActionResult DeleteQuiz(Guid quizId)
+//         {
+//             var existingQuiz = _quizService.GetQuizById(quizId);
+
+//             if (existingQuiz == null)
+//                 return NotFound(CreateFailureResponse($"Quiz with id {quizId} not found.", 404));
+
+//             _quizFeedbackService.DeleteFeedbackQuestionsByQuizId(quizId);
+//             _quizService.DeleteQuiz(quizId);
+
+//             return NoContent();
+//         }
+//     }
+// }
 
 //using LXP.Common.DTO;
 //using LXP.Core.IServices;
@@ -1310,8 +1424,7 @@ namespace LXP.Api.Controllers
 ////    return CreatedAtAction(nameof(GetQuizById), new { id = quizId }, new { quiz.NameOfQuiz, quiz.Duration, quiz.PassMark, quiz.AttemptsAllowed });
 ////}
 
-///*  [HttpPost]
-//        [ProducesResponseType(StatusCodes.Status201Created)]
+
 //        public ActionResult CreateQuiz([FromBody] CreateQuizDto request)
 //        {
 //            // Generate QuizId

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Api\\LXP.Api.csproj": {}
+    "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.API\\LXP.Api.csproj": {}
   },
   "projects": {
-    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Api\\LXP.Api.csproj": {
+    "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.API\\LXP.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Api\\LXP.Api.csproj",
+        "projectUniqueName": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.API\\LXP.Api.csproj",
         "projectName": "LXP.Api",
-        "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Api\\LXP.Api.csproj",
-        "packagesPath": "C:\\Users\\nithya.subramaniyan\\.nuget\\packages\\",
-        "outputPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Api\\obj\\",
+        "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.API\\LXP.Api.csproj",
+        "packagesPath": "C:\\Users\\gokul.jawahar\\.nuget\\packages\\",
+        "outputPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nithya.subramaniyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gokul.jawahar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Core\\LXP.Core.csproj": {
-                "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Core\\LXP.Core.csproj"
+              "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Core\\LXP.Core.csproj": {
+                "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Core\\LXP.Core.csproj"
               }
             }
           }
@@ -114,17 +119,21 @@
         }
       }
     },
-    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj": {
+    "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\LXP.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj",
+        "projectUniqueName": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\LXP.Common.csproj",
         "projectName": "LXP.Common",
-        "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj",
-        "packagesPath": "C:\\Users\\nithya.subramaniyan\\.nuget\\packages\\",
-        "outputPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\obj\\",
+        "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\LXP.Common.csproj",
+        "packagesPath": "C:\\Users\\gokul.jawahar\\.nuget\\packages\\",
+        "outputPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nithya.subramaniyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gokul.jawahar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -132,6 +141,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -179,17 +189,21 @@
         }
       }
     },
-    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Core\\LXP.Core.csproj": {
+    "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Core\\LXP.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Core\\LXP.Core.csproj",
+        "projectUniqueName": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Core\\LXP.Core.csproj",
         "projectName": "LXP.Core",
-        "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Core\\LXP.Core.csproj",
-        "packagesPath": "C:\\Users\\nithya.subramaniyan\\.nuget\\packages\\",
-        "outputPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Core\\obj\\",
+        "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Core\\LXP.Core.csproj",
+        "packagesPath": "C:\\Users\\gokul.jawahar\\.nuget\\packages\\",
+        "outputPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nithya.subramaniyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gokul.jawahar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -197,14 +211,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Data\\LXP.Data.csproj": {
-                "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Data\\LXP.Data.csproj"
+              "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Data\\LXP.Data.csproj": {
+                "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Data\\LXP.Data.csproj"
               }
             }
           }
@@ -252,17 +267,21 @@
         }
       }
     },
-    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Data\\LXP.Data.csproj": {
+    "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Data\\LXP.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Data\\LXP.Data.csproj",
+        "projectUniqueName": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Data\\LXP.Data.csproj",
         "projectName": "LXP.Data",
-        "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Data\\LXP.Data.csproj",
-        "packagesPath": "C:\\Users\\nithya.subramaniyan\\.nuget\\packages\\",
-        "outputPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Data\\obj\\",
+        "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Data\\LXP.Data.csproj",
+        "packagesPath": "C:\\Users\\gokul.jawahar\\.nuget\\packages\\",
+        "outputPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nithya.subramaniyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gokul.jawahar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -270,14 +289,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj": {
-                "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj"
+              "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\LXP.Common.csproj": {
+                "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\LXP.Common.csproj"
               }
             }
           }

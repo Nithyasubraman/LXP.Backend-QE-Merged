@@ -208,6 +208,60 @@ namespace LXP.Api.Controllers
             await _quizEngineService.SubmitAnswerAsync(answerSubmissionModel);
             return Ok();
         }
+
+        /// <summary>
+        /// Api  Endpoint in developement stage not ready to use yet 
+        /// </summary>
+
+        [HttpPost("SubmitAnswerBatch")]
+        public async Task<IActionResult> SubmitAnswerBatch([FromBody] AnswerSubmissionBatchModel model)
+        {
+            try
+            {
+                await _quizEngineService.SubmitAnswerBatchAsync(model);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+        }
+        /// <summary>
+        /// Api  Endpoint in developement stage not ready to use yet 
+        /// </summary>
+        [HttpPost("attempt/cache-answers")]
+        public async Task<IActionResult> CacheAnswers([FromBody] CachedAnswerSubmissionModel model)
+        {
+            try
+            {
+                await _quizEngineService.CacheAnswersAsync(model);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Api  Endpoint in developement stage not ready to use yet 
+        /// </summary>
+
+         [HttpPost("attempt/submit-cached-answers")]
+        public async Task<IActionResult> SubmitCachedAnswers(Guid learnerAttemptId)
+        {
+            try
+            {
+                await _quizEngineService.SubmitCachedAnswersAsync(learnerAttemptId);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+        }
+
+
         [HttpGet("attempts/{attemptId}")]
         public async Task<IActionResult> GetLearnerQuizAttempt(Guid attemptId)
         {

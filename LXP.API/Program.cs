@@ -143,6 +143,7 @@ builder.Services.AddControllers()
 builder.Services.AddTransient<BulkQuizQuestionViewModelValidator>();
 builder.Services.AddTransient<TopicFeedbackResponseViewModelValidator>();
 builder.Services.AddTransient<QuizFeedbackResponseViewModelValidator>();
+builder.Services.AddMemoryCache();
 
 
 builder.Services.AddControllers();
