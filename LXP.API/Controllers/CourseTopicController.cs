@@ -11,6 +11,7 @@ namespace LXP.Api.Controllers
     public class CourseTopicController : BaseController
     {
         private readonly ICourseTopicServices _courseTopicServices;
+
         public CourseTopicController(ICourseTopicServices courseTopicServices)
         {
             _courseTopicServices = courseTopicServices;
@@ -29,7 +30,6 @@ namespace LXP.Api.Controllers
             {
                 return Ok(CreateFailureResponse("Topic not created", 400));
             }
-
         }
 
         [HttpGet("/lxp/course/{id}/topic")]
@@ -44,6 +44,7 @@ namespace LXP.Api.Controllers
         {
             return Ok();
         }
+
         [HttpDelete("/lxp/course/topic/{id}")]
         public async Task<IActionResult> DeleteCourseTopic(string id)
         {

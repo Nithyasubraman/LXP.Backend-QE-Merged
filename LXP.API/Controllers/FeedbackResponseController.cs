@@ -1,9 +1,9 @@
-﻿using LXP.Common.ViewModels.FeedbackResponseViewModel;
+﻿using System.Collections.Generic;
+using System.Linq;
+using FluentValidation;
+using LXP.Common.ViewModels.FeedbackResponseViewModel;
 using LXP.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
-using FluentValidation;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LXP.API.Controllers
 {
@@ -33,7 +33,9 @@ namespace LXP.API.Controllers
         /// <response code="201">Quiz feedback responses added successfully.</response>
         /// <response code="400">Bad request due to invalid input.</response>
         [HttpPost("AddQuizFeedbackResponses")]
-        public IActionResult AddQuizFeedbackResponses([FromBody] IEnumerable<QuizFeedbackResponseViewModel> feedbackResponses)
+        public IActionResult AddQuizFeedbackResponses(
+            [FromBody] IEnumerable<QuizFeedbackResponseViewModel> feedbackResponses
+        )
         {
             if (!ModelState.IsValid)
             {
@@ -63,7 +65,9 @@ namespace LXP.API.Controllers
         /// <response code="201">Topic feedback responses added successfully.</response>
         /// <response code="400">Bad request due to invalid input.</response>
         [HttpPost("AddTopicFeedbackResponses")]
-        public IActionResult AddTopicFeedbackResponses([FromBody] IEnumerable<TopicFeedbackResponseViewModel> feedbackResponses)
+        public IActionResult AddTopicFeedbackResponses(
+            [FromBody] IEnumerable<TopicFeedbackResponseViewModel> feedbackResponses
+        )
         {
             if (!ModelState.IsValid)
             {

@@ -1,8 +1,7 @@
-﻿using LXP.Common.ViewModels.TopicFeedbackQuestionViemModel;
+﻿using LXP.Common.Constants;
+using LXP.Common.ViewModels.TopicFeedbackQuestionViemModel;
 using LXP.Core.IServices;
 using Microsoft.AspNetCore.Mvc;
-using LXP.Common.Constants;
-
 
 namespace LXP.Api.Controllers
 {
@@ -84,7 +83,10 @@ namespace LXP.Api.Controllers
         ///<response code="404">Feedback question not found.</response>
         ///<response code="500">Failed to update feedback question.</response>
         [HttpPut("{topicFeedbackQuestionId}")]
-        public IActionResult UpdateFeedbackQuestion(Guid topicFeedbackQuestionId, TopicFeedbackQuestionViewModel question)
+        public IActionResult UpdateFeedbackQuestion(
+            Guid topicFeedbackQuestionId,
+            TopicFeedbackQuestionViewModel question
+        )
         {
             var existingQuestion = _service.GetFeedbackQuestionById(topicFeedbackQuestionId);
             if (existingQuestion == null)
@@ -93,14 +95,21 @@ namespace LXP.Api.Controllers
             }
 
             var options = question.Options ?? new List<TopicFeedbackQuestionsOptionViewModel>(); // Ensure options are not null
-            var result = _service.UpdateFeedbackQuestion(topicFeedbackQuestionId, question, options);
+            var result = _service.UpdateFeedbackQuestion(
+                topicFeedbackQuestionId,
+                question,
+                options
+            );
 
             if (result)
             {
                 return Ok(CreateSuccessResponse("Feedback question updated successfully"));
             }
 
-            return StatusCode(500, CreateFailureResponse("Failed to update feedback question", 500));
+            return StatusCode(
+                500,
+                CreateFailureResponse("Failed to update feedback question", 500)
+            );
         }
 
         ///<summary>
@@ -126,7 +135,10 @@ namespace LXP.Api.Controllers
                 return Ok(CreateSuccessResponse("Feedback question deleted successfully"));
             }
 
-            return StatusCode(500, CreateFailureResponse("Failed to delete feedback question", 500));
+            return StatusCode(
+                500,
+                CreateFailureResponse("Failed to delete feedback question", 500)
+            );
         }
 
         ///<summary>
@@ -142,7 +154,9 @@ namespace LXP.Api.Controllers
             var questions = _service.GetFeedbackQuestionsByTopicId(topicId);
             if (questions == null || !questions.Any())
             {
-                return NotFound(CreateFailureResponse("No questions found for the given topic", 404));
+                return NotFound(
+                    CreateFailureResponse("No questions found for the given topic", 404)
+                );
             }
 
             return Ok(CreateSuccessResponse(questions));

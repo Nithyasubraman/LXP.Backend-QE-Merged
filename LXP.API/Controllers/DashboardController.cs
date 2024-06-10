@@ -12,10 +12,12 @@ namespace LXP.Api.Controllers
     public class DashboardController : BaseController
     {
         private readonly IDashboardService _dashboardService;
+
         public DashboardController(IDashboardService dashboardService)
         {
             _dashboardService = dashboardService;
         }
+
         ///<summary>
         ///getting total number of learners
         ///</summary>
@@ -27,6 +29,7 @@ namespace LXP.Api.Controllers
             var total_learners = _dashboardService.GetDashboardLearnerList();
             return Ok(CreateSuccessResponse(total_learners.Count()));
         }
+
         ///<summary>
         ///getting total number of courses
         ///</summary>
@@ -95,7 +98,5 @@ namespace LXP.Api.Controllers
             var admin = _dashboardService.GetAdminDashboardDetails();
             return Ok(CreateSuccessResponse(admin));
         }
-
-
     }
 }

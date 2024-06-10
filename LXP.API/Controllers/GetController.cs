@@ -1,5 +1,4 @@
 ﻿using LXP.Core.IServices;
-
 using Microsoft.AspNetCore.Mvc;
 
 namespace LXP.Api.Controllers
@@ -16,34 +15,24 @@ namespace LXP.Api.Controllers
             _quizService = quizService;
             _quizFeedbackService = quizFeedbackService;
         }
-        // This controller is used by frontend to get quizrelateddetails  
+
+        // This controller is used by frontend to get quizrelateddetails
 
 
         [HttpGet("topic/{topicId}")]
         public ActionResult<Guid?> GetQuizIdByTopicId(Guid topicId)
-
         {
-
             var quizId = _quizService.GetQuizIdByTopicId(topicId);
 
             if (quizId == null)
-
             {
-
                 return Ok(null);
-
             }
-
             else
-
             {
-
                 return Ok(quizId);
-
             }
-
         }
-
     }
 }
 
@@ -87,7 +76,7 @@ namespace LXP.Api.Controllers
 //            _quizService = quizService;
 //            _quizFeedbackService = quizFeedbackService;
 //        }
-//        // This controller is used by frontend to get quizrelateddetails  
+//        // This controller is used by frontend to get quizrelateddetails
 
 
 //        [HttpGet("topic/{topicId}")]

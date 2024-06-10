@@ -1,14 +1,14 @@
-﻿using LXP.Common.Entities;
+﻿using System.Collections;
+using System.Collections.Concurrent;
+using System.Net;
+using System.Net.Mail;
+using LXP.Common.Constants;
+using LXP.Common.Entities;
 using LXP.Common.ViewModels;
 using LXP.Core.IServices;
 using LXP.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Mail;
-using System.Net;
-using System.Collections.Concurrent;
-using System.Collections;
-using LXP.Common.Constants;
 
 namespace LXP.Api.Controllers
 {
@@ -19,37 +19,42 @@ namespace LXP.Api.Controllers
         private readonly ILearnerService _learnerServices;
         private readonly IProfileService _profileService;
         private readonly IPasswordHistoryService _passwordHistoryService;
-        private static DateTime _currentTIme;//Raj
+        private static DateTime _currentTIme; //Raj
         public readonly Hashtable _otpTable = new Hashtable();
-        private static ConcurrentDictionary<string, string> emailOtpMap = new ConcurrentDictionary<string, string>();//Raj
+        private static ConcurrentDictionary<string, string> emailOtpMap =
+            new ConcurrentDictionary<string, string>(); //Raj
 
-
-        public RegistrationController(ILearnerService learnerServices, IProfileService profileService, IPasswordHistoryService passwordHistoryService)
+        public RegistrationController(
+            ILearnerService learnerServices,
+            IProfileService profileService,
+            IPasswordHistoryService passwordHistoryService
+        )
         {
-            _learnerServices=learnerServices;
-            _profileService=profileService;
-            _passwordHistoryService=passwordHistoryService;
+            _learnerServices = learnerServices;
+            _profileService = profileService;
+            _passwordHistoryService = passwordHistoryService;
         }
 
         ///<summary>
-        ///Post the learner and profile details 
+        ///Post the learner and profile details
         ///</summary>
         ///
         [HttpPost("/lxp/learner/registration")]
-        public  async Task<IActionResult> Registration( [FromBody] RegisterUserViewModel learner)
+        public async Task<IActionResult> Registration([FromBody] RegisterUserViewModel learner)
         {
-            bool learnerservices= await _learnerServices.LearnerRegistration(learner);
+            bool learnerservices = await _learnerServices.LearnerRegistration(learner);
             if (learnerservices)
             {
                 return Ok(CreateSuccessResponse(MessageConstants.MsgLearnerRegistrationSuccess));
             }
             else
             {
-                return  Ok(CreateFailureResponse(MessageConstants.MsgLearnerAlreadyExists, 400));
+                return Ok(CreateFailureResponse(MessageConstants.MsgLearnerAlreadyExists, 400));
             }
         }
+
         ///<summary>
-        ///Fetch all the learner details 
+        ///Fetch all the learner details
         ///</summary>
         ///
         [HttpGet("/lxp/view/learner")]
@@ -65,7 +70,8 @@ namespace LXP.Api.Controllers
         [HttpGet("/lxp/view/learnerProfile")]
         public async Task<IActionResult> GetAllLearnerProfile()
         {
-            List<GetProfileViewModel> LearnerProfileone = await _profileService.GetAllLearnerProfile();
+            List<GetProfileViewModel> LearnerProfileone =
+                await _profileService.GetAllLearnerProfile();
             return Ok(CreateSuccessResponse(LearnerProfileone));
         }
 
@@ -88,11 +94,6 @@ namespace LXP.Api.Controllers
             Learner LearnerProfileone = _learnerServices.GetLearnerById(id);
             return Ok(CreateSuccessResponse(LearnerProfileone));
         }
-
-
-
-
-
 
         //Raj   Controller
 
@@ -156,13 +157,6 @@ namespace LXP.Api.Controllers
             return Ok(emailOtpMap);
         }
 
-
-
-
-
-
-
-
         //[HttpGet("VerifyOTP")]
         //public IActionResult VerifyOTP([FromQuery] string email, [FromQuery] string userOTP)
         //{
@@ -224,7 +218,6 @@ namespace LXP.Api.Controllers
                 // Check if the OTP is still valid (within 2 minutes)
                 TimeSpan timeDifference = currentTimestamp - storedTimestamp;
 
-
                 //if (otpData == userOTP)
                 //{
                 //    Console.WriteLine($"OTP verified successfully for email: {email}");
@@ -247,7 +240,6 @@ namespace LXP.Api.Controllers
                         Console.WriteLine($"Invalid OTP provided for email: {email}");
                         return BadRequest("Invalid OTP provided.");
                     }
-
                 }
                 else
                 {
@@ -265,8 +257,6 @@ namespace LXP.Api.Controllers
                 return BadRequest("No OTP data found for the provided email.");
             }
         }
-
-
 
         //[HttpGet("VerifyOTP")]
         //public IActionResult VerifyOTP([FromQuery] string email, [FromQuery] string userOTP)
@@ -362,19 +352,25 @@ namespace LXP.Api.Controllers
         //}
 
         [HttpPut("/lxp/learner/updateProfile")]
-        public async Task<IActionResult> UpdateProfile( [FromForm] UpdateProfileViewModel model)
+        public async Task<IActionResult> UpdateProfile([FromForm] UpdateProfileViewModel model)
         {
             await _profileService.UpdateProfile(model);
 
             return Ok(CreateSuccessResponse(200));
         }
 
-
-
-              [HttpPut("/lxp/learner/updatePassword")]
-        public async Task<IActionResult> UpdatePassword(string learnerId, string oldPassword, string newPassword)
+        [HttpPut("/lxp/learner/updatePassword")]
+        public async Task<IActionResult> UpdatePassword(
+            string learnerId,
+            string oldPassword,
+            string newPassword
+        )
         {
-            var result = await _passwordHistoryService.UpdatePassword(learnerId, oldPassword, newPassword);
+            var result = await _passwordHistoryService.UpdatePassword(
+                learnerId,
+                oldPassword,
+                newPassword
+            );
 
             if (!result)
             {
@@ -385,7 +381,3 @@ namespace LXP.Api.Controllers
         }
     }
 }
-
-
-    
-

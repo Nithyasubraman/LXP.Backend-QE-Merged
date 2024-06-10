@@ -1,26 +1,23 @@
+using System.Collections;
+using System.Collections.Concurrent;
+using System.Net;
+using System.Net.Mail;
 using LXP.Common.Entities;
 using LXP.Common.ViewModels;
 using LXP.Core.IServices;
 using LXP.Core.Services;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Mail;
-using System.Net;
-using System.Collections.Concurrent;
-using System.Collections;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Http.HttpResults;
-
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace LXP.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
     public class EnrollmentController : BaseController
     {
         private readonly IEnrollmentService _enrollmentService;
-
 
         public EnrollmentController(IEnrollmentService enrollmentService)
         {
@@ -28,7 +25,6 @@ namespace LXP.Api.Controllers
         }
 
         [HttpPost("/lxp/enroll")]
-
         public async Task<IActionResult> Addenroll(EnrollmentViewModel enroll)
         {
             //validate model state
@@ -47,13 +43,10 @@ namespace LXP.Api.Controllers
         }
 
         [HttpGet("/lxp/enroll/{learnerId}/course/topic")]
-
         public IActionResult GetCourseandTopicsByLearnerId(Guid learnerId)
         {
             var learner = _enrollmentService.GetCourseandTopicsByLearnerId(learnerId);
             return Ok(CreateSuccessResponse(learner));
         }
-
-
     }
 }

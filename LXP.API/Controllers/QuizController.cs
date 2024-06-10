@@ -1,8 +1,8 @@
-﻿using LXP.Common.ViewModels.QuizViewModel;
+﻿using System;
+using System.Linq;
+using LXP.Common.ViewModels.QuizViewModel;
 using LXP.Core.IServices;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
 
 namespace LXP.Api.Controllers
 {
@@ -20,12 +20,12 @@ namespace LXP.Api.Controllers
             _quizService = quizService;
         }
 
-       /// <summary>
-       /// Retrieves a specific quiz by its ID.
-       /// </summary>
-       /// <param name="quizId">The unique identifier of the quiz to retrieve.</param>
-       /// <response code="200">Success on finding the quiz. The response body contains a basic representation of the quiz data.</response>
-       /// <response code="404">Not found if no quiz exists with the provided ID.</response>
+        /// <summary>
+        /// Retrieves a specific quiz by its ID.
+        /// </summary>
+        /// <param name="quizId">The unique identifier of the quiz to retrieve.</param>
+        /// <response code="200">Success on finding the quiz. The response body contains a basic representation of the quiz data.</response>
+        /// <response code="404">Not found if no quiz exists with the provided ID.</response>
 
         [HttpGet("{quizId}")]
         public IActionResult GetQuizById(Guid quizId)
@@ -42,7 +42,7 @@ namespace LXP.Api.Controllers
         /// Retrieves a list of all available quizzes.
         /// </summary>
         /// <response code="200">Success. The response body contains a collection of basic quiz representations.</response>
-        
+
 
         [HttpGet]
         public IActionResult GetAllQuizzes()
@@ -50,7 +50,6 @@ namespace LXP.Api.Controllers
             var quizzes = _quizService.GetAllQuizzes();
             return Ok(CreateSuccessResponse(quizzes));
         }
-
 
         /// <summary>
         /// Creates a new quiz.
@@ -75,10 +74,14 @@ namespace LXP.Api.Controllers
 
             _quizService.CreateQuiz(quiz, request.TopicId);
 
-            return CreatedAtAction(nameof(GetQuizById), new { quizId = quiz.QuizId }, CreateSuccessResponse(quiz));
+            return CreatedAtAction(
+                nameof(GetQuizById),
+                new { quizId = quiz.QuizId },
+                CreateSuccessResponse(quiz)
+            );
         }
 
-         /// <summary>
+        /// <summary>
         /// Updates an existing quiz.
         /// </summary>
         /// <param name="quizId">The unique identifier of the quiz to update.</param>
@@ -111,7 +114,9 @@ namespace LXP.Api.Controllers
             var quizId = _quizService.GetQuizIdByTopicId(topicId);
 
             if (quizId == null)
-                return NotFound(CreateFailureResponse($"No quiz found for topic id {topicId}.", 404));
+                return NotFound(
+                    CreateFailureResponse($"No quiz found for topic id {topicId}.", 404)
+                );
 
             return Ok(CreateSuccessResponse(quizId));
         }
@@ -182,7 +187,7 @@ namespace LXP.Api.Controllers
 //             return Ok(CreateSuccessResponse(quizResponse));
 //         }
 
-       
+
 //         public IActionResult GetAllQuizzes()
 //         {
 //             var quizzes = _quizService.GetAllQuizzes();
@@ -199,7 +204,7 @@ namespace LXP.Api.Controllers
 //             return Ok(CreateSuccessResponse(quizResponse));
 //         }
 
-        
+
 //         [HttpPost]
 //         [ProducesResponseType(StatusCodes.Status201Created)]
 //         public IActionResult CreateQuiz([FromBody] CreateQuizViewModel request)
@@ -232,7 +237,7 @@ namespace LXP.Api.Controllers
 //             return CreatedAtAction(nameof(GetQuizById), new { quizId }, CreateSuccessResponse(response));
 //         }
 
-       
+
 //         [HttpPut("{quizId}")]
 //         public IActionResult UpdateQuiz(Guid quizId, [FromBody] UpdateQuizViewModel request)
 //         {
@@ -263,7 +268,7 @@ namespace LXP.Api.Controllers
 //             return NoContent();
 //         }
 
-        
+
 //         [HttpGet("topic/{topicId}")]
 //         public IActionResult GetQuizIdByTopicId(Guid topicId)
 //         {
@@ -272,7 +277,7 @@ namespace LXP.Api.Controllers
 //             return Ok(CreateSuccessResponse(quizId));
 //         }
 
-      
+
 //         [HttpDelete("{quizId}")]
 //         public IActionResult DeleteQuiz(Guid quizId)
 //         {
@@ -301,7 +306,7 @@ namespace LXP.Api.Controllers
 //    /// </summary>
 //    [Route("api/[controller]")]
 //    [ApiController]
-//    public class QuizController : BaseController 
+//    public class QuizController : BaseController
 //    {
 //        private readonly IQuizService _quizService;
 //        private readonly IQuizFeedbackService _quizFeedbackService;
@@ -1476,10 +1481,10 @@ namespace LXP.Api.Controllers
 //            // Return 201 Created status with the newly created quiz
 //            return CreatedAtAction(nameof(GetQuizById), new { id = quizId }, new { quiz.NameOfQuiz, quiz.Duration, quiz.PassMark, quiz.AttemptsAllowed });
 //        }
-// * 
-// * 
-// * 
-// * 
+// *
+// *
+// *
+// *
 // */
 
 ////[HttpPost]
