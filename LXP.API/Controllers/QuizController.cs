@@ -69,7 +69,7 @@ namespace LXP.Api.Controllers
                 PassMark = request.PassMark,
                 AttemptsAllowed = request.AttemptsAllowed,
                 CreatedBy = "System",
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now
             };
 
             _quizService.CreateQuiz(quiz, request.TopicId);
@@ -211,7 +211,7 @@ namespace LXP.Api.Controllers
 //         {
 //             var quizId = Guid.NewGuid();
 //             var createdBy = "System";
-//             var createdAt = DateTime.UtcNow;
+//             var createdAt = DateTime. Now;
 
 //             var quiz = new QuizViewModel
 //             {
@@ -379,7 +379,7 @@ namespace LXP.Api.Controllers
 //        {
 //            var quizId = Guid.NewGuid();
 //            var createdBy = "System";
-//            var createdAt = DateTime.UtcNow;
+//            var createdAt = DateTime. Now;
 
 //            var quiz = new QuizViewModel
 //            {
@@ -576,7 +576,7 @@ namespace LXP.Api.Controllers
 
 //            var quizId = Guid.NewGuid();
 //            var createdBy = "System";
-//            var createdAt = DateTime.UtcNow;
+//            var createdAt = DateTime. Now;
 
 //            var quiz = new QuizViewModel
 //            {
@@ -782,7 +782,7 @@ namespace LXP.Api.Controllers
 
 //            var createdBy = "System"; // Set createdBy
 
-//            var createdAt = DateTime.UtcNow; // Set createdAt
+//            var createdAt = DateTime. Now; // Set createdAt
 
 //            var quiz = new QuizDto
 
@@ -982,7 +982,7 @@ namespace LXP.Api.Controllers
 //        {
 //            var quizId = Guid.NewGuid(); // Generate QuizId
 //            var createdBy = "System"; // Set createdBy
-//            var createdAt = DateTime.UtcNow; // Set createdAt
+//            var createdAt = DateTime. Now; // Set createdAt
 
 //            var quiz = new QuizDto
 //            {
@@ -1142,7 +1142,7 @@ namespace LXP.Api.Controllers
 
 ////            var quizId = Guid.NewGuid();
 ////            var createdBy = "System";
-////            var createdAt = DateTime.UtcNow;
+////            var createdAt = DateTime. Now;
 
 ////            var quiz = new QuizDto
 ////            {
@@ -1261,7 +1261,7 @@ namespace LXP.Api.Controllers
 ////        {
 ////            var quizId = Guid.NewGuid(); // Generate QuizId
 ////            var createdBy = "System"; // Set createdBy
-////            var createdAt = DateTime.UtcNow; // Set createdAt
+////            var createdAt = DateTime. Now; // Set createdAt
 
 ////            var quiz = new QuizDto
 ////            {
@@ -1340,7 +1340,7 @@ namespace LXP.Api.Controllers
 ////    var courseId = Guid.Parse("a45c9ac3-8e24-4d98-804b-cba8ff59a140"); // Hardcoded CourseId
 ////    var topicId = Guid.Parse("7ae6ad72-74ef-4e5c-b7d6-5af9dd13d721"); // Hardcoded TopicId
 ////    var createdBy = "System"; // Set createdBy
-////    var createdAt = DateTime.UtcNow; // Set createdAt
+////    var createdAt = DateTime. Now; // Set createdAt
 
 ////    // Validate AttemptsAllowed
 ////    if (request.AttemptsAllowed.HasValue && request.AttemptsAllowed <= 0)
@@ -1384,7 +1384,7 @@ namespace LXP.Api.Controllers
 ////{
 ////    var quizId = Guid.NewGuid(); // Generate QuizId
 ////    var createdBy = "System"; // Set createdBy
-////    var createdAt = DateTime.UtcNow; // Set createdAt
+////    var createdAt = DateTime. Now; // Set createdAt
 
 ////    // Fetch the course ID from the topic ID
 ////    var topic = _dbContext.Topics.FirstOrDefault(t => t.TopicId == request.TopicId);
@@ -1460,7 +1460,7 @@ namespace LXP.Api.Controllers
 //                throw new Exception("PassMark must be a positive integer.");
 
 //            var createdBy = "System"; // Set createdBy
-//            var createdAt = DateTime.UtcNow; // Set createdAt
+//            var createdAt = DateTime. Now; // Set createdAt
 
 //            var quiz = new QuizDto
 //            {
@@ -1495,7 +1495,7 @@ namespace LXP.Api.Controllers
 ////    var courseId = Guid.Parse("a45c9ac3-8e24-4d98-804b-cba8ff59a140"); // Hardcoded CourseId
 ////    var topicId = Guid.Parse("7ae6ad72-74ef-4e5c-b7d6-5af9dd13d721"); // Hardcoded TopicId
 ////    var createdBy = "System"; // Set createdBy
-////    var createdAt = DateTime.UtcNow; // Set createdAt
+////    var createdAt = DateTime. Now; // Set createdAt
 
 ////    // Validate AttemptsAllowed
 ////    if (request.AttemptsAllowed.HasValue && request.AttemptsAllowed <= 0)
@@ -1544,7 +1544,7 @@ namespace LXP.Api.Controllers
 ////    Generate QuizId and set metadata
 ////   var quizId = Guid.NewGuid();
 ////    var createdBy = "System"; // This could come from the authenticated user context
-////    var createdAt = DateTime.UtcNow;
+////    var createdAt = DateTime. Now;
 
 ////    Create QuizDto object
 ////   var quiz = new QuizDto
@@ -1666,7 +1666,7 @@ namespace LXP.Api.Controllers
 ////            var courseId = Guid.Parse("ce753ccb-408c-4d8c-8acd-cbc8c5adcbb8"); // Hardcoded CourseId
 ////            var topicId = Guid.Parse("e3a895e4-1b3f-45b8-9c0a-98f9c0fa4996"); // Hardcoded TopicId
 ////            var createdBy = "System"; // Set createdBy
-////            var createdAt = DateTime.UtcNow; // Set createdAt
+////            var createdAt = DateTime. Now; // Set createdAt
 
 ////            var quiz = new QuizDto
 ////            {
@@ -1788,7 +1788,7 @@ namespace LXP.Api.Controllers
 ////    var courseId = Guid.Parse("ce753ccb-408c-4d8c-8acd-cbc8c5adcbb8"); // Hardcoded CourseId
 ////    var topicId = Guid.Parse("e3a895e4-1b3f-45b8-9c0a-98f9c0fa4996"); // Hardcoded TopicId
 ////    var createdBy = "System"; // Set createdBy
-////    var createdAt = DateTime.UtcNow; // Set createdAt
+////    var createdAt = DateTime. Now; // Set createdAt
 
 ////    var quiz = new QuizDto
 ////    {
@@ -1840,7 +1840,7 @@ namespace LXP.Api.Controllers
 ////     var courseId = Guid.Parse("ce753ccb-408c-4d8c-8acd-cbc8c5adcbb8"); // Hardcoded CourseId
 ////     var topicId = Guid.Parse("e3a895e4-1b3f-45b8-9c0a-98f9c0fa4996"); // Hardcoded TopicId
 ////     var createdBy = "System"; // Set createdBy
-////     var createdAt = DateTime.UtcNow; // Set createdAt
+////     var createdAt = DateTime. Now; // Set createdAt
 
 ////     var quiz = new QuizDto
 ////     {

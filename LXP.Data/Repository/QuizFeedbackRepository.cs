@@ -49,7 +49,7 @@ namespace LXP.Data.Repository
                     Question = quizfeedbackquestionDto.Question,
                     QuestionType = normalizedQuestionType,
                     CreatedBy = "Admin",
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.Now
                 };
 
                 _dbContext.Quizfeedbackquestions.Add(questionEntity);
@@ -66,7 +66,7 @@ namespace LXP.Data.Repository
                             {
                                 QuizFeedbackQuestionId = questionEntity.QuizFeedbackQuestionId,
                                 OptionText = option.OptionText,
-                                CreatedAt = DateTime.UtcNow,
+                                CreatedAt = DateTime.Now,
                                 CreatedBy = "Admin"
                             };
                             _dbContext.Feedbackquestionsoptions.Add(optionEntity);
@@ -148,7 +148,7 @@ namespace LXP.Data.Repository
             {
                 QuizFeedbackQuestionId = quizFeedbackQuestionId,
                 OptionText = feedbackquestionsoptionDto.OptionText,
-                CreatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
                 CreatedBy = "Admin"
             };
             _dbContext.Feedbackquestionsoptions.Add(optionEntity);
@@ -238,7 +238,7 @@ namespace LXP.Data.Repository
 
                     // Update the question details
                     existingQuestion.Question = quizfeedbackquestionDto.Question;
-                    existingQuestion.ModifiedAt = DateTime.UtcNow;
+                    existingQuestion.ModifiedAt = DateTime.Now;
                     existingQuestion.ModifiedBy = "Admin";
                     _dbContext.SaveChanges();
 
@@ -262,7 +262,7 @@ namespace LXP.Data.Repository
                                 {
                                     QuizFeedbackQuestionId = quizFeedbackQuestionId,
                                     OptionText = option.OptionText,
-                                    CreatedAt = DateTime.UtcNow,
+                                    CreatedAt = DateTime.Now,
                                     CreatedBy = "Admin"
                                 };
                                 _dbContext.Feedbackquestionsoptions.Add(optionEntity);

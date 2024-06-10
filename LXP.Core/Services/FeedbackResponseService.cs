@@ -97,7 +97,7 @@ namespace LXP.Services
                 LearnerId = feedbackResponse.LearnerId,
                 Response = feedbackResponse.Response,
                 OptionId = optionId,
-                GeneratedAt = DateTime.UtcNow,
+                GeneratedAt = DateTime.Now,
                 GeneratedBy = "learner"
             };
 
@@ -154,7 +154,7 @@ namespace LXP.Services
                 LearnerId = feedbackResponse.LearnerId,
                 Response = feedbackResponse.Response,
                 OptionId = optionId,
-                GeneratedAt = DateTime.UtcNow,
+                GeneratedAt = DateTime.Now,
                 GeneratedBy = "learner"
             };
 

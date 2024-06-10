@@ -10348,11 +10348,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.API\\LXP.Api.csproj",
+      "projectUniqueName": "D:\\backend\\LXP.API\\LXP.Api.csproj",
       "projectName": "LXP.Api",
-      "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.API\\LXP.Api.csproj",
+      "projectPath": "D:\\backend\\LXP.API\\LXP.Api.csproj",
       "packagesPath": "C:\\Users\\gokul.jawahar\\.nuget\\packages\\",
-      "outputPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.API\\obj\\",
+      "outputPath": "D:\\backend\\LXP.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -10374,8 +10374,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Core\\LXP.Core.csproj": {
-              "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Core\\LXP.Core.csproj"
+            "D:\\backend\\LXP.Core\\LXP.Core.csproj": {
+              "projectPath": "D:\\backend\\LXP.Core\\LXP.Core.csproj"
             }
           }
         }

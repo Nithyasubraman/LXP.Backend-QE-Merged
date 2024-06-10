@@ -52,7 +52,7 @@ namespace LXP.Data.Repository
                     QuestionType = quizQuestionDto.QuestionType,
                     QuestionNo = await GetNextQuestionNoAsync(quizQuestionDto.QuizId),
                     CreatedBy = "SystemUser",
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.Now
                 };
 
                 await _LXPDbContext.QuizQuestions.AddAsync(quizQuestionEntity);
@@ -66,7 +66,7 @@ namespace LXP.Data.Repository
                         Option = option.Option,
                         IsCorrect = option.IsCorrect,
                         CreatedBy = "SystemUser",
-                        CreatedAt = DateTime.UtcNow
+                        CreatedAt = DateTime.Now
                     };
 
                     await _LXPDbContext.QuestionOptions.AddAsync(questionOptionEntity);
@@ -375,7 +375,7 @@ namespace LXP.Data.Repository
                     Option = questionOptionDto.Option,
                     IsCorrect = questionOptionDto.IsCorrect,
                     CreatedBy = "SystemUser",
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.Now
                 };
 
                 _LXPDbContext.QuestionOptions.Add(questionOptionEntity);
@@ -711,7 +711,7 @@ namespace LXP.Data.Repository
 //            QuestionType = quizQuestionDto.QuestionType,
 //            QuestionNo = GetNextQuestionNo(quizQuestionDto.QuizId),
 //            CreatedBy = "SystemUser",
-//            CreatedAt = DateTime.UtcNow
+//            CreatedAt = DateTime. Now
 //        };
 
 //        _LXPDbContext.QuizQuestions.Add(quizQuestionEntity);
@@ -725,7 +725,7 @@ namespace LXP.Data.Repository
 //                Option = option.Option,
 //                IsCorrect = option.IsCorrect,
 //                CreatedBy = "SystemUser",
-//                CreatedAt = DateTime.UtcNow
+//                CreatedAt = DateTime. Now
 //            };
 
 //            _LXPDbContext.QuestionOptions.Add(questionOptionEntity);

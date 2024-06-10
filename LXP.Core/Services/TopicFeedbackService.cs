@@ -36,7 +36,7 @@ namespace LXP.Core.Services
                 Question = topicFeedbackQuestion.Question,
                 QuestionType = normalizedQuestionType,
                 CreatedBy = "Admin",
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now
             };
 
             _topicFeedbackRepository.AddFeedbackQuestion(questionEntity);
@@ -49,7 +49,7 @@ namespace LXP.Core.Services
                     {
                         TopicFeedbackQuestionId = questionEntity.TopicFeedbackQuestionId,
                         OptionText = option.OptionText,
-                        CreatedAt = DateTime.UtcNow,
+                        CreatedAt = DateTime.Now,
                         CreatedBy = "Admin"
                     }).ToList();
 
@@ -81,7 +81,7 @@ namespace LXP.Core.Services
                 }
 
                 existingQuestion.Question = topicFeedbackQuestion.Question;
-                existingQuestion.ModifiedAt = DateTime.UtcNow;
+                existingQuestion.ModifiedAt = DateTime.Now;
                 existingQuestion.ModifiedBy = "Admin";
                 _topicFeedbackRepository.UpdateFeedbackQuestion(existingQuestion);
 
@@ -101,7 +101,7 @@ namespace LXP.Core.Services
                         {
                             TopicFeedbackQuestionId = topicFeedbackQuestionId,
                             OptionText = option.OptionText,
-                            CreatedAt = DateTime.UtcNow,
+                            CreatedAt = DateTime.Now,
                             CreatedBy = "Admin"
                         }).ToList();
 

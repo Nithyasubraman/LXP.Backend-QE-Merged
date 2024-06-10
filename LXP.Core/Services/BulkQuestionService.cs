@@ -115,7 +115,7 @@ namespace LXP.Core.Services
                             QuestionType = quizQuestion.QuestionType,
                             Question = quizQuestion.Question,
                             CreatedBy = "Admin",
-                            CreatedAt = DateTime.UtcNow
+                            CreatedAt = DateTime. Now
                         };
 
                         // Save the question to get the QuizQuestionId
@@ -132,7 +132,7 @@ namespace LXP.Core.Services
                                     QuizQuestionId = questionEntity.QuizQuestionId,
                                     Option = quizQuestion.Options[i],
                                     IsCorrect = quizQuestion.CorrectOptions.Contains(quizQuestion.Options[i]),
-                                    CreatedAt = DateTime.UtcNow,
+                                    CreatedAt = DateTime. Now,
                                     CreatedBy = "Admin",
                                     ModifiedBy = "Admin"
                                 };
@@ -336,7 +336,7 @@ namespace LXP.Core.Services
 //                                QuestionType = quizQuestion.QuestionType,
 //                                Question = quizQuestion.Question,
 //                                CreatedBy = "Admin",
-//                                CreatedAt = DateTime.UtcNow
+//                                CreatedAt = DateTime. Now
 //                            };
 
 //                            // Save the question to get the QuizQuestionId
@@ -353,7 +353,7 @@ namespace LXP.Core.Services
 //                                        QuizQuestionId = questionEntity.QuizQuestionId,
 //                                        Option = quizQuestion.Options[i],
 //                                        IsCorrect = quizQuestion.CorrectOptions.Contains(quizQuestion.Options[i]),
-//                                        CreatedAt = DateTime.UtcNow,
+//                                        CreatedAt = DateTime. Now,
 //                                        CreatedBy = "Admin",
 //                                        ModifiedBy = "Admin"
 //                                    };
@@ -553,7 +553,7 @@ namespace LXP.Core.Services
 //                                QuestionType = quizQuestion.QuestionType,
 //                                Question = quizQuestion.Question,
 //                                CreatedBy = "Admin",
-//                                CreatedAt = DateTime.UtcNow
+//                                CreatedAt = DateTime. Now
 //                            };
 
 //                            // Save the question to get the QuizQuestionId
@@ -570,7 +570,7 @@ namespace LXP.Core.Services
 //                                        QuizQuestionId = questionEntity.QuizQuestionId,
 //                                        Option = quizQuestion.Options[i],
 //                                        IsCorrect = quizQuestion.CorrectOptions.Contains(quizQuestion.Options[i]),
-//                                        CreatedAt = DateTime.UtcNow,
+//                                        CreatedAt = DateTime. Now,
 //                                        CreatedBy = "Admin",
 //                                        ModifiedBy = "Admin2"
 //                                    };
@@ -779,7 +779,7 @@ namespace LXP.Core.Services
                                 QuestionType = quizQuestion.QuestionType,
                                 Question = quizQuestion.Question,
                                 CreatedBy = "Admin",
-                                CreatedAt = DateTime.UtcNow
+                                CreatedAt = DateTime. Now
                             };
 
                             // Save the question to get the QuizQuestionId
@@ -796,7 +796,7 @@ namespace LXP.Core.Services
                                         QuizQuestionId = questionEntity.QuizQuestionId,
                                         Option = quizQuestion.Options[i],
                                         IsCorrect = quizQuestion.CorrectOptions.Contains(quizQuestion.Options[i]),
-                                        CreatedAt = DateTime.UtcNow,
+                                        CreatedAt = DateTime. Now,
                                         CreatedBy = "Admin",
                                         ModifiedBy = "Admin2"
                                     };
@@ -984,7 +984,7 @@ namespace LXP.Core.Services
 //                                QuestionType = quizQuestion.QuestionType,
 //                                Question = quizQuestion.Question,
 //                                CreatedBy = "Admin",
-//                                CreatedAt = DateTime.UtcNow
+//                                CreatedAt = DateTime. Now
 //                            };
 
 //                            // Save the question to get the QuizQuestionId
@@ -1001,7 +1001,7 @@ namespace LXP.Core.Services
 //                                        QuizQuestionId = questionEntity.QuizQuestionId,
 //                                        Option = quizQuestion.Options[i],
 //                                        IsCorrect = quizQuestion.CorrectOptions.Contains(quizQuestion.Options[i]),
-//                                        CreatedAt = DateTime.UtcNow,
+//                                        CreatedAt = DateTime. Now,
 //                                        CreatedBy = "Admin",
 //                                        ModifiedBy = "Admin2"
 //                                    };
