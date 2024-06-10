@@ -2,25 +2,24 @@
 using LXP.Common.ViewModels.QuizEngineViewModel;
 using LXP.Core.IServices;
 using LXP.Data.IRepository;
+using Microsoft.Extensions.Caching.Memory;
 
 
 namespace LXP.Core.Services
 {
-   
+
     public class QuizEngineService : IQuizEngineService
     {
         private readonly IQuizEngineRepository _quizEngineRepository;
+        private readonly IMemoryCache _memoryCache;
 
-        public QuizEngineService(IQuizEngineRepository quizEngineRepository)
+        public QuizEngineService(IQuizEngineRepository quizEngineRepository, IMemoryCache memoryCache)
         {
             _quizEngineRepository = quizEngineRepository;
+            _memoryCache = memoryCache;
         }
 
-        public static DateTime ConvertUtcToIst(DateTime utcDateTime)
-        {
-            TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-            return TimeZoneInfo.ConvertTimeToUtc(utcDateTime, istTimeZone);
-        }
+        
 
         public async Task<ViewQuizDetailsViewModel> GetQuizByIdAsync(Guid quizId)
         {
@@ -87,7 +86,7 @@ namespace LXP.Core.Services
 
             return attempt.LearnerAttemptId;
         }
-        
+
 
         public async Task SubmitAnswerAsync(AnswerSubmissionModel answerSubmissionModel)
         {
@@ -220,7 +219,7 @@ namespace LXP.Core.Services
                     return 0;
             }
         }
-       
+
 
         public async Task<LearnerQuizAttemptViewModel> GetLearnerQuizAttemptAsync(Guid attemptId)
         {
@@ -232,5 +231,127 @@ namespace LXP.Core.Services
         }
 
 
+        // new batch
+
+
+        public async Task SubmitAnswerBatchAsync(AnswerSubmissionBatchModel model)
+        {
+            var validationErrors = new List<string>();
+
+            foreach (var submission in model.AnswerSubmissions)
+            {
+                // Validate each submission
+                var errors = await ValidateSubmissionAsync(submission);
+                if (errors.Count > 0)
+                {
+                    validationErrors.AddRange(errors);
+                    continue; // Skip this submission if validation fails
+                }
+
+                foreach (var option in submission.SelectedOptions)
+                {
+                    var learnerAnswer = new LearnerAnswerViewModel
+                    {
+                        LearnerAnswerId = Guid.NewGuid(),
+                        LearnerAttemptId = submission.LearnerAttemptId,
+                        QuizQuestionId = submission.QuizQuestionId,
+                        QuestionOptionId = new Guid(option)
+                    };
+
+                    await _quizEngineRepository.SaveLearnerAnswerAsync(learnerAnswer);
+                }
+            }
+
+            if (validationErrors.Count > 0)
+            {
+                throw new Exception(string.Join("; ", validationErrors));
+            }
+        }
+
+        private async Task<List<string>> ValidateSubmissionAsync(AnswerSubmissionModel submission)
+        {
+            var errors = new List<string>();
+
+            // Example validation: Check if LearnerAttemptId is valid
+            if (submission.LearnerAttemptId == Guid.Empty)
+            {
+                errors.Add("LearnerAttemptId is invalid.");
+            }
+
+            // Example validation: Check if QuizQuestionId is valid
+            if (submission.QuizQuestionId == Guid.Empty)
+            {
+                errors.Add("QuizQuestionId is invalid.");
+            }
+
+            // Example validation: Check if there are any selected options
+            if (submission.SelectedOptions == null || submission.SelectedOptions.Count == 0)
+            {
+                errors.Add("No options selected.");
+            }
+
+            // Fetch the question type
+            var question = await _quizEngineRepository.GetQuizQuestionByIdAsync(submission.QuizQuestionId);
+            if (question != null)
+            {
+                if (question.QuestionType == "MSQ" && (submission.SelectedOptions.Count < 2 || submission.SelectedOptions.Count > 3))
+                {
+                    errors.Add("MSQ type question must have 2 or 3 options selected.");
+                }
+            }
+            else
+            {
+                errors.Add("Quiz question not found.");
+            }
+
+            // Add more validations as needed
+
+            return errors;
+        }
+       public async Task CacheAnswersAsync(CachedAnswerSubmissionModel model)
+        {
+            // Store the cached answers in memory
+            var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(30));
+            _memoryCache.Set($"CachedAnswers_{model.LearnerAttemptId}", model.QuestionAnswers, cacheEntryOptions);
+
+            // Save the cached answers to the repository
+            await _quizEngineRepository.SaveCachedAnswersAsync(model.LearnerAttemptId, model.QuestionAnswers);
+
+            // TODO: Implement any additional logic, such as validation or processing
+        }
+        public async Task SubmitCachedAnswersAsync(Guid learnerAttemptId)
+        {
+            // Retrieve the cached answers from memory
+            if (_memoryCache.TryGetValue($"CachedAnswers_{learnerAttemptId}", out Dictionary<Guid, List<string>> questionAnswers))
+            {
+                // Convert the cached answers to the format expected by the SubmitAnswer endpoint
+                var answerSubmissionModels = questionAnswers.Select(kvp => new AnswerSubmissionModel
+                {
+                    LearnerAttemptId = learnerAttemptId,
+                    QuizQuestionId = kvp.Key,
+                    SelectedOptions = kvp.Value
+                }).ToList();
+
+                // Submit the answers to the repository using the SubmitAnswer endpoint
+                foreach (var answerSubmissionModel in answerSubmissionModels)
+                {
+                    await _quizEngineRepository.SubmitAnswerAsync(answerSubmissionModel);
+                }
+
+                // Remove the cached answers from memory
+                _memoryCache.Remove($"CachedAnswers_{learnerAttemptId}");
+            }
+            else
+            {
+                throw new InvalidOperationException("No cached answers found for the specified learner attempt.");
+            }
+        }
     }
 }
+
+
+
+
+
+
+

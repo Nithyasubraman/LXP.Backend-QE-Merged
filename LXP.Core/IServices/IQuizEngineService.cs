@@ -17,6 +17,11 @@ namespace LXP.Core.IServices
         //
         Task<LearnerQuizAttemptViewModel> GetLearnerQuizAttemptAsync(Guid attemptId);
         Task<LearnerQuizAttemptResultViewModel> GetLearnerQuizAttemptResultAsync(Guid attemptId);
+        //new batch
+        Task SubmitAnswerBatchAsync(AnswerSubmissionBatchModel model);
+        //cache
+       Task CacheAnswersAsync(CachedAnswerSubmissionModel model);
+       Task SubmitCachedAnswersAsync(Guid learnerAttemptId);
     }
 
 

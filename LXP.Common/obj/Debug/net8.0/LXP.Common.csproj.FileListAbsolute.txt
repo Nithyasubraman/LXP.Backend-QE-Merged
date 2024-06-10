@@ -204,3 +204,16 @@ D:\Caps\LXP.Backend Merged - Copy\LXP.Common\obj\Debug\net8.0\LXP.Common.dll
 D:\Caps\LXP.Backend Merged - Copy\LXP.Common\obj\Debug\net8.0\refint\LXP.Common.dll
 D:\Caps\LXP.Backend Merged - Copy\LXP.Common\obj\Debug\net8.0\LXP.Common.pdb
 D:\Caps\LXP.Backend Merged - Copy\LXP.Common\obj\Debug\net8.0\ref\LXP.Common.dll
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\bin\Debug\net8.0\LXP.Common.deps.json
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\bin\Debug\net8.0\LXP.Common.dll
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\bin\Debug\net8.0\LXP.Common.pdb
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\LXP.Common.csproj.AssemblyReference.cache
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\LXP.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\LXP.Common.AssemblyInfoInputs.cache
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\LXP.Common.AssemblyInfo.cs
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\LXP.Common.csproj.CoreCompileInputs.cache
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\LXP.Common.sourcelink.json
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\LXP.Common.dll
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\refint\LXP.Common.dll
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\LXP.Common.pdb
+D:\LXP.backend2\LXP.Backend-QE-Merged\LXP.Common\obj\Debug\net8.0\ref\LXP.Common.dll

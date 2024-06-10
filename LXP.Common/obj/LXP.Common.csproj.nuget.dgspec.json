@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj": {}
+    "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\LXP.Common.csproj": {}
   },
   "projects": {
-    "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj": {
+    "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\LXP.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj",
+        "projectUniqueName": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\LXP.Common.csproj",
         "projectName": "LXP.Common",
-        "projectPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\LXP.Common.csproj",
-        "packagesPath": "C:\\Users\\nithya.subramaniyan\\.nuget\\packages\\",
-        "outputPath": "D:\\Caps\\LXP.Backend Merged - Copy\\LXP.Common\\obj\\",
+        "projectPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\LXP.Common.csproj",
+        "packagesPath": "C:\\Users\\gokul.jawahar\\.nuget\\packages\\",
+        "outputPath": "D:\\LXP.backend2\\LXP.Backend-QE-Merged\\LXP.Common\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nithya.subramaniyan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gokul.jawahar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

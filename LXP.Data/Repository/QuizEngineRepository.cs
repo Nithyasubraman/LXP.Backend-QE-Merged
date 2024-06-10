@@ -15,11 +15,6 @@ namespace LXP.Data.Repository
             _dbContext = dbContext;
         }
 
-        public static DateTime ConvertUtcToIst(DateTime utcDateTime)
-        {
-            TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-            return TimeZoneInfo.ConvertTimeToUtc(utcDateTime, istTimeZone);
-        }
 
         public async Task<bool> IsQuestionOptionCorrectAsync(Guid quizQuestionId, Guid questionOptionId)
         {
@@ -43,43 +38,7 @@ namespace LXP.Data.Repository
                 .ToListAsync();
         }
 
-        //public async Task<LearnerAttemptViewModel> CreateLearnerAttemptAsync(Guid learnerId, Guid quizId, DateTime startTime)
-        //{
-        //    var quiz = await _dbContext.Quizzes.FindAsync(quizId);
-        //    if (quiz == null)
-        //        throw new Exception($"Quiz with ID {quizId} not found.");
 
-        //    var existingAttempts = await _dbContext.LearnerAttempts
-        //        .CountAsync(a => a.LearnerId == learnerId && a.QuizId == quizId);
-
-        //    if (quiz.AttemptsAllowed.HasValue && existingAttempts >= quiz.AttemptsAllowed)
-        //        throw new Exception("Maximum number of attempts reached for this quiz.");
-
-        //    var attempt = new LearnerAttempt
-        //    {
-        //        LearnerId = learnerId,
-        //        QuizId = quizId,
-        //        AttemptCount = existingAttempts + 1,
-        //        StartTime = startTime,
-        //        EndTime = startTime.AddMinutes(quiz.Duration),
-        //        Score = 0,
-        //        CreatedBy = "Learner"
-        //    };
-
-        //    _dbContext.LearnerAttempts.Add(attempt);
-        //    await _dbContext.SaveChangesAsync();
-
-        //    return new LearnerAttemptViewModel
-        //    {
-        //        LearnerAttemptId = attempt.LearnerAttemptId,
-        //        LearnerId = attempt.LearnerId,
-        //        QuizId = attempt.QuizId,
-        //        AttemptCount = attempt.AttemptCount,
-        //        StartTime = attempt.StartTime,
-        //        EndTime = attempt.EndTime,
-        //        Score = attempt.Score
-        //    };
-        //}
         public async Task<LearnerAttemptViewModel?> CreateLearnerAttemptAsync(Guid learnerId, Guid quizId, DateTime startTime)
         {
             var quiz = await _dbContext.Quizzes.FindAsync(quizId);
@@ -98,7 +57,7 @@ namespace LXP.Data.Repository
                 QuizId = quizId,
                 AttemptCount = existingAttempts + 1,
                 StartTime = startTime,
-                EndTime =startTime.AddMinutes(quiz.Duration),
+                EndTime = startTime.AddMinutes(quiz.Duration),
                 Score = 0,
                 CreatedBy = "Learner"
             };
@@ -156,7 +115,7 @@ namespace LXP.Data.Repository
         }
 
 
-        
+
 
 
         public async Task<bool> IsAllowedToAttemptQuizAsync(Guid learnerId, Guid quizId)
@@ -378,6 +337,7 @@ namespace LXP.Data.Repository
             };
         }
 
+        
         public async Task<LearnerQuizAttemptResultViewModel> GetLearnerQuizAttemptResultAsync(Guid attemptId)
         {
             var attempt = await _dbContext.LearnerAttempts
@@ -389,6 +349,14 @@ namespace LXP.Data.Repository
 
             var quiz = await _dbContext.Quizzes.FindAsync(attempt.QuizId);
 
+            if (quiz == null)
+                return null;
+
+            var totalAttemptsAllowed = quiz.AttemptsAllowed ?? int.MaxValue;
+            var attemptsRemaining = totalAttemptsAllowed - attempt.AttemptCount;
+
+            var timeTaken = (attempt.EndTime - attempt.StartTime).TotalSeconds;
+
             return new LearnerQuizAttemptResultViewModel
             {
                 QuizId = attempt.QuizId,
@@ -396,14 +364,204 @@ namespace LXP.Data.Repository
                 LearnerAttemptId = attempt.LearnerAttemptId,
                 StartTime = attempt.StartTime,
                 EndTime = attempt.EndTime,
-                TimeTaken = attempt.EndTime - attempt.StartTime,
-                CurrentAttempt = attempt.AttemptCount, 
+                TimeTaken = timeTaken,
+                CurrentAttempt = attempt.AttemptCount,
+                AttemptsRemaining = attemptsRemaining,
                 Score = attempt.Score,
                 IsPassed = attempt.Score >= quiz.PassMark
             };
+        }
+
+
+
+        // new batch 
+
+
+        public async Task SaveLearnerAnswerAsync(LearnerAnswerViewModel learnerAnswer)
+        {
+            var entity = new LearnerAnswer
+            {
+                LearnerAnswerId = learnerAnswer.LearnerAnswerId,
+                LearnerAttemptId = learnerAnswer.LearnerAttemptId,
+                QuizQuestionId = learnerAnswer.QuizQuestionId,
+                QuestionOptionId = learnerAnswer.QuestionOptionId
+            };
+
+            _dbContext.LearnerAnswers.Add(entity);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<QuizEngineQuestionViewModel> GetQuizQuestionByIdAsync(Guid quizQuestionId)
+        {
+            return await _dbContext.QuizQuestions
+                .Where(q => q.QuizQuestionId == quizQuestionId)
+                .Select(q => new QuizEngineQuestionViewModel
+                {
+                    QuizQuestionId = q.QuizQuestionId,
+                    Question = q.Question,
+                    QuestionType = q.QuestionType,
+                    QuestionNo = q.QuestionNo,
+                    Options = _dbContext.QuestionOptions
+                        .Where(o => o.QuizQuestionId == q.QuizQuestionId)
+                        .Select(o => new QuizEngineOptionViewModel { Option = o.Option })
+                        .ToList()
+                })
+                .FirstOrDefaultAsync();
+        }
+
+        
+      public async Task SaveCachedAnswersAsync(Guid learnerAttemptId, Dictionary<Guid, List<string>> questionAnswers)
+        {
+            foreach (var kvp in questionAnswers)
+            {
+                var quizQuestionId = kvp.Key;
+                var selectedOptions = kvp.Value;
+
+                foreach (var selectedOption in selectedOptions)
+                {
+                    var learnerAnswer = new LearnerAnswer
+                    {
+                        LearnerAttemptId = learnerAttemptId,
+                        QuizQuestionId = quizQuestionId,
+                        QuestionOptionId = await GetOptionIdByTextAsync(quizQuestionId, selectedOption),
+                        CreatedBy = "System"
+                    };
+
+                    _dbContext.LearnerAnswers.Add(learnerAnswer);
+                }
+            }
+
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task SubmitAnswerAsync(AnswerSubmissionModel answerSubmissionModel)
+        {
+            // Clear any existing answers for the question
+            var existingAnswers = await _dbContext.LearnerAnswers
+                .Where(a => a.LearnerAttemptId == answerSubmissionModel.LearnerAttemptId && a.QuizQuestionId == answerSubmissionModel.QuizQuestionId)
+                .ToListAsync();
+            _dbContext.LearnerAnswers.RemoveRange(existingAnswers);
+
+            // Add the new answers
+            foreach (var selectedOption in answerSubmissionModel.SelectedOptions)
+            {
+                var questionOption = await _dbContext.QuestionOptions
+                    .FirstOrDefaultAsync(o => o.QuizQuestionId == answerSubmissionModel.QuizQuestionId && o.Option == selectedOption);
+                if (questionOption == null)
+                {
+                    throw new InvalidOperationException($"Invalid option '{selectedOption}' for question '{answerSubmissionModel.QuizQuestionId}'");
+                }
+                var learnerAnswer = new LearnerAnswer
+                {
+                    LearnerAttemptId = answerSubmissionModel.LearnerAttemptId,
+                    QuizQuestionId = answerSubmissionModel.QuizQuestionId,
+                    QuestionOptionId = questionOption.QuestionOptionId,
+                    CreatedBy = "System"
+                };
+                _dbContext.LearnerAnswers.Add(learnerAnswer);
+            }
+
+            // Save changes
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
 
 
 
+// public async Task<LearnerQuizAttemptResultViewModel> GetLearnerQuizAttemptResultAsync(Guid attemptId)
+        // {
+        //     var attempt = await _dbContext.LearnerAttempts
+        //         .Include(a => a.Quiz)
+        //         .FirstOrDefaultAsync(a => a.LearnerAttemptId == attemptId);
+
+        //     if (attempt == null)
+        //         return null;
+
+        //     var quiz = await _dbContext.Quizzes.FindAsync(attempt.QuizId);
+
+        //     return new LearnerQuizAttemptResultViewModel
+        //     {
+        //         QuizId = attempt.QuizId,
+        //         TopicId = quiz.TopicId,
+        //         LearnerAttemptId = attempt.LearnerAttemptId,
+        //         StartTime = attempt.StartTime,
+        //         EndTime = attempt.EndTime,
+        //         TimeTaken = attempt.EndTime - attempt.StartTime,
+        //         CurrentAttempt = attempt.AttemptCount,
+        //         Score = attempt.Score,
+        //         IsPassed = attempt.Score >= quiz.PassMark
+        //     };
+        // }
+
+        // public async Task<LearnerQuizAttemptResultViewModel> GetLearnerQuizAttemptResultAsync(Guid attemptId)
+        // {
+        //     var attempt = await _dbContext.LearnerAttempts
+        //         .Include(a => a.Quiz)
+        //         .FirstOrDefaultAsync(a => a.LearnerAttemptId == attemptId);
+
+        //     if (attempt == null)
+        //         return null;
+
+        //     var quiz = await _dbContext.Quizzes.FindAsync(attempt.QuizId);
+
+        //     if (quiz == null)
+        //         return null;
+
+        //     var totalAttemptsAllowed = quiz.AttemptsAllowed ?? int.MaxValue;
+        //     var attemptsRemaining = totalAttemptsAllowed - attempt.AttemptCount;
+
+        //     return new LearnerQuizAttemptResultViewModel
+        //     {
+        //         QuizId = attempt.QuizId,
+        //         TopicId = quiz.TopicId,
+        //         LearnerAttemptId = attempt.LearnerAttemptId,
+        //         StartTime = attempt.StartTime,
+        //         EndTime = attempt.EndTime,
+        //         TimeTaken = attempt.EndTime - attempt.StartTime,
+        //         CurrentAttempt = attempt.AttemptCount,
+        //         AttemptsRemaining = attemptsRemaining,
+        //         Score = attempt.Score,
+        //         IsPassed = attempt.Score >= quiz.PassMark
+        //     };
+        // }
+
+
+
+//public async Task<LearnerAttemptViewModel> CreateLearnerAttemptAsync(Guid learnerId, Guid quizId, DateTime startTime)
+//{
+//    var quiz = await _dbContext.Quizzes.FindAsync(quizId);
+//    if (quiz == null)
+//        throw new Exception($"Quiz with ID {quizId} not found.");
+
+//    var existingAttempts = await _dbContext.LearnerAttempts
+//        .CountAsync(a => a.LearnerId == learnerId && a.QuizId == quizId);
+
+//    if (quiz.AttemptsAllowed.HasValue && existingAttempts >= quiz.AttemptsAllowed)
+//        throw new Exception("Maximum number of attempts reached for this quiz.");
+
+//    var attempt = new LearnerAttempt
+//    {
+//        LearnerId = learnerId,
+//        QuizId = quizId,
+//        AttemptCount = existingAttempts + 1,
+//        StartTime = startTime,
+//        EndTime = startTime.AddMinutes(quiz.Duration),
+//        Score = 0,
+//        CreatedBy = "Learner"
+//    };
+
+//    _dbContext.LearnerAttempts.Add(attempt);
+//    await _dbContext.SaveChangesAsync();
+
+//    return new LearnerAttemptViewModel
+//    {
+//        LearnerAttemptId = attempt.LearnerAttemptId,
+//        LearnerId = attempt.LearnerId,
+//        QuizId = attempt.QuizId,
+//        AttemptCount = attempt.AttemptCount,
+//        StartTime = attempt.StartTime,
+//        EndTime = attempt.EndTime,
+//        Score = attempt.Score
+//    };
+//}
