@@ -35,10 +35,7 @@ namespace LXP.Data.Repository
 
 
         }
-        //public Task<bool> AnyLearnerByEmail(string email)
-        //{
-        //    return _lXPDbContext.Learners.AnyAsync(learner=>learner.Email==email);
-        //}
+        
 
 
 

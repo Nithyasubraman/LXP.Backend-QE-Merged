@@ -335,26 +335,3 @@ namespace LXP.Core.Services
 
 
 
-//public async Task<Guid> StartQuizAttemptAsync(Guid learnerId, Guid quizId)
-        //{
-        //    var quiz = await _quizEngineRepository.GetQuizByIdAsync(quizId);
-        //    if (quiz == null)
-        //        throw new KeyNotFoundException($"Quiz with ID {quizId} not found.");
-
-        //    var isAllowedToAttempt = await _quizEngineRepository.IsAllowedToAttemptQuizAsync(learnerId, quizId);
-        //    if (!isAllowedToAttempt)
-        //    {
-        //        var existingAttempts = await _quizEngineRepository.GetLearnerAttemptsForQuizAsync(learnerId, quizId);
-        //        var passMark = quiz.PassMark;
-        //        var hasPassedQuiz = existingAttempts.Any(a => a.Score >= passMark);
-
-        //        if (hasPassedQuiz)
-        //            throw new InvalidOperationException("You have already passed this quiz in a previous attempt.");
-        //        else
-        //            throw new InvalidOperationException("You have exceeded the maximum number of attempts for this quiz.");
-        //    }
-
-        //    var startTime = DateTime. Now;
-        //    var attempt = await _quizEngineRepository.CreateLearnerAttemptAsync(learnerId, quizId, startTime);
-        //    return attempt.LearnerAttemptId;
-        //}

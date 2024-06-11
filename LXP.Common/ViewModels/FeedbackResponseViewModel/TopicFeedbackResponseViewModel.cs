@@ -1,5 +1,4 @@
-﻿
-namespace LXP.Common.ViewModels.FeedbackResponseViewModel
+﻿namespace LXP.Common.ViewModels.FeedbackResponseViewModel
 {
     public class TopicFeedbackResponseViewModel
     {

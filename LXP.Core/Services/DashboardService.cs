@@ -36,14 +36,6 @@ namespace LXP.Core.Services
             Console.WriteLine(query);
             var output = query.ToList();
             return output.ToArray();
-            //var groupedlist = from s in list
-            //                  group s by s.EnrollmentDate.Month;
-            //IEnumerable<string> groupedEnrollments = list
-            //    .GroupBy(s=>s.EnrollmentDate.Month.ToString())
-            //    .Select(grouping => string.Format("Type: {0} Count: {1}", grouping.Key, grouping.Count()));
-            //Console.WriteLine(groupedEnrollments);
-            //Console.WriteLine(groupedEnrollments.GetType());
-            //Console.WriteLine(groupedlist);
         }
 
         public Array GetCourseCreatedList()
@@ -62,13 +54,6 @@ namespace LXP.Core.Services
             var course = _dashboardRepository.GetMoreEnrolledCourse();
             return "hi";
         }
-
-        //IEnumerable<DashboardEnrollmentViewModel> IDashboardService.GetEnrollments()
-        //{
-        //    var result = _dashboardRepository.GetTotalEnrollments();
-        //    return result;
-        //}
-
 
         public AdminDashboardViewModel GetAdminDashboardDetails()
         {
