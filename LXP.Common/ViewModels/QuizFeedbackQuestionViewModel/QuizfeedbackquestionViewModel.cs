@@ -8,7 +8,8 @@
 
         public string QuestionType { get; set; } = null!;
 
-        public List<QuizFeedbackQuestionsOptionViewModel> Options { get; set; } = new List<QuizFeedbackQuestionsOptionViewModel>();
+        public List<QuizFeedbackQuestionsOptionViewModel> Options { get; set; } =
+            new List<QuizFeedbackQuestionsOptionViewModel>();
     }
 }
 

@@ -1,11 +1,10 @@
 using System.Transactions;
 using LXP.Common.Entities;
 using LXP.Common.ViewModels.QuizQuestionViewModel;
+using LXP.Core.IServices;
 using LXP.Data.IRepository;
 using Microsoft.AspNetCore.Http;
 using OfficeOpenXml;
-using LXP.Core.IServices;
-
 
 namespace LXP.Core.Services
 {
@@ -57,7 +56,9 @@ namespace LXP.Core.Services
             return quizQuestions;
         }
 
-        public List<QuizQuestionJsonViewModel> ValidateQuizData(List<QuizQuestionJsonViewModel> quizData)
+        public List<QuizQuestionJsonViewModel> ValidateQuizData(
+            List<QuizQuestionJsonViewModel> quizData
+        )
         {
             var validQuizData = new List<QuizQuestionJsonViewModel>();
 
@@ -65,31 +66,42 @@ namespace LXP.Core.Services
             {
                 if (question.QuestionType == "MCQ")
                 {
-                    if (question.Options.Length != 4 ||
-                        question.Options.Distinct().Count() != 4 ||
-                        question.CorrectOptions.Length != 1 ||
-                        !question.Options.Contains(question.CorrectOptions.First()))
+                    if (
+                        question.Options.Length != 4
+                        || question.Options.Distinct().Count() != 4
+                        || question.CorrectOptions.Length != 1
+                        || !question.Options.Contains(question.CorrectOptions.First())
+                    )
                     {
                         continue;
                     }
                 }
                 else if (question.QuestionType == "TF")
                 {
-                    if (question.Options.Length != 2 ||
-                        !question.Options.Contains("True", StringComparer.OrdinalIgnoreCase) ||
-                        !question.Options.Contains("False", StringComparer.OrdinalIgnoreCase) ||
-                        question.CorrectOptions.Length != 1 ||
-                        (question.CorrectOptions.First().ToLower() != "true" && question.CorrectOptions.First().ToLower() != "false"))
+                    if (
+                        question.Options.Length != 2
+                        || !question.Options.Contains("True", StringComparer.OrdinalIgnoreCase)
+                        || !question.Options.Contains("False", StringComparer.OrdinalIgnoreCase)
+                        || question.CorrectOptions.Length != 1
+                        || (
+                            question.CorrectOptions.First().ToLower() != "true"
+                            && question.CorrectOptions.First().ToLower() != "false"
+                        )
+                    )
                     {
                         continue;
                     }
                 }
                 else if (question.QuestionType == "MSQ")
                 {
-                    if (question.Options.Length < 5 || question.Options.Length > 8 ||
-                        question.Options.Distinct().Count() != question.Options.Length ||
-                        question.CorrectOptions.Length < 2 || question.CorrectOptions.Length > 3 ||
-                        !question.CorrectOptions.All(co => question.Options.Contains(co)))
+                    if (
+                        question.Options.Length < 5
+                        || question.Options.Length > 8
+                        || question.Options.Distinct().Count() != question.Options.Length
+                        || question.CorrectOptions.Length < 2
+                        || question.CorrectOptions.Length > 3
+                        || !question.CorrectOptions.All(co => question.Options.Contains(co))
+                    )
                     {
                         continue;
                     }
@@ -100,13 +112,20 @@ namespace LXP.Core.Services
             return validQuizData;
         }
 
-        public async Task SaveQuizDataAsync(List<QuizQuestionJsonViewModel> quizQuestions, Guid quizId)
+        public async Task SaveQuizDataAsync(
+            List<QuizQuestionJsonViewModel> quizQuestions,
+            Guid quizId
+        )
         {
             foreach (var quizQuestion in quizQuestions)
             {
-                using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+                using (
+                    var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled)
+                )
                 {
-                    int nextQuestionNo = await _quizQuestionRepository.GetNextQuestionNoAsync(quizId);
+                    int nextQuestionNo = await _quizQuestionRepository.GetNextQuestionNoAsync(
+                        quizId
+                    );
 
                     var questionEntity = new QuizQuestion
                     {
@@ -118,26 +137,41 @@ namespace LXP.Core.Services
                         CreatedAt = DateTime.Now
                     };
 
-                    await _quizQuestionRepository.AddQuestionsAsync(new List<QuizQuestion> { questionEntity });
+                    await _quizQuestionRepository.AddQuestionsAsync(
+                        new List<QuizQuestion> { questionEntity }
+                    );
 
-                    var optionEntities = quizQuestion.Options.Select((option, index) => new QuestionOption
-                    {
-                        QuizQuestionId = questionEntity.QuizQuestionId,
-                        Option = option,
-                        IsCorrect = quizQuestion.CorrectOptions.Contains(option),
-                        CreatedAt = DateTime.Now,
-                        CreatedBy = "Admin",
-                        ModifiedBy = "Admin"
-                    }).ToList();
+                    var optionEntities = quizQuestion
+                        .Options.Select(
+                            (option, index) =>
+                                new QuestionOption
+                                {
+                                    QuizQuestionId = questionEntity.QuizQuestionId,
+                                    Option = option,
+                                    IsCorrect = quizQuestion.CorrectOptions.Contains(option),
+                                    CreatedAt = DateTime.Now,
+                                    CreatedBy = "Admin",
+                                    ModifiedBy = "Admin"
+                                }
+                        )
+                        .ToList();
 
-                    await _quizQuestionRepository.AddOptionsAsync(optionEntities, questionEntity.QuizQuestionId);
+                    await _quizQuestionRepository.AddOptionsAsync(
+                        optionEntities,
+                        questionEntity.QuizQuestionId
+                    );
 
                     transaction.Complete();
                 }
             }
         }
 
-        private string[] ExtractOptions(ExcelWorksheet worksheet, int row, int startColumn, int count)
+        private string[] ExtractOptions(
+            ExcelWorksheet worksheet,
+            int row,
+            int startColumn,
+            int count
+        )
         {
             var options = new List<string>();
             for (int i = 0; i < count; i++)
@@ -150,5 +184,3 @@ namespace LXP.Core.Services
         }
     }
 }
-
-

@@ -13,14 +13,25 @@ namespace LXP.Core.Services
             _quizQuestionRepository = quizQuestionRepository;
         }
 
-        public async Task<Guid> AddQuestionAsync(QuizQuestionViewModel quizQuestionDto, List<QuestionOptionViewModel> options)
+        public async Task<Guid> AddQuestionAsync(
+            QuizQuestionViewModel quizQuestionDto,
+            List<QuestionOptionViewModel> options
+        )
         {
             return await _quizQuestionRepository.AddQuestionAsync(quizQuestionDto, options);
         }
 
-        public async Task<bool> UpdateQuestionAsync(Guid quizQuestionId, QuizQuestionViewModel quizQuestionDto, List<QuestionOptionViewModel> options)
+        public async Task<bool> UpdateQuestionAsync(
+            Guid quizQuestionId,
+            QuizQuestionViewModel quizQuestionDto,
+            List<QuestionOptionViewModel> options
+        )
         {
-            return await _quizQuestionRepository.UpdateQuestionAsync(quizQuestionId, quizQuestionDto, options);
+            return await _quizQuestionRepository.UpdateQuestionAsync(
+                quizQuestionId,
+                quizQuestionDto,
+                options
+            );
         }
 
         public async Task<bool> DeleteQuestionAsync(Guid quizQuestionId)
@@ -43,6 +54,4 @@ namespace LXP.Core.Services
             return await _quizQuestionRepository.GetQuestionByIdAsync(quizQuestionId);
         }
     }
-
 }
-

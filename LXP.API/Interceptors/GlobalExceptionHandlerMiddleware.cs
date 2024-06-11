@@ -1,42 +1,41 @@
 ﻿using System.Net;
 using Newtonsoft.Json;
 
-
-namespace LXP.API.Interceptors{
-
-public class GlobalExceptionHandlerMiddleware
+namespace LXP.API.Interceptors
 {
-    private readonly RequestDelegate _next;
-    private readonly ILogger<GlobalExceptionHandlerMiddleware> _logger;
-
-    public GlobalExceptionHandlerMiddleware(
-        RequestDelegate next,
-        ILogger<GlobalExceptionHandlerMiddleware> logger
-    )
+    public class GlobalExceptionHandlerMiddleware
     {
-        _next = next;
-        _logger = logger;
-    }
+        private readonly RequestDelegate _next;
+        private readonly ILogger<GlobalExceptionHandlerMiddleware> _logger;
 
-    public async Task InvokeAsync(HttpContext context)
-    {
-        try
+        public GlobalExceptionHandlerMiddleware(
+            RequestDelegate next,
+            ILogger<GlobalExceptionHandlerMiddleware> logger
+        )
         {
-            await _next(context);
+            _next = next;
+            _logger = logger;
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, ex.Message);
-            await HandleExceptionAsync(context, ex);
-        }
-    }
 
-    private static Task HandleExceptionAsync(HttpContext context, Exception ex)
-    {
-        context.Response.ContentType = "application/json";
-        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-        var result = JsonConvert.SerializeObject(new { error = ex.Message });
-        return context.Response.WriteAsync(result);
+        public async Task InvokeAsync(HttpContext context)
+        {
+            try
+            {
+                await _next(context);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                await HandleExceptionAsync(context, ex);
+            }
+        }
+
+        private static Task HandleExceptionAsync(HttpContext context, Exception ex)
+        {
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            var result = JsonConvert.SerializeObject(new { error = ex.Message });
+            return context.Response.WriteAsync(result);
+        }
     }
-}
 }

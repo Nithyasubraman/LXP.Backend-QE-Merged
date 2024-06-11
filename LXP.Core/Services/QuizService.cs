@@ -22,7 +22,6 @@ namespace LXP.Core.Services
 
             var courseId = topic.CourseId;
 
-            
             var existingQuiz = _quizRepository.GetQuizByTopicId(topicId);
             if (existingQuiz != null)
                 throw new Exception($"A quiz already exists for the topic with id {topicId}.");
@@ -72,12 +71,13 @@ namespace LXP.Core.Services
 
         public IEnumerable<QuizViewModel> GetAllQuizzes()
         {
-            return _quizRepository.GetAllQuizzes()
+            return _quizRepository
+                .GetAllQuizzes()
                 .Select(q => new QuizViewModel
                 {
                     QuizId = q.QuizId,
-                     CourseId = q.CourseId,
-                     TopicId =  q.TopicId,
+                    CourseId = q.CourseId,
+                    TopicId = q.TopicId,
                     NameOfQuiz = q.NameOfQuiz,
                     Duration = q.Duration,
                     PassMark = q.PassMark,
@@ -95,8 +95,8 @@ namespace LXP.Core.Services
             return new QuizViewModel
             {
                 QuizId = quiz.QuizId,
-                CourseId= quiz.CourseId,
-                TopicId= quiz.TopicId,
+                CourseId = quiz.CourseId,
+                TopicId = quiz.TopicId,
                 NameOfQuiz = quiz.NameOfQuiz,
                 Duration = quiz.Duration,
                 PassMark = quiz.PassMark,
@@ -123,4 +123,3 @@ namespace LXP.Core.Services
         }
     }
 }
-

@@ -1,5 +1,4 @@
-﻿
-using LXP.Common.Entities;
+﻿using LXP.Common.Entities;
 using LXP.Data;
 using LXP.Data.IRepository;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +23,9 @@ namespace LXP.Core.Repositories
 
         public async Task AddOptionsAsync(List<QuestionOption> questionOptions, Guid quizQuestionId)
         {
-            var existingQuestion = await _dbContext.QuizQuestions.FirstOrDefaultAsync(q => q.QuizQuestionId == quizQuestionId);
+            var existingQuestion = await _dbContext.QuizQuestions.FirstOrDefaultAsync(q =>
+                q.QuizQuestionId == quizQuestionId
+            );
             if (existingQuestion != null)
             {
                 foreach (var option in questionOptions)
@@ -44,8 +45,8 @@ namespace LXP.Core.Repositories
         {
             try
             {
-                int count = await _dbContext.QuizQuestions
-                    .Where(q => q.QuizId == quizId)
+                int count = await _dbContext
+                    .QuizQuestions.Where(q => q.QuizId == quizId)
                     .CountAsync();
 
                 return count + 1;
@@ -60,6 +61,3 @@ namespace LXP.Core.Repositories
         }
     }
 }
-
-
-

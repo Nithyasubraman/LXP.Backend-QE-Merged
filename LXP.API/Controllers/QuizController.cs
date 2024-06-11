@@ -35,9 +35,6 @@ namespace LXP.Api.Controllers
 
             return Ok(CreateSuccessResponse(quiz));
         }
-                
-       
-
 
         /// <summary>
         /// Retrieves a list of all available quizzes.

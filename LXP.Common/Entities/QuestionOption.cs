@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+
 namespace LXP.Common.Entities;
+
 public partial class QuestionOption
 {
     public Guid QuestionOptionId { get; set; }
@@ -19,7 +21,8 @@ public partial class QuestionOption
 
     public DateTime? ModifiedAt { get; set; }
 
-    public virtual ICollection<LearnerAnswer> LearnerAnswers { get; set; } = new List<LearnerAnswer>();
+    public virtual ICollection<LearnerAnswer> LearnerAnswers { get; set; } =
+        new List<LearnerAnswer>();
 
     public virtual QuizQuestion QuizQuestion { get; set; } = null!;
 }

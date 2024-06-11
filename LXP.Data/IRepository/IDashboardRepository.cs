@@ -1,6 +1,6 @@
-﻿
-using LXP.Common.Entities;
+﻿using LXP.Common.Entities;
 using LXP.Common.ViewModels;
+
 namespace LXP.Data.IRepository
 {
     public interface IDashboardRepository
@@ -11,7 +11,6 @@ namespace LXP.Data.IRepository
         IEnumerable<DashboardEnrollmentViewModel> GetMonthWiseEnrollments();
         IEnumerable<DashboardCourseViewModel> GetCourseCreated();
         IEnumerable<DashboardEnrollmentViewModel> GetMoreEnrolledCourse();
-
 
         public List<Learner> GetNoOfLearners();
         public List<Course> GetNoOfCourse();

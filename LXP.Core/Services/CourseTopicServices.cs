@@ -1,12 +1,12 @@
-using LXP.Core.IServices;
-using LXP.Data.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LXP.Common.ViewModels;
 using LXP.Common.Entities;
+using LXP.Common.ViewModels;
+using LXP.Core.IServices;
+using LXP.Data.IRepository;
 
 namespace LXP.Core.Services
 {
@@ -14,11 +14,16 @@ namespace LXP.Core.Services
     {
         private readonly ICourseTopicRepository _courseTopicRepository;
         private readonly ICourseRepository _courseRepository;
-        public CourseTopicServices(ICourseTopicRepository courseTopicRepository, ICourseRepository courseRepository)
+
+        public CourseTopicServices(
+            ICourseTopicRepository courseTopicRepository,
+            ICourseRepository courseRepository
+        )
         {
             _courseTopicRepository = courseTopicRepository;
             _courseRepository = courseRepository;
         }
+
         public object GetTopicDetails(string courseId)
         {
             return _courseTopicRepository.GetTopicDetails(courseId);
@@ -50,12 +55,6 @@ namespace LXP.Core.Services
             {
                 return false;
             }
-
-
-
         }
-
-
-
     }
 }

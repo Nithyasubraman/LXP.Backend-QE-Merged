@@ -1,6 +1,4 @@
-﻿
-
-namespace LXP.Common.ViewModels.QuizEngineViewModel
+﻿namespace LXP.Common.ViewModels.QuizEngineViewModel
 {
     public class LearnerQuizAttemptResultViewModel
     {

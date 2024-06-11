@@ -1,11 +1,10 @@
-﻿using LXP.Common.Entities;
-using FluentValidation;
+﻿using FluentValidation;
+using LXP.Common.Constants;
+using LXP.Common.Entities;
+using LXP.Common.Validators;
 using LXP.Common.ViewModels.FeedbackResponseViewModel;
 using LXP.Data.IRepository;
 using LXP.Services.IServices;
-using LXP.Common.Validators;
-using LXP.Common.Constants;
-
 
 namespace LXP.Services
 {
@@ -32,7 +31,9 @@ namespace LXP.Services
             ValidateAndSubmitTopicFeedback(feedbackResponse);
         }
 
-        public void SubmitFeedbackResponses(IEnumerable<QuizFeedbackResponseViewModel> feedbackResponses)
+        public void SubmitFeedbackResponses(
+            IEnumerable<QuizFeedbackResponseViewModel> feedbackResponses
+        )
         {
             foreach (var feedbackResponse in feedbackResponses)
             {
@@ -40,7 +41,9 @@ namespace LXP.Services
             }
         }
 
-        public void SubmitFeedbackResponses(IEnumerable<TopicFeedbackResponseViewModel> feedbackResponses)
+        public void SubmitFeedbackResponses(
+            IEnumerable<TopicFeedbackResponseViewModel> feedbackResponses
+        )
         {
             foreach (var feedbackResponse in feedbackResponses)
             {
@@ -59,20 +62,33 @@ namespace LXP.Services
             if (feedbackResponse == null)
                 throw new ArgumentNullException(nameof(feedbackResponse));
 
-            var question = _feedbackResponseRepository.GetQuizFeedbackQuestion(feedbackResponse.QuizFeedbackQuestionId);
+            var question = _feedbackResponseRepository.GetQuizFeedbackQuestion(
+                feedbackResponse.QuizFeedbackQuestionId
+            );
 
             if (question == null)
-                throw new ArgumentException("Invalid feedback question ID.", nameof(feedbackResponse.QuizFeedbackQuestionId));
+                throw new ArgumentException(
+                    "Invalid feedback question ID.",
+                    nameof(feedbackResponse.QuizFeedbackQuestionId)
+                );
 
             var learner = _feedbackResponseRepository.GetLearner(feedbackResponse.LearnerId);
 
             if (learner == null)
-                throw new ArgumentException("Invalid learner ID.", nameof(feedbackResponse.LearnerId));
+                throw new ArgumentException(
+                    "Invalid learner ID.",
+                    nameof(feedbackResponse.LearnerId)
+                );
 
-            var existingResponse = _feedbackResponseRepository.GetExistingQuizFeedbackResponse(feedbackResponse.QuizFeedbackQuestionId, feedbackResponse.LearnerId);
+            var existingResponse = _feedbackResponseRepository.GetExistingQuizFeedbackResponse(
+                feedbackResponse.QuizFeedbackQuestionId,
+                feedbackResponse.LearnerId
+            );
 
             if (existingResponse != null)
-                throw new InvalidOperationException("User has already submitted a response for this question.");
+                throw new InvalidOperationException(
+                    "User has already submitted a response for this question."
+                );
 
             Guid? optionId = null;
 
@@ -81,9 +97,15 @@ namespace LXP.Services
                 if (string.IsNullOrEmpty(feedbackResponse.OptionText))
                     throw new ArgumentException("Option text must be provided for MCQ responses.");
 
-                optionId = _feedbackResponseRepository.GetOptionIdByText(feedbackResponse.QuizFeedbackQuestionId, feedbackResponse.OptionText);
+                optionId = _feedbackResponseRepository.GetOptionIdByText(
+                    feedbackResponse.QuizFeedbackQuestionId,
+                    feedbackResponse.OptionText
+                );
                 if (optionId == null)
-                    throw new ArgumentException("Invalid option text provided.", nameof(feedbackResponse.OptionText));
+                    throw new ArgumentException(
+                        "Invalid option text provided.",
+                        nameof(feedbackResponse.OptionText)
+                    );
 
                 feedbackResponse.Response = null;
             }
@@ -116,20 +138,33 @@ namespace LXP.Services
             if (feedbackResponse == null)
                 throw new ArgumentNullException(nameof(feedbackResponse));
 
-            var question = _feedbackResponseRepository.GetTopicFeedbackQuestion(feedbackResponse.TopicFeedbackQuestionId);
+            var question = _feedbackResponseRepository.GetTopicFeedbackQuestion(
+                feedbackResponse.TopicFeedbackQuestionId
+            );
 
             if (question == null)
-                throw new ArgumentException("Invalid feedback question ID.", nameof(feedbackResponse.TopicFeedbackQuestionId));
+                throw new ArgumentException(
+                    "Invalid feedback question ID.",
+                    nameof(feedbackResponse.TopicFeedbackQuestionId)
+                );
 
             var learner = _feedbackResponseRepository.GetLearner(feedbackResponse.LearnerId);
 
             if (learner == null)
-                throw new ArgumentException("Invalid learner ID.", nameof(feedbackResponse.LearnerId));
+                throw new ArgumentException(
+                    "Invalid learner ID.",
+                    nameof(feedbackResponse.LearnerId)
+                );
 
-            var existingResponse = _feedbackResponseRepository.GetExistingTopicFeedbackResponse(feedbackResponse.TopicFeedbackQuestionId, feedbackResponse.LearnerId);
+            var existingResponse = _feedbackResponseRepository.GetExistingTopicFeedbackResponse(
+                feedbackResponse.TopicFeedbackQuestionId,
+                feedbackResponse.LearnerId
+            );
 
             if (existingResponse != null)
-                throw new InvalidOperationException("User has already submitted a response for this question.");
+                throw new InvalidOperationException(
+                    "User has already submitted a response for this question."
+                );
 
             Guid? optionId = null;
 
@@ -138,9 +173,15 @@ namespace LXP.Services
                 if (string.IsNullOrEmpty(feedbackResponse.OptionText))
                     throw new ArgumentException("Option text must be provided for MCQ responses.");
 
-                optionId = _feedbackResponseRepository.GetOptionIdByText(feedbackResponse.TopicFeedbackQuestionId, feedbackResponse.OptionText);
+                optionId = _feedbackResponseRepository.GetOptionIdByText(
+                    feedbackResponse.TopicFeedbackQuestionId,
+                    feedbackResponse.OptionText
+                );
                 if (optionId == null)
-                    throw new ArgumentException("Invalid option text provided.", nameof(feedbackResponse.OptionText));
+                    throw new ArgumentException(
+                        "Invalid option text provided.",
+                        nameof(feedbackResponse.OptionText)
+                    );
 
                 feedbackResponse.Response = null;
             }

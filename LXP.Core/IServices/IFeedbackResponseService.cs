@@ -1,5 +1,5 @@
-﻿using LXP.Common.ViewModels.FeedbackResponseViewModel;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using LXP.Common.ViewModels.FeedbackResponseViewModel;
 
 namespace LXP.Services.IServices
 {
@@ -11,13 +11,3 @@ namespace LXP.Services.IServices
         void SubmitFeedbackResponses(IEnumerable<TopicFeedbackResponseViewModel> feedbackResponses);
     }
 }
-
-
-
-
-
-
-
-
-
-

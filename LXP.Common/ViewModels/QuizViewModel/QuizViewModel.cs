@@ -11,9 +11,5 @@
         public int PassMark { get; set; }
         public string CreatedBy { get; set; } = "System";
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-     
-
     }
 }
-
-

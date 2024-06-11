@@ -4,7 +4,6 @@ using LXP.Common.ViewModels;
 using LXP.Core.IServices;
 using LXP.Data.IRepository;
 
-
 namespace LXP.Core.Services
 {
     public class CourseLevelServices : ICourseLevelServices
@@ -15,7 +14,9 @@ namespace LXP.Core.Services
         public CourseLevelServices(ICourseLevelRepository courseLevelRepository)
         {
             this._courseLevelRepository = courseLevelRepository;
-            var _configLevel = new MapperConfiguration(cfg => cfg.CreateMap<CourseLevel, CourseLevelListViewModel>().ReverseMap());
+            var _configLevel = new MapperConfiguration(cfg =>
+                cfg.CreateMap<CourseLevel, CourseLevelListViewModel>().ReverseMap()
+            );
             _levelMapper = new Mapper(_configLevel);
         }
 
@@ -28,8 +29,11 @@ namespace LXP.Core.Services
                 await AddCourseLevel("Advanced", CreatedBy);
                 await AddCourseLevel("Intermediate", CreatedBy);
             }
-            return _levelMapper.Map<List<CourseLevel>, List<CourseLevelListViewModel>>(await _courseLevelRepository.GetAllCourseLevel());
+            return _levelMapper.Map<List<CourseLevel>, List<CourseLevelListViewModel>>(
+                await _courseLevelRepository.GetAllCourseLevel()
+            );
         }
+
         public async Task AddCourseLevel(string Level, string CreatedBy)
         {
             CourseLevel course = new CourseLevel()
@@ -41,6 +45,5 @@ namespace LXP.Core.Services
             };
             await _courseLevelRepository.AddCourseLevel(course);
         }
-
     }
 }

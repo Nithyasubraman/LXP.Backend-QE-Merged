@@ -11,7 +11,6 @@
         public List<string> HighestEnrolledCourse { get; set; }
 
         public List<string> GetTopLearners { get; set; }
-        public List<string> GetTopFeedback {  get; set; }
-
+        public List<string> GetTopFeedback { get; set; }
     }
 }

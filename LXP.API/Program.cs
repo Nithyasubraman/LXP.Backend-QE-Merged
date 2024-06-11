@@ -1,5 +1,6 @@
 using System.Reflection;
 using FluentValidation.AspNetCore;
+using LXP.API.Interceptors;
 using LXP.Common.Entities;
 using LXP.Common.Validators;
 using LXP.Common.ViewModels;
@@ -13,7 +14,6 @@ using LXP.Services.IServices;
 using Microsoft.Extensions.FileProviders;
 using OfficeOpenXml;
 using Serilog;
-using LXP.API.Interceptors;
 
 var builder = WebApplication.CreateBuilder(args);
 

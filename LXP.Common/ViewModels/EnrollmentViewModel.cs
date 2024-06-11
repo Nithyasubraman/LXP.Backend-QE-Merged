@@ -1,10 +1,10 @@
 ﻿using System;
-using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 namespace LXP.Common.ViewModels
 {
@@ -13,14 +13,14 @@ namespace LXP.Common.ViewModels
         ///<summary>
         ///Course Name
         ///</summary>
-        
+
         public Guid CourseId { get; set; }
 
         ///<summary>
         ///Learner Name
         ///</summary>
-        
-        public Guid LearnerId { get; set; }    
+
+        public Guid LearnerId { get; set; }
 
         ///<summary>
         ///EnrollmentDate
@@ -40,7 +40,5 @@ namespace LXP.Common.ViewModels
         ///</summary>
 
         public bool EnrollRequestStatus { get; set; }
-
-
     }
 }

@@ -1,15 +1,15 @@
-using LXP.Common.ViewModels;
-using LXP.Common.Entities;
-using LXP.Core.IServices;
-using Microsoft.Extensions.Hosting;
-using LXP.Data.IRepository;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting;
-using LXP.Data.Repository;
-using Org.BouncyCastle.Asn1.Ocsp;
-using Microsoft.AspNetCore.Http.HttpResults;
 using System.Reflection.Metadata.Ecma335;
 using AutoMapper;
+using LXP.Common.Entities;
+using LXP.Common.ViewModels;
+using LXP.Core.IServices;
+using LXP.Data.IRepository;
+using LXP.Data.Repository;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.Extensions.Hosting;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace LXP.Core.Services
 {
@@ -22,26 +22,31 @@ namespace LXP.Core.Services
         private readonly IHttpContextAccessor _contextAccessor;
         private Mapper _courseMapper; //Mapper1
 
-
-        public CourseServices(ICourseRepository courseRepository, ICategoryRepository categoryRepository, ICourseLevelRepository courseLevelRepository, IWebHostEnvironment environment, IHttpContextAccessor httpContextAccessor)
+        public CourseServices(
+            ICourseRepository courseRepository,
+            ICategoryRepository categoryRepository,
+            ICourseLevelRepository courseLevelRepository,
+            IWebHostEnvironment environment,
+            IHttpContextAccessor httpContextAccessor
+        )
         {
             _courseRepository = courseRepository;
             _courseLevelRepository = courseLevelRepository;
             _categoryRepository = categoryRepository;
             _environment = environment;
             _contextAccessor = httpContextAccessor;
-            var _configCategory = new MapperConfiguration(cfg => cfg.CreateMap<Course, CourseViewModel>().ReverseMap());// mapper 2
-            _courseMapper = new Mapper(_configCategory);//mapper 3
-
+            var _configCategory = new MapperConfiguration(cfg =>
+                cfg.CreateMap<Course, CourseViewModel>().ReverseMap()
+            ); // mapper 2
+            _courseMapper = new Mapper(_configCategory); //mapper 3
         }
+
         public bool AddCourse(CourseViewModel course)
         {
             bool isCourseExists = _courseRepository.AnyCourseByCourseTitle(course.Title);
 
             if (!isCourseExists)
             {
-
-
                 Guid levelId = Guid.Parse(course.Level);
                 CourseLevel level = _courseLevelRepository.GetCourseLevelByCourseLevelId(levelId);
                 Guid categoryId = Guid.Parse(course.Catagory);
@@ -74,8 +79,6 @@ namespace LXP.Core.Services
                     IsAvailable = true,
                     ModifiedAt = new DateTime(),
                     ModifiedBy = "Admin"
-
-
                 };
                 _courseRepository.AddCourse(newcourse);
 
@@ -93,23 +96,20 @@ namespace LXP.Core.Services
             var course = _courseRepository.GetCourseDetailsByCourseId(CourseId);
             var courseView = new Course
             {
-    
                 Title = course.Title,
                 Description = course.Description,
                 Category = course.Category,
                 Level = course.Level,
                 Duration = course.Duration,
-                Thumbnail = String.Format("{0}://{1}{2}/wwwroot/CourseThumbnailImages/{3}",
-                                             _contextAccessor.HttpContext.Request.Scheme,
-                                             _contextAccessor.HttpContext.Request.Host,
-                                             _contextAccessor.HttpContext.Request.PathBase,
-                                             course.Thumbnail)
-
+                Thumbnail = String.Format(
+                    "{0}://{1}{2}/wwwroot/CourseThumbnailImages/{3}",
+                    _contextAccessor.HttpContext.Request.Scheme,
+                    _contextAccessor.HttpContext.Request.Host,
+                    _contextAccessor.HttpContext.Request.PathBase,
+                    course.Thumbnail
+                )
             };
             return courseView;
-
-
-
         }
 
         public IEnumerable<CourseListViewModel> GetAllCourseDetails()

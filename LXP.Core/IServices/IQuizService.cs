@@ -12,5 +12,3 @@ namespace LXP.Core.IServices
         Guid? GetQuizIdByTopicId(Guid topicId);
     }
 }
-
-

@@ -14,4 +14,3 @@ namespace LXP.Data.IRepository
         Quiz GetQuizByTopicId(Guid topicId);
     }
 }
-

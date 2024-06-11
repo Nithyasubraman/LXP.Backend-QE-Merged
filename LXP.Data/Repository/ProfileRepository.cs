@@ -1,23 +1,19 @@
-﻿
-
+﻿using LXP.Common.Entities;
 using LXP.Data.IRepository;
-
-using LXP.Common.Entities;
-
 
 namespace LXP.Data.Repository
 {
     public class ProfileRepository : IProfileRepository
     {
         private readonly LXPDbContext _LXPDbContext;
+
         public ProfileRepository(LXPDbContext context)
         {
             _LXPDbContext = context;
         }
+
         public void AddProfile(LearnerProfile learnerprofile)
         {
-
-
             _LXPDbContext.LearnerProfiles.Add(learnerprofile);
             _LXPDbContext.SaveChanges();
         }
@@ -26,30 +22,28 @@ namespace LXP.Data.Repository
         {
             return _LXPDbContext.LearnerProfiles.ToList();
         }
+
         public async Task UpdateAllLearnerProfile(LearnerProfile learnerProfile)
         {
-            _LXPDbContext.Entry(learnerProfile).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _LXPDbContext.Entry(learnerProfile).State = Microsoft
+                .EntityFrameworkCore
+                .EntityState
+                .Modified;
             await _LXPDbContext.SaveChangesAsync();
         }
 
-
-
         public LearnerProfile GetLearnerprofileDetailsByLearnerprofileId(Guid ProfileId)
-
         {
-
             return _LXPDbContext.LearnerProfiles.Find(ProfileId);
-
-
         }
-
 
         public async Task UpdateProfile(LearnerProfile learnerProfile)
         {
-            _LXPDbContext.Entry(learnerProfile).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _LXPDbContext.Entry(learnerProfile).State = Microsoft
+                .EntityFrameworkCore
+                .EntityState
+                .Modified;
             await _LXPDbContext.SaveChangesAsync();
         }
-
-
     }
 }

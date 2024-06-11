@@ -51,5 +51,3 @@ namespace LXP.Data.Repository
         }
     }
 }
-
-

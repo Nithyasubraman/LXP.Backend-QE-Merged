@@ -12,7 +12,7 @@ namespace LXP.Common.ViewModels
         public string TopicName { get; set; }
         public string QuizName { get; set; }
         public int NoOfPassedUsers { get; set; }
-        public int NoOfFailedUsers { get;set; }
+        public int NoOfFailedUsers { get; set; }
         public float AverageScore { get; set; }
     }
 }

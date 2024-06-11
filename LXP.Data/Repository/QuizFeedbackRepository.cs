@@ -1,5 +1,4 @@
-﻿
-using LXP.Common.Entities;
+﻿using LXP.Common.Entities;
 using LXP.Common.ViewModels.QuizFeedbackQuestionViewModel;
 using LXP.Data.IRepository;
 
@@ -10,6 +9,7 @@ namespace LXP.Data.Repository
         public const string MultiChoiceQuestion = "MCQ";
         public const string DescriptiveQuestion = "Descriptive";
     }
+
     public class QuizFeedbackRepository : IQuizFeedbackRepository
     {
         private readonly LXPDbContext _dbContext;
@@ -19,9 +19,10 @@ namespace LXP.Data.Repository
             _dbContext = dbContext;
         }
 
-
-
-        public Guid AddFeedbackQuestion(QuizfeedbackquestionViewModel quizfeedbackquestionDto, List<QuizFeedbackQuestionsOptionViewModel> options)
+        public Guid AddFeedbackQuestion(
+            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            List<QuizFeedbackQuestionsOptionViewModel> options
+        )
         {
             try
             {
@@ -34,7 +35,12 @@ namespace LXP.Data.Repository
                     options = null;
                 }
 
-                if (!ValidateOptionsByFeedbackQuestionType(quizfeedbackquestionDto.QuestionType, options))
+                if (
+                    !ValidateOptionsByFeedbackQuestionType(
+                        quizfeedbackquestionDto.QuestionType,
+                        options
+                    )
+                )
                     throw new ArgumentException(
                         "Invalid options for the given question type.",
                         nameof(options)
@@ -79,69 +85,73 @@ namespace LXP.Data.Repository
             catch (Exception ex)
             {
                 // Log the exception (ex) here if necessary
-                throw new InvalidOperationException("An error occurred while adding the feedback question.", ex);
+                throw new InvalidOperationException(
+                    "An error occurred while adding the feedback question.",
+                    ex
+                );
             }
         }
 
         public List<QuizfeedbackquestionNoViewModel> GetAllFeedbackQuestions()
         {
-            return _dbContext.Quizfeedbackquestions
-                .Select(q => new QuizfeedbackquestionNoViewModel
+            return _dbContext
+                .Quizfeedbackquestions.Select(q => new QuizfeedbackquestionNoViewModel
                 {
                     QuizFeedbackQuestionId = q.QuizFeedbackQuestionId,
                     QuizId = q.QuizId,
                     QuestionNo = q.QuestionNo,
                     Question = q.Question,
                     QuestionType = q.QuestionType,
-                    Options = _dbContext.Feedbackquestionsoptions
-                                    .Where(o => o.QuizFeedbackQuestionId == q.QuizFeedbackQuestionId)
-                                    .Select(
-                                        o =>
-                                            new QuizFeedbackQuestionsOptionViewModel
-                                            {
-                                                OptionText = o.OptionText,
-                                              
-                                            }
-                                    )
-                                    .ToList()
-                }).ToList();
-        }
-        public List<QuizfeedbackquestionNoViewModel> GetFeedbackQuestionsByQuizId(Guid quizId)
-        {
-            return _dbContext.Quizfeedbackquestions
-                .Where(q => q.QuizId == quizId)
-                .Select(q => new QuizfeedbackquestionNoViewModel
-                {
-                    QuizFeedbackQuestionId = q.QuizFeedbackQuestionId,
-                    QuizId = q.QuizId,
-                    QuestionNo = q.QuestionNo,
-                    Question = q.Question,
-                    QuestionType = q.QuestionType,
-                    Options = _dbContext.Feedbackquestionsoptions
-                                        .Where(o => o.QuizFeedbackQuestionId == q.QuizFeedbackQuestionId)
-                                        .Select(o => new QuizFeedbackQuestionsOptionViewModel
-                                        {
-                                            OptionText = o.OptionText
-                                        }).ToList()
-                }).ToList();
+                    Options = _dbContext
+                        .Feedbackquestionsoptions.Where(o =>
+                            o.QuizFeedbackQuestionId == q.QuizFeedbackQuestionId
+                        )
+                        .Select(o => new QuizFeedbackQuestionsOptionViewModel
+                        {
+                            OptionText = o.OptionText,
+                        })
+                        .ToList()
+                })
+                .ToList();
         }
 
+        public List<QuizfeedbackquestionNoViewModel> GetFeedbackQuestionsByQuizId(Guid quizId)
+        {
+            return _dbContext
+                .Quizfeedbackquestions.Where(q => q.QuizId == quizId)
+                .Select(q => new QuizfeedbackquestionNoViewModel
+                {
+                    QuizFeedbackQuestionId = q.QuizFeedbackQuestionId,
+                    QuizId = q.QuizId,
+                    QuestionNo = q.QuestionNo,
+                    Question = q.Question,
+                    QuestionType = q.QuestionType,
+                    Options = _dbContext
+                        .Feedbackquestionsoptions.Where(o =>
+                            o.QuizFeedbackQuestionId == q.QuizFeedbackQuestionId
+                        )
+                        .Select(o => new QuizFeedbackQuestionsOptionViewModel
+                        {
+                            OptionText = o.OptionText
+                        })
+                        .ToList()
+                })
+                .ToList();
+        }
 
         public int GetNextFeedbackQuestionNo(Guid quizId)
         {
-            var lastQuestion = _dbContext.Quizfeedbackquestions
-                .Where(q => q.QuizId == quizId)
+            var lastQuestion = _dbContext
+                .Quizfeedbackquestions.Where(q => q.QuizId == quizId)
                 .OrderByDescending(q => q.QuestionNo)
                 .FirstOrDefault();
             return lastQuestion != null ? lastQuestion.QuestionNo + 1 : 1;
         }
 
-
-
-
-
-
-        public Guid AddFeedbackQuestionOption(QuizFeedbackQuestionsOptionViewModel feedbackquestionsoptionDto, Guid quizFeedbackQuestionId)
+        public Guid AddFeedbackQuestionOption(
+            QuizFeedbackQuestionsOptionViewModel feedbackquestionsoptionDto,
+            Guid quizFeedbackQuestionId
+        )
         {
             var optionEntity = new Feedbackquestionsoption
             {
@@ -156,26 +166,28 @@ namespace LXP.Data.Repository
             return optionEntity.FeedbackQuestionOptionId;
         }
 
-        public List<QuizFeedbackQuestionsOptionViewModel> GetFeedbackQuestionOptionsById(Guid quizFeedbackQuestionId)
+        public List<QuizFeedbackQuestionsOptionViewModel> GetFeedbackQuestionOptionsById(
+            Guid quizFeedbackQuestionId
+        )
         {
-            return _dbContext.Feedbackquestionsoptions
-                .Where(o => o.QuizFeedbackQuestionId == quizFeedbackQuestionId)
+            return _dbContext
+                .Feedbackquestionsoptions.Where(o =>
+                    o.QuizFeedbackQuestionId == quizFeedbackQuestionId
+                )
                 .Select(o => new QuizFeedbackQuestionsOptionViewModel
                 {
                     //FeedbackQuestionOptionId = o.FeedbackQuestionOptionId,
                     OptionText = o.OptionText
-                }).ToList();
+                })
+                .ToList();
         }
-
-      
-
-
-
 
         public QuizfeedbackquestionNoViewModel GetFeedbackQuestionById(Guid quizFeedbackQuestionId)
         {
-            var feedbackQuestion = _dbContext.Quizfeedbackquestions
-                .Where(q => q.QuizFeedbackQuestionId == quizFeedbackQuestionId)
+            var feedbackQuestion = _dbContext
+                .Quizfeedbackquestions.Where(q =>
+                    q.QuizFeedbackQuestionId == quizFeedbackQuestionId
+                )
                 .Select(q => new
                 {
                     q.QuizFeedbackQuestionId,
@@ -183,13 +195,15 @@ namespace LXP.Data.Repository
                     q.QuestionNo,
                     q.Question,
                     q.QuestionType,
-                    Options = _dbContext.Feedbackquestionsoptions
-                                .Where(o => o.QuizFeedbackQuestionId == q.QuizFeedbackQuestionId)
-                                .Select(o => new QuizFeedbackQuestionsOptionViewModel
-                                {
-                                    OptionText = o.OptionText
-                                })
-                                .ToList()
+                    Options = _dbContext
+                        .Feedbackquestionsoptions.Where(o =>
+                            o.QuizFeedbackQuestionId == q.QuizFeedbackQuestionId
+                        )
+                        .Select(o => new QuizFeedbackQuestionsOptionViewModel
+                        {
+                            OptionText = o.OptionText
+                        })
+                        .ToList()
                 })
                 .FirstOrDefault();
 
@@ -205,12 +219,15 @@ namespace LXP.Data.Repository
                 QuestionNo = feedbackQuestion.QuestionNo,
                 Question = feedbackQuestion.Question,
                 QuestionType = feedbackQuestion.QuestionType,
-                Options = feedbackQuestion.Options ?? new List<QuizFeedbackQuestionsOptionViewModel>()
+                Options =
+                    feedbackQuestion.Options ?? new List<QuizFeedbackQuestionsOptionViewModel>()
             };
         }
 
-
-        public bool ValidateOptionsByFeedbackQuestionType(string questionType, List<QuizFeedbackQuestionsOptionViewModel> options)
+        public bool ValidateOptionsByFeedbackQuestionType(
+            string questionType,
+            List<QuizFeedbackQuestionsOptionViewModel> options
+        )
         {
             questionType = questionType.ToUpper();
 
@@ -221,16 +238,26 @@ namespace LXP.Data.Repository
             return options == null || options.Count == 0;
         }
 
-
-        public bool UpdateFeedbackQuestion(Guid quizFeedbackQuestionId, QuizfeedbackquestionViewModel quizfeedbackquestionDto, List<QuizFeedbackQuestionsOptionViewModel> options)
+        public bool UpdateFeedbackQuestion(
+            Guid quizFeedbackQuestionId,
+            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            List<QuizFeedbackQuestionsOptionViewModel> options
+        )
         {
             try
             {
-                var existingQuestion = _dbContext.Quizfeedbackquestions.FirstOrDefault(q => q.QuizFeedbackQuestionId == quizFeedbackQuestionId);
+                var existingQuestion = _dbContext.Quizfeedbackquestions.FirstOrDefault(q =>
+                    q.QuizFeedbackQuestionId == quizFeedbackQuestionId
+                );
                 if (existingQuestion != null)
                 {
                     // Check if the question type is being modified
-                    if (!existingQuestion.QuestionType.Equals(quizfeedbackquestionDto.QuestionType, StringComparison.OrdinalIgnoreCase))
+                    if (
+                        !existingQuestion.QuestionType.Equals(
+                            quizfeedbackquestionDto.QuestionType,
+                            StringComparison.OrdinalIgnoreCase
+                        )
+                    )
                     {
                         throw new InvalidOperationException("Question type cannot be modified.");
                     }
@@ -242,14 +269,28 @@ namespace LXP.Data.Repository
                     _dbContext.SaveChanges();
 
                     // Handle options only if the question type is MCQ
-                    if (existingQuestion.QuestionType == FeedbackQuestionTypes.MultiChoiceQuestion.ToUpper())
+                    if (
+                        existingQuestion.QuestionType
+                        == FeedbackQuestionTypes.MultiChoiceQuestion.ToUpper()
+                    )
                     {
-                        if (!ValidateOptionsByFeedbackQuestionType(existingQuestion.QuestionType, options))
+                        if (
+                            !ValidateOptionsByFeedbackQuestionType(
+                                existingQuestion.QuestionType,
+                                options
+                            )
+                        )
                         {
-                            throw new ArgumentException("Invalid options for the given question type.");
+                            throw new ArgumentException(
+                                "Invalid options for the given question type."
+                            );
                         }
 
-                        var existingOptions = _dbContext.Feedbackquestionsoptions.Where(o => o.QuizFeedbackQuestionId == quizFeedbackQuestionId).ToList();
+                        var existingOptions = _dbContext
+                            .Feedbackquestionsoptions.Where(o =>
+                                o.QuizFeedbackQuestionId == quizFeedbackQuestionId
+                            )
+                            .ToList();
                         _dbContext.Feedbackquestionsoptions.RemoveRange(existingOptions);
                         _dbContext.SaveChanges();
 
@@ -277,24 +318,28 @@ namespace LXP.Data.Repository
             catch (Exception ex)
             {
                 // Log the exception (ex) here if necessary
-                throw new InvalidOperationException("An error occurred while updating the feedback question.", ex);
+                throw new InvalidOperationException(
+                    "An error occurred while updating the feedback question.",
+                    ex
+                );
             }
         }
-
-
-
 
         public bool DeleteFeedbackQuestion(Guid quizFeedbackQuestionId)
         {
             using var transaction = _dbContext.Database.BeginTransaction();
             try
             {
-                var existingQuestion = _dbContext.Quizfeedbackquestions.FirstOrDefault(q => q.QuizFeedbackQuestionId == quizFeedbackQuestionId);
+                var existingQuestion = _dbContext.Quizfeedbackquestions.FirstOrDefault(q =>
+                    q.QuizFeedbackQuestionId == quizFeedbackQuestionId
+                );
                 if (existingQuestion != null)
                 {
-                    var relatedOptions = _dbContext.Feedbackquestionsoptions
-                                                   .Where(o => o.QuizFeedbackQuestionId == quizFeedbackQuestionId)
-                                                   .ToList();
+                    var relatedOptions = _dbContext
+                        .Feedbackquestionsoptions.Where(o =>
+                            o.QuizFeedbackQuestionId == quizFeedbackQuestionId
+                        )
+                        .ToList();
 
                     if (relatedOptions.Any())
                     {
@@ -323,7 +368,9 @@ namespace LXP.Data.Repository
             using var transaction = _dbContext.Database.BeginTransaction();
             try
             {
-                var feedbackQuestions = _dbContext.Quizfeedbackquestions.Where(q => q.QuizId == quizId).ToList();
+                var feedbackQuestions = _dbContext
+                    .Quizfeedbackquestions.Where(q => q.QuizId == quizId)
+                    .ToList();
                 if (feedbackQuestions.Count == 0)
                 {
                     return false;
@@ -331,9 +378,11 @@ namespace LXP.Data.Repository
 
                 foreach (var question in feedbackQuestions)
                 {
-                    var relatedOptions = _dbContext.Feedbackquestionsoptions
-                                                   .Where(o => o.QuizFeedbackQuestionId == question.QuizFeedbackQuestionId)
-                                                   .ToList();
+                    var relatedOptions = _dbContext
+                        .Feedbackquestionsoptions.Where(o =>
+                            o.QuizFeedbackQuestionId == question.QuizFeedbackQuestionId
+                        )
+                        .ToList();
 
                     if (relatedOptions.Any())
                     {
@@ -356,10 +405,12 @@ namespace LXP.Data.Repository
 
         public void ReorderQuestionNos(Guid quizId, int deletedQuestionNo)
         {
-            var questionsToUpdate = _dbContext.Quizfeedbackquestions
-                                              .Where(q => q.QuizId == quizId && q.QuestionNo > deletedQuestionNo)
-                                              .OrderBy(q => q.QuestionNo)
-                                              .ToList();
+            var questionsToUpdate = _dbContext
+                .Quizfeedbackquestions.Where(q =>
+                    q.QuizId == quizId && q.QuestionNo > deletedQuestionNo
+                )
+                .OrderBy(q => q.QuestionNo)
+                .ToList();
 
             foreach (var question in questionsToUpdate)
             {
@@ -367,53 +418,5 @@ namespace LXP.Data.Repository
             }
             _dbContext.SaveChanges();
         }
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

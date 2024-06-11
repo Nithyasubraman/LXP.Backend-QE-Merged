@@ -8,7 +8,5 @@
         public string? Email { get; set; }
 
         public DateTime? LastLogin { get; set; }
-
-
     }
 }
