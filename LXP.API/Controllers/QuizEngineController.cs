@@ -1,7 +1,3 @@
-
-
-
-
 using LXP.Common.ViewModels.QuizEngineViewModel;
 using LXP.Core.IServices;
 using Microsoft.AspNetCore.Mvc;

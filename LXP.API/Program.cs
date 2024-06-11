@@ -13,6 +13,7 @@ using LXP.Services.IServices;
 using Microsoft.Extensions.FileProviders;
 using OfficeOpenXml;
 using Serilog;
+using LXP.API.Interceptors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -117,7 +118,6 @@ builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
 builder.Services.AddScoped<ICourseServices, CourseServices>();
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddScoped<IEmailService, EmailService>();
-
 
 builder.Services.AddSwaggerGen(options =>
 {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using LXP.Common.ViewModels.QuizViewModel;
+﻿using LXP.Common.ViewModels.QuizViewModel;
 using LXP.Core.IServices;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,6 +35,9 @@ namespace LXP.Api.Controllers
 
             return Ok(CreateSuccessResponse(quiz));
         }
+                
+       
+
 
         /// <summary>
         /// Retrieves a list of all available quizzes.
@@ -142,4 +143,3 @@ namespace LXP.Api.Controllers
         }
     }
 }
-

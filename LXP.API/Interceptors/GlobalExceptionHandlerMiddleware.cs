@@ -1,9 +1,8 @@
-﻿using System;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
+﻿using System.Net;
 using Newtonsoft.Json;
+
+
+namespace LXP.API.Interceptors{
 
 public class GlobalExceptionHandlerMiddleware
 {
@@ -39,4 +38,5 @@ public class GlobalExceptionHandlerMiddleware
         var result = JsonConvert.SerializeObject(new { error = ex.Message });
         return context.Response.WriteAsync(result);
     }
+}
 }

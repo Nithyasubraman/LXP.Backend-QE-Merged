@@ -1,11 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using Microsoft.AspNetCore.Mvc;
+using LXP.Core.IServices;
 
 namespace LXP.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExcelToJsonController : BaseController 
+    public class ExcelToJsonController : BaseController
     {
         private readonly IExcelToJsonService _excelToJsonService;
 
@@ -13,7 +14,6 @@ namespace LXP.Api.Controllers
         {
             _excelToJsonService = excelToJsonService;
         }
-
 
         [HttpPost("ConvertExcelToJson")]
         [ProducesResponseType(typeof(FileContentResult), 200)]
@@ -23,7 +23,9 @@ namespace LXP.Api.Controllers
         {
             if (file == null || file.Length == 0)
             {
-                return BadRequest(CreateFailureResponse("The file is required and cannot be empty.", 400));
+                return BadRequest(
+                    CreateFailureResponse("The file is required and cannot be empty.", 400)
+                );
             }
 
             if (quizId == Guid.Empty)
@@ -53,7 +55,10 @@ namespace LXP.Api.Controllers
             {
                 return StatusCode(
                     500,
-                    CreateFailureResponse($"An error occurred while converting Excel to JSON: {ex.Message}", 500)
+                    CreateFailureResponse(
+                        $"An error occurred while converting Excel to JSON: {ex.Message}",
+                        500
+                    )
                 );
             }
         }
