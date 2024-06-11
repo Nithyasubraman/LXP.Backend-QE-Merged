@@ -295,3 +295,230 @@
 2024-06-10 17:34:50.139 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizQuestionsController.GetAllQuestions (LXP.Api)'
 2024-06-10 17:34:50.141 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizQuestions/GetAllQuestions - 200 null application/json; charset=utf-8 87.3536ms
 2024-06-10 17:36:31.715 +05:30 [INF] Application is shutting down...
+2024-06-10 18:25:21.310 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 18:25:21.362 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 18:25:21.366 +05:30 [INF] Hosting environment: Development
+2024-06-10 18:25:21.368 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 18:25:36.232 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 18:25:36.331 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 18:25:36.362 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 131.4971ms
+2024-06-10 18:25:36.377 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 18:25:39.117 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 18:25:39.214 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 97.2422ms
+2024-06-10 18:25:39.402 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 18:25:39.724 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 322.7931ms
+2024-06-10 18:26:25.941 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/BulkQuestion/ConvertExcelToCsv - multipart/form-data; boundary=----WebKitFormBoundaryM9p2D8y8Sq3pbN5W 10138
+2024-06-10 18:26:25.949 +05:30 [INF] CORS policy execution successful.
+2024-06-10 18:26:25.990 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.BulkQuestionController.ConvertExcelToCsv (LXP.Api)'
+2024-06-10 18:26:26.020 +05:30 [INF] Route matched with {action = "ConvertExcelToCsv", controller = "BulkQuestion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToCsv(Microsoft.AspNetCore.Http.IFormFile) on controller LXP.Api.Controllers.BulkQuestionController (LXP.Api).
+2024-06-10 18:26:26.201 +05:30 [INF] Executing ObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-10 18:26:26.240 +05:30 [INF] Executed action LXP.Api.Controllers.BulkQuestionController.ConvertExcelToCsv (LXP.Api) in 205.4734ms
+2024-06-10 18:26:26.250 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.BulkQuestionController.ConvertExcelToCsv (LXP.Api)'
+2024-06-10 18:26:26.260 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/BulkQuestion/ConvertExcelToCsv - 500 null application/json; charset=utf-8 318.8573ms
+2024-06-10 18:30:41.138 +05:30 [INF] Application is shutting down...
+2024-06-10 18:39:17.542 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 18:39:17.630 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 18:39:17.634 +05:30 [INF] Hosting environment: Development
+2024-06-10 18:39:17.636 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 18:39:33.881 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 18:39:34.052 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 18:39:34.066 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 191.9309ms
+2024-06-10 18:39:34.088 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 18:39:38.920 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 18:39:39.116 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 196.0172ms
+2024-06-10 18:39:39.823 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 18:39:40.209 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 385.1148ms
+2024-06-10 18:40:11.037 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/ExcelToCsv/ConvertExcelToCsv - multipart/form-data; boundary=----WebKitFormBoundaryqW4eYTBuZCIFsAPW 10138
+2024-06-10 18:40:11.047 +05:30 [INF] CORS policy execution successful.
+2024-06-10 18:40:11.053 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.ExcelToCsvController.ConvertExcelToCsv (LXP.Api)'
+2024-06-10 18:40:11.084 +05:30 [INF] Route matched with {action = "ConvertExcelToCsv", controller = "ExcelToCsv"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToCsv(Microsoft.AspNetCore.Http.IFormFile) on controller LXP.Api.Controllers.ExcelToCsvController (LXP.Api).
+2024-06-10 18:40:11.099 +05:30 [INF] Executed action LXP.Api.Controllers.ExcelToCsvController.ConvertExcelToCsv (LXP.Api) in 5.1779ms
+2024-06-10 18:40:11.103 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.ExcelToCsvController.ConvertExcelToCsv (LXP.Api)'
+2024-06-10 18:40:11.105 +05:30 [ERR] Unable to resolve service for type 'LXP.Core.IServices.IExcelToCsvService' while attempting to activate 'LXP.Api.Controllers.ExcelToCsvController'.
+System.InvalidOperationException: Unable to resolve service for type 'LXP.Core.IServices.IExcelToCsvService' while attempting to activate 'LXP.Api.Controllers.ExcelToCsvController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method10(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backend\LXP.API\Interceptors\GlobalExceptionHandlerMiddleware.cs:line 26
+2024-06-10 18:40:11.326 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/ExcelToCsv/ConvertExcelToCsv - 500 null application/json 289.3829ms
+2024-06-10 18:41:08.653 +05:30 [INF] Application is shutting down...
+2024-06-10 18:41:46.288 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 18:41:46.843 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 18:41:46.927 +05:30 [INF] Hosting environment: Development
+2024-06-10 18:41:46.967 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 18:41:59.893 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 18:42:00.279 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 18:42:00.304 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 422.6505ms
+2024-06-10 18:42:00.346 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 18:42:04.582 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 18:42:04.782 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 200.253ms
+2024-06-10 18:42:06.253 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 18:42:06.794 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 540.8733ms
+2024-06-10 18:42:49.824 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/ExcelToCsv/ConvertExcelToCsv - multipart/form-data; boundary=----WebKitFormBoundarysgSbMcatCWKVBKUi 10138
+2024-06-10 18:42:49.838 +05:30 [INF] CORS policy execution successful.
+2024-06-10 18:42:49.844 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.ExcelToCsvController.ConvertExcelToCsv (LXP.Api)'
+2024-06-10 18:42:49.895 +05:30 [INF] Route matched with {action = "ConvertExcelToCsv", controller = "ExcelToCsv"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToCsv(Microsoft.AspNetCore.Http.IFormFile) on controller LXP.Api.Controllers.ExcelToCsvController (LXP.Api).
+2024-06-10 18:42:50.622 +05:30 [INF] Executing FileContentResult, sending file with download name 'quiz_data.csv' ...
+2024-06-10 18:42:50.657 +05:30 [INF] Executed action LXP.Api.Controllers.ExcelToCsvController.ConvertExcelToCsv (LXP.Api) in 740.9954ms
+2024-06-10 18:42:50.666 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.ExcelToCsvController.ConvertExcelToCsv (LXP.Api)'
+2024-06-10 18:42:50.674 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/ExcelToCsv/ConvertExcelToCsv - 200 482 text/csv 850.1248ms
+2024-06-10 18:49:36.725 +05:30 [INF] Application is shutting down...
+2024-06-10 18:51:05.586 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 18:51:05.947 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 18:51:05.959 +05:30 [INF] Hosting environment: Development
+2024-06-10 18:51:05.969 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 18:51:27.659 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 18:51:27.971 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 18:51:28.006 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 354.3264ms
+2024-06-10 18:51:28.054 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 18:51:30.426 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 18:51:30.679 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 252.7836ms
+2024-06-10 18:51:31.275 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 18:51:32.300 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 1025.2144ms
+2024-06-10 18:52:11.757 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson - multipart/form-data; boundary=----WebKitFormBoundary59oGneMQAC2XMNb0 10138
+2024-06-10 18:52:11.780 +05:30 [INF] CORS policy execution successful.
+2024-06-10 18:52:11.792 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 18:52:11.864 +05:30 [INF] Route matched with {action = "ConvertExcelToJson", controller = "ExcelToJson"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToJson(Microsoft.AspNetCore.Http.IFormFile) on controller LXP.Api.Controllers.ExcelToJsonController (LXP.Api).
+2024-06-10 18:52:12.477 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-06-10 18:52:12.537 +05:30 [INF] Executed action LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api) in 646.4857ms
+2024-06-10 18:52:12.549 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 18:52:12.560 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson - 200 null application/json; charset=utf-8 802.7218ms
+2024-06-10 19:01:12.428 +05:30 [INF] Application is shutting down...
+2024-06-10 19:02:41.310 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 19:02:41.480 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 19:02:41.486 +05:30 [INF] Hosting environment: Development
+2024-06-10 19:02:41.490 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 19:03:05.673 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 19:03:08.739 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 19:03:09.895 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 4224.4514ms
+2024-06-10 19:03:12.284 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 19:03:14.166 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 19:03:15.913 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 1747.1864ms
+2024-06-10 19:03:16.989 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 19:03:17.256 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 266.8305ms
+2024-06-10 19:03:24.041 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 19:03:26.363 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 2323.2134ms
+2024-06-10 19:04:11.213 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson - multipart/form-data; boundary=----WebKitFormBoundaryJ5QhJTJOBYMKKsAv 10138
+2024-06-10 19:04:11.241 +05:30 [INF] CORS policy execution successful.
+2024-06-10 19:04:11.250 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:04:11.333 +05:30 [INF] Route matched with {action = "ConvertExcelToJson", controller = "ExcelToJson"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToJson(Microsoft.AspNetCore.Http.IFormFile) on controller LXP.Api.Controllers.ExcelToJsonController (LXP.Api).
+2024-06-10 19:04:12.360 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-06-10 19:04:12.415 +05:30 [INF] Executed action LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api) in 1061.0026ms
+2024-06-10 19:04:12.423 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:04:12.431 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson - 200 null application/json; charset=utf-8 1218.2785ms
+2024-06-10 19:05:15.456 +05:30 [INF] Application is shutting down...
+2024-06-10 19:08:51.134 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 19:08:51.314 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 19:08:51.322 +05:30 [INF] Hosting environment: Development
+2024-06-10 19:08:51.326 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 19:09:07.298 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 19:09:07.855 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 19:09:07.917 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 623.6987ms
+2024-06-10 19:09:08.018 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 19:09:11.834 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 19:09:12.049 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 214.7325ms
+2024-06-10 19:09:12.536 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 19:09:13.601 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 1064.8913ms
+2024-06-10 19:09:57.334 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson?download=false - multipart/form-data; boundary=----WebKitFormBoundaryGY7vudjR7m0cJPEv 10138
+2024-06-10 19:09:57.364 +05:30 [INF] CORS policy execution successful.
+2024-06-10 19:09:57.374 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:09:57.452 +05:30 [INF] Route matched with {action = "ConvertExcelToJson", controller = "ExcelToJson"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToJson(Microsoft.AspNetCore.Http.IFormFile, Boolean) on controller LXP.Api.Controllers.ExcelToJsonController (LXP.Api).
+2024-06-10 19:09:58.435 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-06-10 19:09:58.492 +05:30 [INF] Executed action LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api) in 1017.8211ms
+2024-06-10 19:09:58.504 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:09:58.514 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson?download=false - 200 null application/json; charset=utf-8 1179.4389ms
+2024-06-10 19:10:47.996 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson?download=true - multipart/form-data; boundary=----WebKitFormBoundarymGrFzOpZQB7xGdFh 10138
+2024-06-10 19:10:48.024 +05:30 [INF] CORS policy execution successful.
+2024-06-10 19:10:48.031 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:10:48.041 +05:30 [INF] Route matched with {action = "ConvertExcelToJson", controller = "ExcelToJson"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToJson(Microsoft.AspNetCore.Http.IFormFile, Boolean) on controller LXP.Api.Controllers.ExcelToJsonController (LXP.Api).
+2024-06-10 19:10:48.139 +05:30 [INF] Executing FileStreamResult, sending file with download name 'convertedData.json' ...
+2024-06-10 19:10:48.157 +05:30 [INF] Executed action LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api) in 102.9996ms
+2024-06-10 19:10:48.166 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:10:48.174 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson?download=true - 200 652 application/json 177.6272ms
+2024-06-10 19:49:34.383 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 19:49:34.416 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 19:49:34.419 +05:30 [INF] Hosting environment: Development
+2024-06-10 19:49:34.420 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 19:50:16.930 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 19:50:17.100 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 19:50:17.136 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 208.4633ms
+2024-06-10 19:50:17.149 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 19:50:19.873 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 19:50:19.936 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 63.8149ms
+2024-06-10 19:50:20.067 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 19:50:20.264 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 197.2912ms
+2024-06-10 19:50:45.480 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson?download=true - multipart/form-data; boundary=----WebKitFormBoundaryY7F5evn1Ko14q9eH 10138
+2024-06-10 19:50:45.486 +05:30 [INF] CORS policy execution successful.
+2024-06-10 19:50:45.488 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:50:45.526 +05:30 [INF] Route matched with {action = "ConvertExcelToJson", controller = "ExcelToJson"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToJson(Microsoft.AspNetCore.Http.IFormFile, Boolean) on controller LXP.Api.Controllers.ExcelToJsonController (LXP.Api).
+2024-06-10 19:50:45.795 +05:30 [INF] Executing FileStreamResult, sending file with download name 'convertedData.json' ...
+2024-06-10 19:50:45.804 +05:30 [INF] Executed action LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api) in 272.722ms
+2024-06-10 19:50:45.809 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:50:45.811 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson?download=true - 200 905 application/json 331.0107ms
+2024-06-10 19:55:26.547 +05:30 [INF] Application is shutting down...
+2024-06-10 19:55:34.795 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 19:55:34.832 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 19:55:34.834 +05:30 [INF] Hosting environment: Development
+2024-06-10 19:55:34.835 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 19:55:54.516 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 19:55:54.643 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 19:55:54.655 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 140.0842ms
+2024-06-10 19:55:54.665 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 19:55:57.591 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 19:55:57.674 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 82.1624ms
+2024-06-10 19:55:57.789 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 19:55:57.988 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 199.0418ms
+2024-06-10 19:56:15.945 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson - multipart/form-data; boundary=----WebKitFormBoundaryAs4x2uFlrh8FiXBM 10138
+2024-06-10 19:56:15.951 +05:30 [INF] CORS policy execution successful.
+2024-06-10 19:56:15.954 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:56:15.982 +05:30 [INF] Route matched with {action = "ConvertExcelToJson", controller = "ExcelToJson"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToJson(Microsoft.AspNetCore.Http.IFormFile) on controller LXP.Api.Controllers.ExcelToJsonController (LXP.Api).
+2024-06-10 19:56:16.257 +05:30 [INF] Executing FileStreamResult, sending file with download name 'convertedData.json' ...
+2024-06-10 19:56:16.266 +05:30 [INF] Executed action LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api) in 276.3155ms
+2024-06-10 19:56:16.267 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 19:56:16.269 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson - 200 905 application/json 324.416ms
+2024-06-10 19:58:07.818 +05:30 [INF] Application is shutting down...
+2024-06-10 21:53:54.061 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 21:53:54.094 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 21:53:54.098 +05:30 [INF] Hosting environment: Development
+2024-06-10 21:53:54.100 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 21:54:34.357 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 21:54:34.480 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 21:54:34.504 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 151.2012ms
+2024-06-10 21:54:34.512 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 21:54:37.842 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 21:54:37.909 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 66.7079ms
+2024-06-10 21:54:38.033 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 21:54:38.150 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 116.9574ms
+2024-06-10 22:26:14.615 +05:30 [INF] Application is shutting down...
+2024-06-10 22:28:15.166 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-10 22:28:15.200 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-10 22:28:15.203 +05:30 [INF] Hosting environment: Development
+2024-06-10 22:28:15.204 +05:30 [INF] Content root path: D:\backend\LXP.API
+2024-06-10 22:28:39.176 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/ - null null
+2024-06-10 22:28:39.262 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-10 22:28:39.283 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/ - 404 0 null 109.3263ms
+2024-06-10 22:28:39.290 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5199/, Response status code: 404
+2024-06-10 22:28:43.599 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-10 22:28:43.662 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 63.2811ms
+2024-06-10 22:28:43.777 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-10 22:28:43.986 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 208.7339ms
+2024-06-10 22:29:09.261 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson - multipart/form-data; boundary=----WebKitFormBoundaryh35VG3GXwIwpw5rJ 12360
+2024-06-10 22:29:09.267 +05:30 [INF] CORS policy execution successful.
+2024-06-10 22:29:09.269 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 22:29:09.288 +05:30 [INF] Route matched with {action = "ConvertExcelToJson", controller = "ExcelToJson"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertExcelToJson(Microsoft.AspNetCore.Http.IFormFile) on controller LXP.Api.Controllers.ExcelToJsonController (LXP.Api).
+2024-06-10 22:29:09.573 +05:30 [INF] Executing FileStreamResult, sending file with download name 'convertedData.json' ...
+2024-06-10 22:29:09.584 +05:30 [INF] Executed action LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api) in 285.0568ms
+2024-06-10 22:29:09.587 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.ExcelToJsonController.ConvertExcelToJson (LXP.Api)'
+2024-06-10 22:29:09.590 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/ExcelToJson/ConvertExcelToJson - 200 7497 application/json 328.3373ms

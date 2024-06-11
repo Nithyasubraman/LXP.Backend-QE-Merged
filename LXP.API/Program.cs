@@ -87,6 +87,10 @@ builder.Services.AddScoped<IQuizReportRepository, QuizReportRepository>();
 builder.Services.AddScoped<IFeedbackResponseRepository, FeedbackResponseRepository>();
 builder.Services.AddScoped<IFeedbackResponseService, FeedbackResponseService>();
 
+//new
+builder.Services.AddScoped<IExcelToJsonService, ExcelToJsonService>();
+builder.Services.AddScoped<IQuizQuestionJsonRepository, QuizQuestionJsonRepository>();
+
 builder.Services.AddScoped<ICategoryServices, CategoryServices>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddSingleton<LXPDbContext>();
@@ -113,6 +117,7 @@ builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
 builder.Services.AddScoped<ICourseServices, CourseServices>();
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddScoped<IEmailService, EmailService>();
+
 
 builder.Services.AddSwaggerGen(options =>
 {
