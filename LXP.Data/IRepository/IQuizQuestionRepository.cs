@@ -6,7 +6,7 @@ namespace LXP.Data.IRepository
     {
         void DecrementQuestionNos(Guid deletedQuestionId);
         int GetNextQuestionNo(Guid quizId);
-        Guid AddQuestionOption(QuestionOptionViewModel questionOptionDto, Guid quizQuestionId);
+        Guid AddQuestionOption(QuestionOptionViewModel questionOption, Guid quizQuestionId);
         List<QuestionOptionViewModel> GetQuestionOptionsById(Guid quizQuestionId);
 
         bool ValidateOptionsByQuestionType(
@@ -16,12 +16,12 @@ namespace LXP.Data.IRepository
         Task<int> GetNextQuestionNoAsync(Guid quizId);
 
         Task<Guid> AddQuestionAsync(
-            QuizQuestionViewModel quizQuestionDto,
+            QuizQuestionViewModel quizQuestion,
             List<QuestionOptionViewModel> options
         );
         Task<bool> UpdateQuestionAsync(
             Guid quizQuestionId,
-            QuizQuestionViewModel quizQuestionDto,
+            QuizQuestionViewModel quizQuestion,
             List<QuestionOptionViewModel> options
         );
         Task<bool> DeleteQuestionAsync(Guid quizQuestionId);

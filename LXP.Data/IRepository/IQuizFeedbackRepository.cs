@@ -7,13 +7,13 @@ namespace LXP.Data.IRepository
     public interface IQuizFeedbackRepository
     {
         Guid AddFeedbackQuestion(
-            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            QuizfeedbackquestionViewModel quizfeedbackquestion,
             List<QuizFeedbackQuestionsOptionViewModel> options
         );
         List<QuizfeedbackquestionNoViewModel> GetAllFeedbackQuestions();
         int GetNextFeedbackQuestionNo(Guid quizId);
         Guid AddFeedbackQuestionOption(
-            QuizFeedbackQuestionsOptionViewModel feedbackquestionsoptionDto,
+            QuizFeedbackQuestionsOptionViewModel feedbackquestionsoption,
             Guid QuizFeedbackQuestionId
         );
         List<QuizFeedbackQuestionsOptionViewModel> GetFeedbackQuestionOptionsById(
@@ -26,7 +26,7 @@ namespace LXP.Data.IRepository
         );
         bool UpdateFeedbackQuestion(
             Guid QuizFeedbackQuestionId,
-            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            QuizfeedbackquestionViewModel quizfeedbackquestion,
             List<QuizFeedbackQuestionsOptionViewModel> options
         );
         bool DeleteFeedbackQuestion(Guid QuizFeedbackQuestionId);
@@ -34,3 +34,5 @@ namespace LXP.Data.IRepository
         bool DeleteFeedbackQuestionsByQuizId(Guid quizId);
     }
 }
+
+

@@ -14,22 +14,22 @@ namespace LXP.Core.Services
         }
 
         public async Task<Guid> AddQuestionAsync(
-            QuizQuestionViewModel quizQuestionDto,
+            QuizQuestionViewModel quizQuestion,
             List<QuestionOptionViewModel> options
         )
         {
-            return await _quizQuestionRepository.AddQuestionAsync(quizQuestionDto, options);
+            return await _quizQuestionRepository.AddQuestionAsync(quizQuestion, options);
         }
 
         public async Task<bool> UpdateQuestionAsync(
             Guid quizQuestionId,
-            QuizQuestionViewModel quizQuestionDto,
+            QuizQuestionViewModel quizQuestion,
             List<QuestionOptionViewModel> options
         )
         {
             return await _quizQuestionRepository.UpdateQuestionAsync(
                 quizQuestionId,
-                quizQuestionDto,
+                quizQuestion,
                 options
             );
         }

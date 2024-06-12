@@ -1,6 +1,7 @@
 ﻿using LXP.Common.Entities;
 using LXP.Common.ViewModels.QuizFeedbackQuestionViewModel;
 using LXP.Data.IRepository;
+using LXP.Common.Constants;
 
 namespace LXP.Data.Repository
 {
@@ -20,14 +21,14 @@ namespace LXP.Data.Repository
         }
 
         public Guid AddFeedbackQuestion(
-            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            QuizfeedbackquestionViewModel quizfeedbackquestion,
             List<QuizFeedbackQuestionsOptionViewModel> options
         )
         {
             try
             {
                 // Normalize question type to uppercase
-                var normalizedQuestionType = quizfeedbackquestionDto.QuestionType.ToUpper();
+                var normalizedQuestionType = quizfeedbackquestion.QuestionType.ToUpper();
 
                 // Ensure no options are saved for descriptive questions
                 if (normalizedQuestionType == FeedbackQuestionTypes.DescriptiveQuestion.ToUpper())
@@ -37,7 +38,7 @@ namespace LXP.Data.Repository
 
                 if (
                     !ValidateOptionsByFeedbackQuestionType(
-                        quizfeedbackquestionDto.QuestionType,
+                        quizfeedbackquestion.QuestionType,
                         options
                     )
                 )
@@ -49,9 +50,9 @@ namespace LXP.Data.Repository
                 // Create and save the feedback question entity
                 var questionEntity = new Quizfeedbackquestion
                 {
-                    QuizId = quizfeedbackquestionDto.QuizId,
-                    QuestionNo = GetNextFeedbackQuestionNo(quizfeedbackquestionDto.QuizId),
-                    Question = quizfeedbackquestionDto.Question,
+                    QuizId = quizfeedbackquestion.QuizId,
+                    QuestionNo = GetNextFeedbackQuestionNo(quizfeedbackquestion.QuizId),
+                    Question = quizfeedbackquestion.Question,
                     QuestionType = normalizedQuestionType,
                     CreatedBy = "Admin",
                     CreatedAt = DateTime.Now
@@ -149,14 +150,14 @@ namespace LXP.Data.Repository
         }
 
         public Guid AddFeedbackQuestionOption(
-            QuizFeedbackQuestionsOptionViewModel feedbackquestionsoptionDto,
+            QuizFeedbackQuestionsOptionViewModel feedbackquestionsoption,
             Guid quizFeedbackQuestionId
         )
         {
             var optionEntity = new Feedbackquestionsoption
             {
                 QuizFeedbackQuestionId = quizFeedbackQuestionId,
-                OptionText = feedbackquestionsoptionDto.OptionText,
+                OptionText = feedbackquestionsoption.OptionText,
                 CreatedAt = DateTime.Now,
                 CreatedBy = "Admin"
             };
@@ -240,7 +241,7 @@ namespace LXP.Data.Repository
 
         public bool UpdateFeedbackQuestion(
             Guid quizFeedbackQuestionId,
-            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            QuizfeedbackquestionViewModel quizfeedbackquestion,
             List<QuizFeedbackQuestionsOptionViewModel> options
         )
         {
@@ -254,7 +255,7 @@ namespace LXP.Data.Repository
                     // Check if the question type is being modified
                     if (
                         !existingQuestion.QuestionType.Equals(
-                            quizfeedbackquestionDto.QuestionType,
+                            quizfeedbackquestion.QuestionType,
                             StringComparison.OrdinalIgnoreCase
                         )
                     )
@@ -263,7 +264,7 @@ namespace LXP.Data.Repository
                     }
 
                     // Update the question details
-                    existingQuestion.Question = quizfeedbackquestionDto.Question;
+                    existingQuestion.Question = quizfeedbackquestion.Question;
                     existingQuestion.ModifiedAt = DateTime.Now;
                     existingQuestion.ModifiedBy = "Admin";
                     _dbContext.SaveChanges();

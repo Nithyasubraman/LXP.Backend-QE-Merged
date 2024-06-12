@@ -14,11 +14,11 @@ namespace LXP.Core.Services
         }
 
         public Guid AddFeedbackQuestion(
-            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            QuizfeedbackquestionViewModel quizfeedbackquestion,
             List<QuizFeedbackQuestionsOptionViewModel> options
         )
         {
-            return _quizFeedbackRepository.AddFeedbackQuestion(quizfeedbackquestionDto, options);
+            return _quizFeedbackRepository.AddFeedbackQuestion(quizfeedbackquestion, options);
         }
 
         public List<QuizfeedbackquestionNoViewModel> GetAllFeedbackQuestions()
@@ -33,13 +33,13 @@ namespace LXP.Core.Services
 
         public bool UpdateFeedbackQuestion(
             Guid quizFeedbackQuestionId,
-            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            QuizfeedbackquestionViewModel quizfeedbackquestion,
             List<QuizFeedbackQuestionsOptionViewModel> options
         )
         {
             return _quizFeedbackRepository.UpdateFeedbackQuestion(
                 quizFeedbackQuestionId,
-                quizfeedbackquestionDto,
+                quizfeedbackquestion,
                 options
             );
         }
@@ -75,3 +75,4 @@ namespace LXP.Core.Services
         }
     }
 }
+

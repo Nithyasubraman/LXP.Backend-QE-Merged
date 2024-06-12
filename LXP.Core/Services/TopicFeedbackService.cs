@@ -1,6 +1,6 @@
 ﻿using LXP.Common.Constants;
 using LXP.Common.Entities;
-using LXP.Common.ViewModels.TopicFeedbackQuestionViemModel;
+using LXP.Common.ViewModels.TopicFeedbackQuestionViewModel;
 using LXP.Core.IServices;
 using LXP.Data.IRepository;
 

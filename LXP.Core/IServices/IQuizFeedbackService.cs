@@ -5,7 +5,7 @@ namespace LXP.Core.IServices
     public interface IQuizFeedbackService
     {
         Guid AddFeedbackQuestion(
-            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            QuizfeedbackquestionViewModel quizfeedbackquestion,
             List<QuizFeedbackQuestionsOptionViewModel> options
         );
 
@@ -15,7 +15,7 @@ namespace LXP.Core.IServices
 
         bool UpdateFeedbackQuestion(
             Guid quizFeedbackQuestionId,
-            QuizfeedbackquestionViewModel quizfeedbackquestionDto,
+            QuizfeedbackquestionViewModel quizfeedbackquestion,
             List<QuizFeedbackQuestionsOptionViewModel> options
         );
 

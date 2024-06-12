@@ -1,5 +1,5 @@
 ﻿using LXP.Common.Entities;
-using LXP.Common.ViewModels.TopicFeedbackQuestionViemModel;
+using LXP.Common.ViewModels.TopicFeedbackQuestionViewModel;
 using LXP.Data.IRepository;
 
 namespace LXP.Data.Repository

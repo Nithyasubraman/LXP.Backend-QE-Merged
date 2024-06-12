@@ -24,39 +24,39 @@ namespace LXP.Data.Repository
         }
 
         public async Task<Guid> AddQuestionAsync(
-            QuizQuestionViewModel quizQuestionDto,
+            QuizQuestionViewModel quizQuestion,
             List<QuestionOptionViewModel> options
         )
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(quizQuestionDto.Question))
+                if (string.IsNullOrWhiteSpace(quizQuestion.Question))
                     throw new ArgumentException(
                         "Question cannot be null or empty.",
-                        nameof(quizQuestionDto.Question)
+                        nameof(quizQuestion.Question)
                     );
 
-                if (string.IsNullOrWhiteSpace(quizQuestionDto.QuestionType))
+                if (string.IsNullOrWhiteSpace(quizQuestion.QuestionType))
                     throw new ArgumentException(
                         "QuestionType cannot be null or empty.",
-                        nameof(quizQuestionDto.QuestionType)
+                        nameof(quizQuestion.QuestionType)
                     );
 
-                quizQuestionDto.QuestionType = quizQuestionDto.QuestionType.ToUpper();
+                quizQuestion.QuestionType = quizQuestion.QuestionType.ToUpper();
 
-                if (!IsValidQuestionType(quizQuestionDto.QuestionType))
+                if (!IsValidQuestionType(quizQuestion.QuestionType))
                     throw new ArgumentException(
                         "Invalid question type.",
-                        nameof(quizQuestionDto.QuestionType)
+                        nameof(quizQuestion.QuestionType)
                     );
 
-                if (!ValidateOptionsByQuestionType(quizQuestionDto.QuestionType, options))
+                if (!ValidateOptionsByQuestionType(quizQuestion.QuestionType, options))
                     throw new ArgumentException(
                         "Invalid options for the given question type.",
                         nameof(options)
                     );
 
-                if (!ValidateOptions(quizQuestionDto.QuestionType, options))
+                if (!ValidateOptions(quizQuestion.QuestionType, options))
                     throw new ArgumentException(
                         "Invalid options for the given question type.",
                         nameof(options)
@@ -64,10 +64,10 @@ namespace LXP.Data.Repository
 
                 var quizQuestionEntity = new QuizQuestion
                 {
-                    QuizId = quizQuestionDto.QuizId,
-                    Question = quizQuestionDto.Question,
-                    QuestionType = quizQuestionDto.QuestionType,
-                    QuestionNo = await GetNextQuestionNoAsync(quizQuestionDto.QuizId),
+                    QuizId = quizQuestion.QuizId,
+                    Question = quizQuestion.Question,
+                    QuestionType = quizQuestion.QuestionType,
+                    QuestionNo = await GetNextQuestionNoAsync(quizQuestion.QuizId),
                     CreatedBy = "SystemUser",
                     CreatedAt = DateTime.Now
                 };
@@ -115,7 +115,7 @@ namespace LXP.Data.Repository
 
         public async Task<bool> UpdateQuestionAsync(
             Guid quizQuestionId,
-            QuizQuestionViewModel quizQuestionDto,
+            QuizQuestionViewModel quizQuestion,
             List<QuestionOptionViewModel> options
         )
         {
@@ -127,13 +127,13 @@ namespace LXP.Data.Repository
                 if (quizQuestionEntity == null)
                     return false;
 
-                if (quizQuestionDto.QuestionType.ToUpper() != quizQuestionEntity.QuestionType)
+                if (quizQuestion.QuestionType.ToUpper() != quizQuestionEntity.QuestionType)
                 {
                     throw new InvalidOperationException("Question type cannot be updated.");
                 }
 
                 // Update the question
-                quizQuestionEntity.Question = quizQuestionDto.Question;
+                quizQuestionEntity.Question = quizQuestion.Question;
 
                 // Remove existing options
                 var existingOptions = _LXPDbContext
@@ -407,7 +407,7 @@ namespace LXP.Data.Repository
         }
 
         public Guid AddQuestionOption(
-            QuestionOptionViewModel questionOptionDto,
+            QuestionOptionViewModel questionOption,
             Guid quizQuestionId
         )
         {
@@ -416,8 +416,8 @@ namespace LXP.Data.Repository
                 var questionOptionEntity = new QuestionOption
                 {
                     QuizQuestionId = quizQuestionId,
-                    Option = questionOptionDto.Option,
-                    IsCorrect = questionOptionDto.IsCorrect,
+                    Option = questionOption.Option,
+                    IsCorrect = questionOption.IsCorrect,
                     CreatedBy = "SystemUser",
                     CreatedAt = DateTime.Now
                 };

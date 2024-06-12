@@ -110,8 +110,6 @@ namespace LXP.Services
                 feedbackResponse.Response = null;
             }
 
-            //var learnerProfile = _feedbackResponseRepository.GetLearnerProfile(feedbackResponse.LearnerId);
-            //var generatedBy = $"{learnerProfile.FirstName} {learnerProfile.LastName}";
 
             var response = new Feedbackresponse
             {
@@ -186,8 +184,6 @@ namespace LXP.Services
                 feedbackResponse.Response = null;
             }
 
-            //var learnerProfile = _feedbackResponseRepository.GetLearnerProfile(feedbackResponse.LearnerId);
-            //var generatedBy = $"{learnerProfile.FirstName} {learnerProfile.LastName}";
 
             var response = new Feedbackresponse
             {

@@ -8,12 +8,12 @@ namespace LXP.Core.IServices
     public interface IQuizQuestionService
     {
         Task<Guid> AddQuestionAsync(
-            QuizQuestionViewModel quizQuestionDto,
+            QuizQuestionViewModel quizQuestion,
             List<QuestionOptionViewModel> options
         );
         Task<bool> UpdateQuestionAsync(
             Guid quizQuestionId,
-            QuizQuestionViewModel quizQuestionDto,
+            QuizQuestionViewModel quizQuestion,
             List<QuestionOptionViewModel> options
         );
         Task<bool> DeleteQuestionAsync(Guid quizQuestionId);

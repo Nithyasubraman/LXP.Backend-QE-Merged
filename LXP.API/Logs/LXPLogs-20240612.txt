@@ -1,0 +1,125 @@
+2024-06-12 08:01:50.803 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-12 08:01:50.909 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-12 08:01:50.913 +05:30 [INF] Hosting environment: Development
+2024-06-12 08:01:50.917 +05:30 [INF] Content root path: D:\backend\LXP.Api
+2024-06-12 08:01:55.707 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-12 08:01:56.328 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 634.7108ms
+2024-06-12 08:01:56.345 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/swagger-ui-standalone-preset.js - null null
+2024-06-12 08:01:56.345 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-12 08:01:56.345 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/swagger-ui-bundle.js - null null
+2024-06-12 08:01:56.358 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/swagger-ui.css - null null
+2024-06-12 08:01:56.368 +05:30 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2024-06-12 08:01:56.369 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 25.0899ms
+2024-06-12 08:01:56.372 +05:30 [INF] The file /swagger-ui-bundle.js was not modified
+2024-06-12 08:01:56.375 +05:30 [INF] The file /swagger-ui.css was not modified
+2024-06-12 08:01:56.377 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/swagger-ui-standalone-preset.js - 304 null text/javascript 31.9704ms
+2024-06-12 08:01:56.384 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/swagger-ui-bundle.js - 304 null text/javascript 40.3311ms
+2024-06-12 08:01:56.386 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/swagger-ui.css - 304 null text/css 27.5651ms
+2024-06-12 08:01:56.392 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_vs/browserLink - null null
+2024-06-12 08:01:56.493 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_vs/browserLink - 200 null text/javascript; charset=UTF-8 100.8175ms
+2024-06-12 08:01:56.796 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-12 08:01:57.204 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 407.943ms
+2024-06-12 08:02:11.594 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/Quiz - null null
+2024-06-12 08:02:11.618 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-12 08:02:11.623 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizController.GetAllQuizzes (LXP.Api)'
+2024-06-12 08:02:11.641 +05:30 [INF] Route matched with {action = "GetAllQuizzes", controller = "Quiz"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllQuizzes() on controller LXP.Api.Controllers.QuizController (LXP.Api).
+2024-06-12 08:02:14.285 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:02:14.362 +05:30 [INF] Executed action LXP.Api.Controllers.QuizController.GetAllQuizzes (LXP.Api) in 2706.2399ms
+2024-06-12 08:02:14.373 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizController.GetAllQuizzes (LXP.Api)'
+2024-06-12 08:02:14.381 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/Quiz - 200 null application/json; charset=utf-8 2786.6084ms
+2024-06-12 08:02:26.627 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/Quiz/topic/5150d8eb-e17e-4fb6-8e62-30211324b613 - null null
+2024-06-12 08:02:26.634 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizController.GetQuizIdByTopicId (LXP.Api)'
+2024-06-12 08:02:26.645 +05:30 [INF] Route matched with {action = "GetQuizIdByTopicId", controller = "Quiz"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetQuizIdByTopicId(System.Guid) on controller LXP.Api.Controllers.QuizController (LXP.Api).
+2024-06-12 08:02:27.114 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:02:27.121 +05:30 [INF] Executed action LXP.Api.Controllers.QuizController.GetQuizIdByTopicId (LXP.Api) in 473.5986ms
+2024-06-12 08:02:27.124 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizController.GetQuizIdByTopicId (LXP.Api)'
+2024-06-12 08:02:27.125 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/Quiz/topic/5150d8eb-e17e-4fb6-8e62-30211324b613 - 200 null application/json; charset=utf-8 498.0021ms
+2024-06-12 08:03:48.443 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/Quiz/09aa5f11-7cdf-464e-a111-cf782fcb6dec - null null
+2024-06-12 08:03:48.451 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizController.GetQuizById (LXP.Api)'
+2024-06-12 08:03:48.454 +05:30 [INF] Route matched with {action = "GetQuizById", controller = "Quiz"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetQuizById(System.Guid) on controller LXP.Api.Controllers.QuizController (LXP.Api).
+2024-06-12 08:03:48.471 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:03:48.472 +05:30 [INF] Executed action LXP.Api.Controllers.QuizController.GetQuizById (LXP.Api) in 16.0921ms
+2024-06-12 08:03:48.474 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizController.GetQuizById (LXP.Api)'
+2024-06-12 08:03:48.476 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/Quiz/09aa5f11-7cdf-464e-a111-cf782fcb6dec - 200 null application/json; charset=utf-8 33.0935ms
+2024-06-12 08:04:19.983 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizQuestions/GetAllQuestions - null null
+2024-06-12 08:04:20.012 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizQuestionsController.GetAllQuestions (LXP.Api)'
+2024-06-12 08:04:20.022 +05:30 [INF] Route matched with {action = "GetAllQuestions", controller = "QuizQuestions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllQuestions() on controller LXP.Api.Controllers.QuizQuestionsController (LXP.Api).
+2024-06-12 08:04:20.199 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:04:20.209 +05:30 [INF] Executed action LXP.Api.Controllers.QuizQuestionsController.GetAllQuestions (LXP.Api) in 181.3414ms
+2024-06-12 08:04:20.212 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizQuestionsController.GetAllQuestions (LXP.Api)'
+2024-06-12 08:04:20.215 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizQuestions/GetAllQuestions - 200 null application/json; charset=utf-8 232.628ms
+2024-06-12 08:04:55.420 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizQuestions/GetQuestionById?quizQuestionId=08dc8540-26b5-49cf-864d-6cbd281c0ff9 - null null
+2024-06-12 08:04:55.431 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizQuestionsController.GetQuestionById (LXP.Api)'
+2024-06-12 08:04:55.437 +05:30 [INF] Route matched with {action = "GetQuestionById", controller = "QuizQuestions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuestionById(System.Guid) on controller LXP.Api.Controllers.QuizQuestionsController (LXP.Api).
+2024-06-12 08:04:55.541 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:04:55.545 +05:30 [INF] Executed action LXP.Api.Controllers.QuizQuestionsController.GetQuestionById (LXP.Api) in 103.539ms
+2024-06-12 08:04:55.547 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizQuestionsController.GetQuestionById (LXP.Api)'
+2024-06-12 08:04:55.549 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizQuestions/GetQuestionById?quizQuestionId=08dc8540-26b5-49cf-864d-6cbd281c0ff9 - 200 null application/json; charset=utf-8 128.8645ms
+2024-06-12 08:05:05.069 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/TopicFeedback - null null
+2024-06-12 08:05:05.073 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.TopicFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:05:05.076 +05:30 [INF] Route matched with {action = "GetAllFeedbackQuestions", controller = "TopicFeedback"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllFeedbackQuestions() on controller LXP.Api.Controllers.TopicFeedbackController (LXP.Api).
+2024-06-12 08:05:05.184 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:05:05.203 +05:30 [INF] Executed action LXP.Api.Controllers.TopicFeedbackController.GetAllFeedbackQuestions (LXP.Api) in 116.5349ms
+2024-06-12 08:05:05.214 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.TopicFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:05:05.222 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/TopicFeedback - 200 null application/json; charset=utf-8 153.5233ms
+2024-06-12 08:05:49.038 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/TopicFeedback/question - application/json 194
+2024-06-12 08:05:49.053 +05:30 [INF] CORS policy execution successful.
+2024-06-12 08:05:49.055 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.TopicFeedbackController.AddFeedbackQuestion (LXP.Api)'
+2024-06-12 08:05:49.057 +05:30 [INF] Route matched with {action = "AddFeedbackQuestion", controller = "TopicFeedback"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddFeedbackQuestion(LXP.Common.ViewModels.TopicFeedbackQuestionViewModel.TopicFeedbackQuestionViewModel) on controller LXP.Api.Controllers.TopicFeedbackController (LXP.Api).
+2024-06-12 08:05:49.425 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:05:49.442 +05:30 [INF] Executed action LXP.Api.Controllers.TopicFeedbackController.AddFeedbackQuestion (LXP.Api) in 382.0936ms
+2024-06-12 08:05:49.452 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.TopicFeedbackController.AddFeedbackQuestion (LXP.Api)'
+2024-06-12 08:05:49.461 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/TopicFeedback/question - 200 null application/json; charset=utf-8 423.5874ms
+2024-06-12 08:05:54.496 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/TopicFeedback - null null
+2024-06-12 08:05:54.501 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.TopicFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:05:54.504 +05:30 [INF] Route matched with {action = "GetAllFeedbackQuestions", controller = "TopicFeedback"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllFeedbackQuestions() on controller LXP.Api.Controllers.TopicFeedbackController (LXP.Api).
+2024-06-12 08:05:54.552 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:05:54.562 +05:30 [INF] Executed action LXP.Api.Controllers.TopicFeedbackController.GetAllFeedbackQuestions (LXP.Api) in 54.8775ms
+2024-06-12 08:05:54.570 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.TopicFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:05:54.571 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/TopicFeedback - 200 null application/json; charset=utf-8 76.1303ms
+2024-06-12 08:06:56.300 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizFeedback/GetAllFeedbackQuestions - null null
+2024-06-12 08:06:56.312 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:06:56.356 +05:30 [INF] Route matched with {action = "GetAllFeedbackQuestions", controller = "QuizFeedback"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllFeedbackQuestions() on controller LXP.Api.Controllers.QuizFeedbackController (LXP.Api).
+2024-06-12 08:06:56.378 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:06:56.383 +05:30 [INF] Executed action LXP.Api.Controllers.QuizFeedbackController.GetAllFeedbackQuestions (LXP.Api) in 23.5233ms
+2024-06-12 08:06:56.385 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:06:56.386 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizFeedback/GetAllFeedbackQuestions - 200 null application/json; charset=utf-8 88.3694ms
+2024-06-12 08:08:12.755 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizFeedback/AddFeedbackQuestion - application/json 357
+2024-06-12 08:08:12.764 +05:30 [INF] CORS policy execution successful.
+2024-06-12 08:08:12.766 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizFeedbackController.AddFeedbackQuestion (LXP.Api)'
+2024-06-12 08:08:12.769 +05:30 [INF] Route matched with {action = "AddFeedbackQuestion", controller = "QuizFeedback"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddFeedbackQuestion(LXP.Common.ViewModels.QuizFeedbackQuestionViewModel.QuizfeedbackquestionViewModel) on controller LXP.Api.Controllers.QuizFeedbackController (LXP.Api).
+2024-06-12 08:09:59.357 +05:30 [INF] Now listening on: http://localhost:5199
+2024-06-12 08:09:59.408 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-12 08:09:59.411 +05:30 [INF] Hosting environment: Development
+2024-06-12 08:09:59.414 +05:30 [INF] Content root path: D:\backend\LXP.Api
+2024-06-12 08:10:01.210 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/index.html - null null
+2024-06-12 08:10:01.786 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/index.html - 200 null text/html;charset=utf-8 579.6082ms
+2024-06-12 08:10:01.797 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-12 08:10:01.801 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/_vs/browserLink - null null
+2024-06-12 08:10:01.805 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.0281ms
+2024-06-12 08:10:01.854 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.1207ms
+2024-06-12 08:10:02.257 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - null null
+2024-06-12 08:10:02.773 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 516.6212ms
+2024-06-12 08:11:30.078 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizFeedback/GetAllFeedbackQuestions - null null
+2024-06-12 08:11:30.097 +05:30 [WRN] Failed to determine the https port for redirect.
+2024-06-12 08:11:30.101 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:11:30.116 +05:30 [INF] Route matched with {action = "GetAllFeedbackQuestions", controller = "QuizFeedback"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllFeedbackQuestions() on controller LXP.Api.Controllers.QuizFeedbackController (LXP.Api).
+2024-06-12 08:11:31.808 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:11:31.834 +05:30 [INF] Executed action LXP.Api.Controllers.QuizFeedbackController.GetAllFeedbackQuestions (LXP.Api) in 1711.7067ms
+2024-06-12 08:11:31.837 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:11:31.839 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizFeedback/GetAllFeedbackQuestions - 200 null application/json; charset=utf-8 1760.3724ms
+2024-06-12 08:11:44.793 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5199/api/QuizFeedback/AddFeedbackQuestion - application/json 357
+2024-06-12 08:11:44.806 +05:30 [INF] CORS policy execution successful.
+2024-06-12 08:11:44.808 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizFeedbackController.AddFeedbackQuestion (LXP.Api)'
+2024-06-12 08:11:44.821 +05:30 [INF] Route matched with {action = "AddFeedbackQuestion", controller = "QuizFeedback"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddFeedbackQuestion(LXP.Common.ViewModels.QuizFeedbackQuestionViewModel.QuizfeedbackquestionViewModel) on controller LXP.Api.Controllers.QuizFeedbackController (LXP.Api).
+2024-06-12 08:11:45.318 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:11:45.338 +05:30 [INF] Executed action LXP.Api.Controllers.QuizFeedbackController.AddFeedbackQuestion (LXP.Api) in 512.3484ms
+2024-06-12 08:11:45.347 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizFeedbackController.AddFeedbackQuestion (LXP.Api)'
+2024-06-12 08:11:45.356 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5199/api/QuizFeedback/AddFeedbackQuestion - 200 null application/json; charset=utf-8 563.3716ms
+2024-06-12 08:11:51.010 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5199/api/QuizFeedback/GetAllFeedbackQuestions - null null
+2024-06-12 08:11:51.015 +05:30 [INF] Executing endpoint 'LXP.Api.Controllers.QuizFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:11:51.017 +05:30 [INF] Route matched with {action = "GetAllFeedbackQuestions", controller = "QuizFeedback"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllFeedbackQuestions() on controller LXP.Api.Controllers.QuizFeedbackController (LXP.Api).
+2024-06-12 08:11:51.031 +05:30 [INF] Executing OkObjectResult, writing value of type 'LXP.Common.ViewModels.APIResponse'.
+2024-06-12 08:11:51.036 +05:30 [INF] Executed action LXP.Api.Controllers.QuizFeedbackController.GetAllFeedbackQuestions (LXP.Api) in 14.9084ms
+2024-06-12 08:11:51.039 +05:30 [INF] Executed endpoint 'LXP.Api.Controllers.QuizFeedbackController.GetAllFeedbackQuestions (LXP.Api)'
+2024-06-12 08:11:51.042 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5199/api/QuizFeedback/GetAllFeedbackQuestions - 200 null application/json; charset=utf-8 32.6327ms
